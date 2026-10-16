@@ -1,8 +1,16 @@
 # -*- coding: utf-8 -*-
-"""Baut die statische METALLFUX-Website nach ../site (Webserver) und ../site-artifact (Vorschau)."""
+"""Baut die statische METALLFUX-Website nach ../site.
+
+  python build.py          Vorschau: Entwurfs-Hinweise und Entwurfs-Referenzen sichtbar
+  python build.py --live   Livegang: ohne Entwurfs-Hinweise, nur fertige Referenzen,
+                           bricht ab, solange Impressum-Angaben fehlen
+"""
 import json, os, re, shutil, sys, html
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import SITE, PRICE_NOTE, V, LEISTUNGEN, FOLDER, PAGES, AREAS, REFS
+from content import SITE, PRICE_NOTE, V, LEISTUNGEN, FOLDER, PAGES, AREAS, REFS as ALL_REFS, IMPRESSUM
+
+LIVE = '--live' in sys.argv
+REFS = [r for r in ALL_REFS if not (LIVE and r.get('entwurf'))]
 
 BASE = os.path.dirname(os.path.abspath(__file__))
 OUT = os.path.join(BASE, '..', 'site')
@@ -40,9 +48,6 @@ def head(title, desc, canonical):
 <meta property="og:type" content="website">
 <meta name="theme-color" content="#0F0F10">
 <link rel="icon" href="img/favicon.png" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap">
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
@@ -157,6 +162,13 @@ def gallery(key, group):
     return '<div class="gallery">' + ''.join(out) + '</div>'
 
 def write(name, s):
+    if LIVE:
+        s = re.sub(r'<p class="todo">.*?</p>\n?', '', s, flags=re.S)
+        # Galerie ohne Fotos (z. B. Hochbeete) samt Sprungmarke weglassen
+        leer = re.compile(r'<section class="section" id="galerie"[^>]*><div class="wrap">\n<div class="section-head">(?:(?!</section>).)*?</div>\n</div></section>\n', re.S)
+        if leer.search(s) and 'class="gallery"' not in s:
+            s = leer.sub('', s)
+            s = re.sub(r'<a class="btn [^"]*" href="#galerie">[^<]*</a>', '', s)
     with open(os.path.join(OUT, name), 'w', encoding='utf-8') as f:
         f.write(s)
 
@@ -407,6 +419,7 @@ def index_page():
 
 # ---------- Referenzen ----------
 REF_OFFSETS = {'gablitz': 5, 'wien-1190': 6, 'wien-1210-efh': 9, 'medizinproduktion': 0, 'buero-wien-1210': 10, 'michelhausen': 0, 'zistersdorf': 9, 'klosterneuburg': 7}
+ZAHL = {1: 'Ein Projekt', 2: 'Zwei Projekte', 3: 'Drei Projekte', 4: 'Vier Projekte', 5: 'Fünf Projekte', 6: 'Sechs Projekte', 7: 'Sieben Projekte', 8: 'Acht Projekte'}
 def ref_page():
     idx = ''.join(f'<a href="#{r["id"]}">{i+1:02d} {E(r["title"].split(",")[-1].strip())}</a>' for i, r in enumerate(REFS))
     blocks = ''
@@ -417,7 +430,7 @@ def ref_page():
         main = sel[0] if sel else None
         thumbs = ''.join(f'<a href="{im["file"]}" data-lightbox="ref-{r["id"]}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy"></a>' for im in sel[1:5])
         mainhtml = f'<a href="{main["file"]}" data-lightbox="ref-{r["id"]}" style="display:block;cursor:zoom-in"><img class="project-main" src="{main["thumb"]}" alt="{E(main["alt"])}" loading="lazy"></a>' if main else '<div class="placeholder project-main">Projektfotos folgen</div>'
-        note = 'Fotos bitte prüfen: vermutlich dieses Projekt.' if r['id'] == 'michelhausen' else 'Platzhalter-Fotos aus der passenden Produktkategorie – bitte durch Fotos dieses Projekts ersetzen.'
+        note = 'Fotos bitte prüfen: vermutlich dieses Projekt.' if not r.get('entwurf') else 'Platzhalter-Fotos aus der passenden Produktkategorie – bitte durch Fotos dieses Projekts ersetzen.'
         lis = ''.join(f'<li>{E(x)}</li>' for x in r['li'])
         blocks += f'''<article class="project" id="{r['id']}" data-reveal>
 <div class="project-media">{mainhtml}<div class="project-thumbs">{thumbs}</div></div>
@@ -433,7 +446,7 @@ def ref_page():
     s += crumbs([('Startseite', 'index.html'), ('Referenzen', None)])
     s += f'''<section class="page-hero"><div class="wrap"><div class="page-hero-text" style="flex-basis:100%">
 <div class="eyebrow">Referenzen</div><h1>Gebaut in Wien und Umgebung.</h1>
-<p class="lead">Vom Einfamilienhaus bis zur Wohnhausanlage über mehrere Geschosse. Acht Projekte im Detail.</p>
+<p class="lead">Vom Einfamilienhaus bis zur Wohnhausanlage über mehrere Geschosse. {ZAHL[len(REFS)]} im Detail.</p>
 <nav class="ref-index" aria-label="Projekte">{idx}</nav></div></div></section>
 <section class="section" style="padding-top:0"><div class="wrap projects">{blocks}</div></section>
 '''
@@ -537,26 +550,30 @@ def inquiry_page():
     write('anfrage.html', s)
 
 # ---------- Rechtstexte (Vorlagen) ----------
+def imp_f(k):
+    v = IMPRESSUM.get(k, '')
+    return E(v) if v else '<mark>[bitte ergänzen]</mark>'
+
 def legal_pages():
     imp = f'''<h1 class="h2">Impressum</h1>
-<p class="todo">Entwurf: Bitte die Angaben in eckigen Klammern ergänzen und vor dem Livegang prüfen lassen.</p>
+<p class="todo">Entwurf: Bitte die markierten Angaben in content.py (IMPRESSUM) ergänzen und vor dem Livegang prüfen lassen.</p>
 <p><b>{SITE['firma']}</b><br>{SITE['strasse']}<br>{SITE['ort']}<br>Österreich</p>
 <p>Telefon: {SITE['tel']}<br>E-Mail: {SITE['mail']}</p>
 <h2>Unternehmensangaben</h2>
 <p>Unternehmensgegenstand: Planung, Handel und Montage von Geländern, Treppen und Handläufen<br>
 Geschäftsführer: {SITE['gf']}<br>
-Firmenbuchnummer: [FN …]<br>Firmenbuchgericht: [Handelsgericht Wien]<br>UID-Nummer: [ATU …]<br>
-Mitglied der Wirtschaftskammer Wien, Fachgruppe [ … ]<br>Gewerbe: [ … ], verliehen in Österreich<br>
-Gewerbebehörde: [Magistratisches Bezirksamt für den 22. Bezirk]<br>Anwendbare Rechtsvorschriften: Gewerbeordnung, abrufbar unter www.ris.bka.gv.at</p>
+Firmenbuchnummer: {imp_f('fn')}<br>Firmenbuchgericht: {imp_f('fb_gericht')}<br>UID-Nummer: {imp_f('uid')}<br>
+Mitglied der Wirtschaftskammer Wien, Fachgruppe {imp_f('fachgruppe')}<br>Gewerbe: {imp_f('gewerbe')}, verliehen in Österreich<br>
+Gewerbebehörde: {imp_f('behoerde')}<br>Anwendbare Rechtsvorschriften: Gewerbeordnung, abrufbar unter www.ris.bka.gv.at</p>
 <h2>Haftung für Inhalte</h2>
 <p>Die Inhalte dieser Website wurden sorgfältig erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr. Preisangaben sind Preisbeispiele und kein Angebot im rechtlichen Sinn.</p>
 <h2>Bildnachweis</h2><p>Alle Fotos: {SITE['firma']}</p>'''
     ds = f'''<h1 class="h2">Datenschutzerklärung</h1>
-<p class="todo">Entwurf: Diese Vorlage deckt Kontaktformular, Server-Logfiles und Google Fonts ab. Bitte vor dem Livegang rechtlich prüfen lassen.</p>
+<p class="todo">Entwurf: Diese Vorlage deckt Kontaktformular und Server-Logfiles ab. Bitte vor dem Livegang rechtlich prüfen lassen.</p>
 <h2>Verantwortlicher</h2><p>{SITE['firma']}, {SITE['strasse']}, {SITE['ort']}, {SITE['mail']}</p>
 <h2>Anfrageformular und E-Mail</h2><p>Wenn Sie uns über das Formular oder per E-Mail kontaktieren, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Ort des Vorhabens, Nachricht und hochgeladene Dateien), um Ihre Anfrage zu beantworten und einen Kostenvoranschlag zu erstellen (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden gelöscht, sobald sie dafür nicht mehr nötig sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
 <h2>Server-Logfiles</h2><p>Unser Hosting-Anbieter [ALL-INKL.COM – Neue Medien Münnich, Deutschland] speichert beim Aufruf der Website technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seite), um den Betrieb und die Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO).</p>
-<h2>Schriftarten</h2><p>Diese Website lädt Schriftarten von Google Fonts (Google Ireland Limited). Dabei wird Ihre IP-Adresse an Google übermittelt. [Empfehlung: Schriften vor dem Livegang lokal einbinden, dann entfällt dieser Absatz.]</p>
+<h2>Schriftarten</h2><p>Die verwendeten Schriftarten sind auf unserem Server gespeichert. Beim Aufruf der Website werden dafür keine Daten an Dritte übermittelt.</p>
 <h2>Cookies und Tracking</h2><p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Werbedienste.</p>
 <h2>Ihre Rechte</h2><p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Beschwerden können Sie bei der Österreichischen Datenschutzbehörde einbringen (www.dsb.gv.at).</p>'''
     for name, title, body in [('impressum.html', 'Impressum', imp), ('datenschutz.html', 'Datenschutz', ds)]:
@@ -566,6 +583,10 @@ Gewerbebehörde: [Magistratisches Bezirksamt für den 22. Bezirk]<br>Anwendbare 
         write(name, s)
 
 def main():
+    if LIVE:
+        fehlt = [k for k, v in IMPRESSUM.items() if not v]
+        if fehlt:
+            sys.exit('Live-Bau abgebrochen, im Impressum fehlt noch: ' + ', '.join(fehlt) + ' (content.py, IMPRESSUM)')
     if os.path.isdir(OUT):
         for n in os.listdir(OUT):
             p = os.path.join(OUT, n)
@@ -575,6 +596,7 @@ def main():
     os.makedirs(OUT, exist_ok=True)
     shutil.copytree(os.path.join(BASE, 'static', 'css'), os.path.join(OUT, 'css'))
     shutil.copytree(os.path.join(BASE, 'static', 'js'), os.path.join(OUT, 'js'))
+    shutil.copytree(os.path.join(BASE, 'static', 'fonts'), os.path.join(OUT, 'fonts'))
     shutil.copy(os.path.join(BASE, 'static', 'anfrage.php'), OUT)
     shutil.copy(os.path.join(BASE, 'static', '.htaccess'), OUT)
     os.makedirs(os.path.join(OUT, 'img', 'thumb'), exist_ok=True)
@@ -588,7 +610,7 @@ def main():
         if p.get('materials'):
             for mk, m in mat_list(p): material_page(p, mk, m)
     ref_page(); about_page(); inquiry_page(); legal_pages()
-    print('ok', sorted(os.listdir(OUT)))
+    print('ok', 'LIVE' if LIVE else 'Vorschau', len(REFS), 'Referenzen')
 
 if __name__ == '__main__':
     main()

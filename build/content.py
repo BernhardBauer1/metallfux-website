@@ -15,6 +15,17 @@ SITE = {
     'gf': 'Bernhard Bauer',
 }
 
+# Impressum (Pflichtangaben laut ECG/UGB/GewO). Leere Felder erscheinen in der Vorschau
+# als „[bitte ergänzen]“; der Live-Bau (build.py --live) bricht ab, solange eines fehlt.
+IMPRESSUM = {
+    'fn': '',           # Firmenbuchnummer, z. B. 'FN 123456 a'
+    'fb_gericht': '',   # z. B. 'Handelsgericht Wien'
+    'uid': '',          # z. B. 'ATU12345678'
+    'fachgruppe': '',   # WKO-Fachgruppe, z. B. 'Metalltechnik'
+    'gewerbe': '',      # Gewerbewortlaut laut GISA
+    'behoerde': '',     # z. B. 'Magistratisches Bezirksamt für den 22. Bezirk'
+}
+
 PRICE_NOTE = 'Alle Preise exkl. MwSt. Preisbeispiel für die Herstellung bei gerader Ausführung ab 10 lfm.'
 
 # Ausführungen (Varianten) mit Preisen von winnox.at
@@ -203,23 +214,24 @@ AREAS = {
 }
 
 # Referenzen (Projekte von winnox.at, Texte wörtlich übernommen)
+# entwurf=True: nur in der Vorschau sichtbar, beim Live-Bau (build.py --live) ausgeblendet
 REFS = [
     dict(id='gablitz', title='Einfamilienhaus, Gablitz', objekt='Einfamilienhaus', ort='Gablitz (NÖ)', produkte='Edelstahl-Glasgeländer, Podesttreppe',
-         li=['Edelstahl-Glasgeländer mit blickdichtem Verbundscheiben-Sicherheitsglas 8,76 mm', 'Ausführung einer Podesttreppe mit feuerverzinktem Gitterrostbelag'], img='aussen-balkon-terrasse'),
+         li=['Edelstahl-Glasgeländer mit blickdichtem Verbundscheiben-Sicherheitsglas 8,76 mm', 'Ausführung einer Podesttreppe mit feuerverzinktem Gitterrostbelag'], img='aussen-balkon-terrasse', entwurf=True),
     dict(id='wien-1190', title='Wohnhausanlage, Wien 1190', objekt='Wohnhausanlage', ort='Wien, 19. Bezirk', produkte='Treppengeländer, Handlauf',
-         li=['Flachstahl-Treppengeländer pulverbeschichtet RAL 1019 matt', 'Mit vorgesetztem Edelstahl-Handlauf'], img='innen-treppengelaender'),
+         li=['Flachstahl-Treppengeländer pulverbeschichtet RAL 1019 matt', 'Mit vorgesetztem Edelstahl-Handlauf'], img='innen-treppengelaender', entwurf=True),
     dict(id='wien-1210-efh', title='Einfamilienhaus, Wien 1210', objekt='Einfamilienhaus', ort='Wien, 21. Bezirk', produkte='Nurglasgeländer',
-         li=['Nurglasgeländer mit Punkthaltern und aufgesetztem Edelstahl-U-Profil', 'VSG TVG 16,76 mm transparent'], img='innen-galerie'),
+         li=['Nurglasgeländer mit Punkthaltern und aufgesetztem Edelstahl-U-Profil', 'VSG TVG 16,76 mm transparent'], img='innen-galerie', entwurf=True),
     dict(id='medizinproduktion', title='Medizinproduktion, Wien 1210', objekt='Gewerbe', ort='Wien, 21. Bezirk', produkte='Edelstahlgeländer, Wandhandläufe',
-         li=['Edelstahlgeländer über 4 Geschosse mit vorgesetztem Handlauf und Flachstahlfüllung', 'Passende Wandhandläufe in barrierefreier Ausführung'], img='innen-handlaeufe'),
+         li=['Edelstahlgeländer über 4 Geschosse mit vorgesetztem Handlauf und Flachstahlfüllung', 'Passende Wandhandläufe in barrierefreier Ausführung'], img='innen-handlaeufe', entwurf=True),
     dict(id='buero-wien-1210', title='Bürogebäude, Wien 1210', objekt='Bürogebäude', ort='Wien, 21. Bezirk', produkte='Treppengeländer Edelstahl-Glas',
-         li=['Treppengeländer aus Edelstahl über mehrere Geschosse', 'Gefüllt mit Verbundscheiben-Sicherheitsglas 8,76 mm, transparent'], img='innen-treppengelaender'),
+         li=['Treppengeländer aus Edelstahl über mehrere Geschosse', 'Gefüllt mit Verbundscheiben-Sicherheitsglas 8,76 mm, transparent'], img='innen-treppengelaender', entwurf=True),
     dict(id='michelhausen', title='Wohnhausanlage, Michelhausen', objekt='Wohnhausanlage', ort='Michelhausen (NÖ)', produkte='Balkongeländer, Pfosten-Riegel-Konstruktion',
          li=['Edelstahl-Balkongeländer mit aufgeschraubten Schichtstoffplatten im Außenbereich', 'Passende Pfosten-Riegel-Konstruktion für die Abtrennung von 16 Abstellräumen'], img='ref-michelhausen'),
     dict(id='zistersdorf', title='Wohnhausanlage, Zistersdorf', objekt='Wohnhausanlage', ort='Zistersdorf (NÖ)', produkte='Edelstahl-Glasgeländer',
-         li=['Edelstahl-Glasgeländer mit blickdichtem Verbundscheiben-Sicherheitsglas 8,76 mm', 'Seitliche Verblendung mit großem Windfang'], img='aussen-balkon-terrasse'),
+         li=['Edelstahl-Glasgeländer mit blickdichtem Verbundscheiben-Sicherheitsglas 8,76 mm', 'Seitliche Verblendung mit großem Windfang'], img='aussen-balkon-terrasse', entwurf=True),
     dict(id='klosterneuburg', title='Wohnhausanlage, Klosterneuburg', objekt='Wohnhausanlage', ort='Klosterneuburg (NÖ)', produkte='Flachstahlgeländer',
-         li=['Flachstahlgeländer in verzinkter und pulverbeschichteter Ausführung', 'Geländer seitlich mit 3 mm Abdeckblech montiert'], img='aussen-treppengelaender'),
+         li=['Flachstahlgeländer in verzinkter und pulverbeschichteter Ausführung', 'Geländer seitlich mit 3 mm Abdeckblech montiert'], img='aussen-treppengelaender', entwurf=True),
 ]
 
 # ---------- Weitere Produkte (am Seitenende der Startseite und im Fußbereich) ----------
