@@ -1,0 +1,17 @@
+# Erzeugte Website (build.py / prep_images.py) – wird nicht versioniert
+site/
+site-artifact/
+artifact-files.json
+
+# Originalfotos und Kontaktbögen (liegen lokal bzw. in OneDrive)
+originals/
+sheets/
+
+# Upload-Pakete
+*.zip
+
+# Python / System
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

@@ -1,0 +1,30 @@
+# METALLFUX – Grundeinstellungen für ALL-INKL (Apache)
+# Immer HTTPS und www verwenden
+RewriteEngine On
+RewriteCond %{HTTPS} !=on
+RewriteRule ^ https://www.metallfux-wien.at%{REQUEST_URI} [L,R=301]
+RewriteCond %{HTTP_HOST} ^metallfux-wien\.at$ [NC]
+RewriteRule ^ https://www.metallfux-wien.at%{REQUEST_URI} [L,R=301]
+
+# Seiten ohne .html aufrufbar (z. B. /referenzen)
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME}.html -f
+RewriteRule ^(.+?)/?$ $1.html [L]
+
+# Uploads für das Anfrageformular (falls der Tarif es erlaubt)
+<IfModule mod_php.c>
+php_value upload_max_filesize 20M
+php_value post_max_size 22M
+</IfModule>
+
+# Caching für Bilder, CSS und JS
+<IfModule mod_expires.c>
+ExpiresActive On
+ExpiresByType image/jpeg "access plus 1 year"
+ExpiresByType image/png "access plus 1 year"
+ExpiresByType text/css "access plus 1 month"
+ExpiresByType application/javascript "access plus 1 month"
+</IfModule>
+<IfModule mod_deflate.c>
+AddOutputFilterByType DEFLATE text/html text/css application/javascript image/svg+xml
+</IfModule>

@@ -1,0 +1,594 @@
+# -*- coding: utf-8 -*-
+"""Baut die statische METALLFUX-Website nach ../site (Webserver) und ../site-artifact (Vorschau)."""
+import json, os, re, shutil, sys, html
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from content import SITE, PRICE_NOTE, V, LEISTUNGEN, FOLDER, PAGES, AREAS, REFS
+
+BASE = os.path.dirname(os.path.abspath(__file__))
+OUT = os.path.join(BASE, '..', 'site')
+MAN = json.load(open(os.path.join(BASE, 'images.json'), encoding='utf-8'))
+E = html.escape
+
+def imgs(key):
+    return MAN.get(key, [])
+
+def svg(d, size=22, sw=2):
+    return f'<svg width="{size}" height="{size}" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="{sw}" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="{d}"></path></svg>'
+ARROW = svg('M5 12h14M13 6l6 6-6 6')
+CHEV = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg>'
+CHECK = svg('m5 12.5 4.5 4.5L19 7.5', 22, 2.4)
+PHONE = svg('M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2', 16)
+BURGER = svg('M4 7h16M4 12h16M4 17h16', 24)
+
+def page_by_slug(s):
+    return next(p for p in PAGES if p['slug'] == s)
+
+def area_pages(a):
+    return [p for p in PAGES if p['area'] == a]
+
+def head(title, desc, canonical):
+    return f'''<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>{E(title)}</title>
+<meta name="description" content="{E(desc)}">
+<link rel="canonical" href="https://{SITE['domain']}/{canonical}">
+<meta property="og:title" content="{E(title)}">
+<meta property="og:description" content="{E(desc)}">
+<meta property="og:type" content="website">
+<meta name="theme-color" content="#0F0F10">
+<link rel="icon" href="img/favicon.png" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&amp;family=Open+Sans:wght@400;600;700&amp;display=swap">
+<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<a class="skip" href="#inhalt">Zum Inhalt springen</a>
+'''
+
+def header(active=None, area=None):
+    def drop(a):
+        ad = AREAS[a]
+        items = ''.join(f'<a href="{p["slug"]}.html"><span>{E(p["nav"])}</span><small>{E(p["short"])}</small></a>' for p in area_pages(a))
+        act = ' active' if area == a else ''
+        return f'''<li class="nav-item{act}"><button class="nav-link" type="button" aria-expanded="false" aria-controls="dd-{a}">{ad['nav']}{CHEV}</button>
+<div class="dropdown" id="dd-{a}">{items}<a class="all" href="{ad['slug']}.html"><span>Alles für den {ad['nav']} {ARROW}</span></a></div></li>'''
+    cur = lambda k: ' aria-current="page"' if active == k else ''
+    return f'''<header class="site-header">
+<div class="wrap header-inner">
+<a class="logo" href="index.html" aria-label="METALLFUX Startseite"><img src="img/logo-dunkel.png" alt="METALLFUX" width="221" height="22"></a>
+<nav class="nav" id="nav" aria-label="Hauptmenü">
+<ul>
+{drop('innen')}
+{drop('aussen')}
+<li class="nav-item"><a class="nav-link" href="referenzen.html"{cur('referenzen')}>Referenzen</a></li>
+<li class="nav-item"><a class="nav-link" href="ueber-uns.html"{cur('ueber-uns')}>Über uns</a></li>
+</ul>
+<div class="mobile-cta"><a class="btn btn-orange btn-lg" href="anfrage.html">Anfrage stellen</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{PHONE} {SITE['tel']}</a></div>
+</nav>
+<div class="header-cta">
+<a class="header-phone" href="tel:{SITE['tel_link']}">{PHONE}{SITE['tel']}</a>
+<a class="btn btn-orange" href="anfrage.html">Anfrage stellen</a>
+<button class="burger" type="button" aria-label="Menü öffnen" aria-expanded="false" aria-controls="nav">{BURGER}</button>
+</div>
+</div>
+</header>
+<main id="inhalt">
+'''
+
+def footer():
+    col = lambda a: ''.join(f'<a href="{p["slug"]}.html">{E(p["nav"])}</a>' for p in area_pages(a))
+    return f'''</main>
+<footer class="site-footer">
+<div class="wrap">
+<div class="footer-grid">
+<div>
+<a class="footer-logo" href="index.html" aria-label="METALLFUX Startseite"><img src="img/logo-weiss.png" alt="METALLFUX" width="201" height="20"></a>
+<address>{SITE['firma']}<br>{SITE['strasse']}<br>{SITE['ort']}</address>
+<div><a href="tel:{SITE['tel_link']}">{SITE['tel']}</a><br><a href="mailto:{SITE['mail']}">{SITE['mail']}</a></div>
+<div class="hint" style="color:var(--on-dark-muted)">Einsatzgebiet: {SITE['gebiet']}</div>
+</div>
+<div><h4><a href="innenbereich.html" style="padding:0;color:inherit">Innenbereich</a></h4>{col('innen')}</div>
+<div><h4><a href="aussenbereich.html" style="padding:0;color:inherit">Außenbereich</a></h4>{col('aussen')}</div>
+<div><h4><a href="weitere-produkte.html" style="padding:0;color:inherit">Weitere Produkte</a></h4>{col('weitere')}</div>
+<div><h4>Unternehmen</h4><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="anfrage.html">Anfrage</a></div>
+</div>
+<div class="footer-bottom">
+<div>© {SITE['firma']} · Metall · Glas · Holz</div>
+<nav aria-label="Rechtliches"><a href="impressum.html">Impressum</a><a href="datenschutz.html">Datenschutz</a></nav>
+</div>
+</div>
+</footer>
+<script src="js/main.js" defer></script>
+</body>
+</html>
+'''
+
+def cta_band():
+    return f'''<section class="inquiry" aria-labelledby="cta-h">
+<div class="wrap section" style="align-items:center">
+<div class="inquiry-text" data-reveal>
+<h2 id="cta-h">Kostenvoranschlag in zwei Minuten anfragen.</h2>
+<p style="font-size:18px">Schicken Sie uns ein Foto der Einbausituation und grobe Maße. Sie bekommen einen unverbindlichen Kostenvoranschlag.</p>
+</div>
+<div class="btns" data-reveal><a class="btn btn-dark btn-lg" href="anfrage.html">Anfrage stellen</a><a class="btn btn-ghost btn-lg" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div>
+</div>
+</section>
+'''
+
+def crumbs(items):
+    lis = ''.join(f'<li><a href="{h}">{E(t)}</a></li>' if h else f'<li aria-current="page">{E(t)}</li>' for t, h in items)
+    return f'<nav class="crumbs wrap" aria-label="Brotkrümelnavigation"><ol>{lis}</ol></nav>'
+
+def variant_card(key):
+    v = V[key]
+    lis = ''.join(f'<li>{E(x)}</li>' for x in v['li'])
+    price = f'<div class="price">{v["price"]}<span>{v.get("pnote", "exkl. MwSt., gerade Ausführung ab 10 lfm")}</span></div>' if v['price'] else '<div class="price none">Preis auf Anfrage</div>'
+    return f'<article class="variant" data-reveal><div class="tagline">{E(v["tag"])}</div><h3>{E(v["t"])}</h3><p>{E(v["p"])}</p><ul>{lis}</ul>{price}</article>'
+
+def min_price(keys):
+    ps = []
+    for k in keys:
+        p = V[k]['price']
+        if p:
+            ps.append(int(re.search(r'€ (\d+)', p).group(1)))
+    return min(ps) if ps else None
+
+def gallery_imgs(key):
+    p = next((q for q in PAGES if q['slug'] == key), None)
+    if p and p.get('materials'):
+        lists = [mat_imgs(p, m) for _, m in mat_list(p)]
+        mixed, i = [], 0
+        while len(mixed) < 15 and any(i < len(l) for l in lists):
+            for l in lists:
+                if i < len(l) and len(mixed) < 15:
+                    mixed.append(l[i])
+            i += 1
+        return mixed
+    return imgs(key)[:15]
+
+def gallery(key, group):
+    out = []
+    for im in gallery_imgs(key):
+        out.append(f'<a href="{im["file"]}" data-lightbox="{group}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async"></a>')
+    return '<div class="gallery">' + ''.join(out) + '</div>'
+
+def write(name, s):
+    with open(os.path.join(OUT, name), 'w', encoding='utf-8') as f:
+        f.write(s)
+
+
+SEL = json.load(open(os.path.join(BASE, 'selection.json'), encoding='utf-8'))
+MATERIALS = [
+    ('stahl', dict(key='stahl', label='Stahl', folders={1, 21, 30}, keys=['design', 'stahl-pulver', 'stahl-verzinkt', 'sonder', 'franz-stahl'],
+        text='Pulverbeschichtet in jeder RAL-Farbe oder feuerverzinkt – vom klassischen Füllstab bis zur freien Verstrebung.',
+        text_innen='Vollverschweißt und pulverbeschichtet in jeder RAL-Farbe – vom klassischen Füllstab bis zur freien Verstrebung.')),
+    ('edelstahl', dict(key='edelstahl', label='Edelstahl', folders={3, 5, 6, 7, 14, 16, 17, 18}, keys=['stab', 'reling', 'seil', 'franz-edelstahl'],
+        text='Stab, Reling oder Seil – vollverschweißt, pflegeleicht und zeitlos.')),
+    ('glas', dict(key='glas', label='Glas', folders={0, 2, 4, 13, 15}, keys=['nurglas', 'nurglas-treppe', 'edelstahl-glas', 'franz-glas'],
+        text='Nurglas ohne Steher oder Edelstahl mit Glasfüllung – viel Licht und freie Sicht.')),
+]
+
+def mtext(p, m):
+    return m.get('text_innen', m['text']) if p['area'] == 'innen' else m['text']
+
+def mat_imgs(p, m):
+    sel = SEL.get(p['slug'], [])
+    out = []
+    for im, e in zip(imgs(p['slug']), sel):
+        mat = e[2] if len(e) > 2 else None
+        if (mat == m['key']) if mat else (e[0] in m['folders']):
+            out.append(im)
+    return out[:15]
+
+def mat_variants(p, m):
+    return [k for k in p['variants'] if k in m['keys']]
+
+def mat_list(p):
+    return [(mk, m) for mk, m in MATERIALS if mat_variants(p, m)]
+
+def material_cards(p, current=None):
+    out = ''
+    for mk, m in mat_list(p):
+        ims = mat_imgs(p, m)
+        im = ims[0] if ims else None
+        mp = min_price(mat_variants(p, m))
+        img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy">' if im else f'<div class="placeholder" style="height:260px;border-radius:0">Foto · {m["label"]}</div>'
+        cur = ' aria-current="page" style="outline:3px solid var(--orange);outline-offset:-3px"' if mk == current else ''
+        out += f'<a class="ov-card" href="{p["slug"]}-{mk}.html" data-reveal{cur}>{img}<div class="body"><div class="eyebrow">{E(p["nav"])}</div><h3>{m["label"]}</h3><p>{E(mtext(p, m))}</p><div class="from">{"ab € " + str(mp) + ",– / lfm" if mp else "Preis auf Anfrage"} {ARROW}</div></div></a>'
+    return f'<div class="overview-grid mat-grid">{out}</div>'
+
+def material_page(p, mk, m):
+    a = AREAS[p['area']]
+    ims = mat_imgs(p, m)
+    hero = ims[0] if ims else None
+    keys = mat_variants(p, m)
+    mp = min_price(keys)
+    chip = f'<div class="price-chip"><small>ab</small><b>€ {mp},–</b><small>/ lfm exkl. MwSt.</small></div>' if mp else ''
+    hero_img = f'<div class="page-hero-media"><img src="{hero["file"]}" alt="{E(hero["alt"])}" width="{hero["w"]}" height="{hero["h"]}" fetchpriority="high"></div>' if hero else f'<div class="page-hero-media"><div class="placeholder" style="height:clamp(300px,38vw,520px)">Foto · {E(p["title"])} {m["label"]}</div></div>'
+    gal = ''.join(f'<a href="{im["file"]}" data-lightbox="{p["slug"]}-{mk}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async"></a>' for im in ims)
+    title = f"{p['title']} aus {m['label']}"
+    s = head(f"{title} – METALLFUX Wien", f"{title}: {mtext(p, m)}"[:155], f"{p['slug']}-{mk}.html") + header(area=p['area'])
+    s += crumbs([('Startseite', 'index.html'), (a['nav'], f"{a['slug']}.html"), (p['nav'], f"{p['slug']}.html"), (m['label'], None)])
+    s += f'''<section class="page-hero"><div class="wrap">
+<div class="page-hero-text">
+<div class="eyebrow">{a['nav']} · {E(p['nav'])}</div>
+<h1>{E(title)}</h1>
+<p class="lead">{E(mtext(p, m))}</p>
+{chip}
+<div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a><a class="btn btn-ghost btn-lg" href="#galerie">Bilder ansehen</a></div>
+</div>
+{hero_img}
+</div></section>
+<section class="section band-white" aria-labelledby="ausf-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Ausführungen in {m['label']}</div><h2 class="h2" id="ausf-h">Welche Ausführung passt?</h2></div>
+<div class="variants">{''.join(variant_card(k) for k in keys)}</div>
+{f'<p class="price-note">{PRICE_NOTE} Den genauen Preis erhalten Sie mit dem Kostenvoranschlag.</p>' if mp else ''}
+</div></section>
+<section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">{E(p['nav'])} aus {m['label']}</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
+{('<div class="gallery">' + gal + '</div>') if gal else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
+</div></section>
+<section class="section band-white" aria-labelledby="mat-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Anderes Material</div><h2 class="h2" id="mat-h">{E(p['nav'])} in Stahl, Edelstahl oder Glas</h2></div>
+{material_cards(p, mk)}
+</div></section>
+'''
+    s += cta_band() + footer()
+    write(f"{p['slug']}-{mk}.html", s)
+
+# ---------- Produktseite ----------
+def product_page(p):
+    a = AREAS[p['area']]
+    ims = imgs(p['slug'])
+    hero = ims[0] if ims else None
+    mp = min_price(p['variants'])
+    unit = p.get('unit', '/ lfm exkl. MwSt.')
+    chip = f'<div class="price-chip"><small>ab</small><b>€ {mp},–</b><small>{unit}</small></div>' if mp else ''
+    others = [q for q in area_pages(p['area']) if q['slug'] != p['slug']]
+    other_links = ''.join(f'<a class="row-link" href="{q["slug"]}.html"><span><b>{E(q["nav"])}</b><small>{E(q["short"])}</small></span>{ARROW}</a>' for q in others)
+    cs, ct = p['cross']
+    hero_img = f'<div class="page-hero-media"><img src="{hero["file"]}" alt="{E(hero["alt"])}" width="{hero["w"]}" height="{hero["h"]}" fetchpriority="high"></div>' if hero else f'<div class="page-hero-media"><div class="placeholder" style="height:clamp(300px,38vw,520px)">Foto · {E(p["title"])}</div></div>'
+    extlink = f'<a class="btn btn-dark btn-lg" href="{p["link"][0]}" target="_blank" rel="noopener">{E(p["link"][1])}</a>' if p.get('link') else ''
+    has_price = any(V[k]['price'] for k in p['variants'])
+    s = head(f"{p['title']} – METALLFUX Wien", p['lead'][:155], f"{p['slug']}.html") + header(area=p['area'])
+    s += crumbs([('Startseite', 'index.html'), (a['nav'], f"{a['slug']}.html"), (p['nav'], None)])
+    s += f'''<section class="page-hero"><div class="wrap">
+<div class="page-hero-text">
+<div class="eyebrow">{a['nav']}</div>
+<h1>{E(p['h1'])}</h1>
+<p class="lead">{E(p['lead'])}</p>
+{chip}
+<div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a>{extlink or '<a class="btn btn-ghost btn-lg" href="#galerie">Bilder ansehen</a>'}</div>
+</div>
+{hero_img}
+</div></section>
+<section class="section band-white" aria-labelledby="ausf-h"><div class="wrap">
+{('<div class="section-head"><div class="eyebrow">Nach Material</div><h2 class="h2" id="ausf-h">Stahl, Edelstahl oder Glas?</h2><p class="lead">Wählen Sie das Material – auf jeder Seite finden Sie die passenden Ausführungen, Preise und Bilder.</p></div>' + material_cards(p)) if p.get('materials') else ''}
+{'' if p.get('materials') else '<div class="section-head"><div class="eyebrow">Ausführungen</div><h2 class="h2" id="ausf-h">Welche Ausführung passt?</h2></div>'}
+{'' if p.get('materials') else '<div class="variants">' + ''.join(variant_card(k) for k in p['variants']) + '</div>'}
+{f'<p class="price-note">{E(p["extra_note"])}</p>' if p.get('extra_note') else (f'<p class="price-note">{PRICE_NOTE} Den genauen Preis erhalten Sie mit dem Kostenvoranschlag.</p>' if has_price else '')}
+</div></section>
+<section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">Aus unseren Projekten</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
+{gallery(p['slug'], p['slug']) if imgs(p['slug']) else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
+</div></section>
+<section class="section band-white" aria-labelledby="leist-h"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px 64px">
+<div style="flex:1 1 420px;min-width:0">
+<div class="section-head" style="margin-bottom:28px"><div class="eyebrow">Gut zu wissen</div><h2 class="h2" id="leist-h">Darauf können Sie sich verlassen.</h2></div>
+<ul class="facts">{''.join(f'<li>{CHECK}<span>{E(x)}</span></li>' for x in (LEISTUNGEN if p['area'] != 'weitere' else ['Planung und Beratung aus einer Hand', 'Gefertigt nach Maß', 'Lieferung und Montage', 'Ein Ansprechpartner für alles']))}</ul>
+</div>
+<div style="flex:1 1 360px;min-width:0">
+<div class="eyebrow" style="margin-bottom:12px">Mehr im {a['nav']}</div>
+<div class="rows">{other_links}</div>
+</div>
+</div></section>
+<section class="wrap"><div class="cross"><p>{E(ct)}</p><a class="btn btn-dark" href="{cs}.html">{E(page_by_slug(cs)['title'])} {ARROW}</a></div></section>
+'''
+    s += cta_band() + footer()
+    write(f"{p['slug']}.html", s)
+
+# ---------- Bereichsseite ----------
+def area_page(key):
+    a = AREAS[key]
+    cards = ''
+    for p in area_pages(key):
+        ims = imgs(p['slug'])
+        im = ims[0] if ims else None
+        mp = min_price(p['variants'])
+        img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy">' if im else f'<div class="placeholder" style="height:260px;border-radius:0">Foto · {E(p["nav"])}</div>'
+        u = ",–" + (" / lfm" if p.get('unit') is None else "")
+        cards += f'<a class="ov-card" href="{p["slug"]}.html" data-reveal>{img}<div class="body"><h3>{E(p["nav"])}</h3><p>{E(p["card"])}</p><div class="from">{"ab € " + str(mp) + u if mp else "Preis auf Anfrage"}</div></div></a>'
+    other = 'aussen' if key == 'innen' else 'innen'
+    s = head(f"{a['title']} – Geländer, Handläufe, Treppen | METALLFUX", a['lead'][:155], f"{a['slug']}.html") + header(area=key)
+    s += crumbs([('Startseite', 'index.html'), (a['nav'], None)])
+    s += f'''<section class="page-hero"><div class="wrap"><div class="page-hero-text" style="flex-basis:100%">
+<div class="eyebrow">{a['nav']}</div><h1>{E(a['h1'])}</h1><p class="lead">{E(a['lead'])}</p></div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="overview-grid">{cards}</div>
+{'' if key == 'weitere' else f'<p class="price-note">{PRICE_NOTE}</p>'}</div></section>
+{'' if key == 'weitere' else f'<section class="wrap"><div class="cross"><p>Sie suchen etwas für den {AREAS[other]["nav"]}?</p><a class="btn btn-dark" href="{AREAS[other]["slug"]}.html">{AREAS[other]["nav"]} {ARROW}</a></div></section>'}
+'''
+    s += cta_band() + footer()
+    write(f"{a['slug']}.html", s)
+
+# ---------- Startseite ----------
+def index_page():
+    hero = imgs('hero')
+    slides = ''
+    captions = ['Nurglasgeländer an einer Innentreppe', 'Montage einer Spindeltreppe']
+    for i, im in enumerate(hero):
+        cap = captions[i] if i < len(captions) else ''
+        slides += f'<div class="hero-slide{" is-active" if i == 0 else ""}" data-caption="{E(cap)}"><img src="{im["file"]}" alt="" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""}></div>'
+    dots = ''.join(f'<button class="hero-dot" type="button" aria-label="Bild {i+1} zeigen" aria-current="{"true" if i == 0 else "false"}"><span></span></button>' for i in range(len(hero)))
+    def panel(key):
+        a = AREAS[key]
+        ims = imgs(area_pages(key)[0]['slug'])
+        im = ims[1] if len(ims) > 1 else (ims[0] if ims else None)
+        rows = ''.join(f'<a class="row-link" href="{p["slug"]}.html"><span><b>{E(p["nav"])}</b><small>{E(p["short"])}</small></span>{ARROW}</a>' for p in area_pages(key))
+        img = f'<a class="panel-img" href="{a["slug"]}.html" tabindex="-1" aria-hidden="true"><img src="{im["thumb"]}" alt="" loading="lazy"></a>' if im else ''
+        return f'<article class="panel" data-reveal>{img}<div class="panel-body"><h3>{a["nav"]}</h3><div class="rows">{rows}</div><a class="link-u" href="{a["slug"]}.html">Alles für den {a["nav"]}</a></div></article>'
+    teaser = ''
+    for key, kicker, title, text in [
+        ('aussen-balkon-terrasse', 'Außenbereich', 'Balkon- und Terrassengeländer', 'Nurglas, Edelstahl-Glas und Stahl für Balkon und Dach.'),
+        ('innen-treppengelaender', 'Innenbereich', 'Treppengeländer', 'Glas, Edelstahl und Stahl im Stiegenhaus.'),
+        ('aussentreppen', 'Außenbereich', 'Außentreppen', 'Stahltreppen für Terrasse, Garten und Pool.')]:
+        ims = imgs(key)
+        im = ims[2] if len(ims) > 2 else (ims[0] if ims else None)
+        img = f'<div class="img"><img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy"></div>' if im else ''
+        teaser += f'<a class="ref-card" href="{key}.html" data-reveal>{img}<div class="kicker">{kicker}</div><h3>{title}</h3><p>{text}</p></a>'
+    s = head('METALLFUX – Geländer und Treppen nach Maß in Wien', 'Geländer, Handläufe und Treppen aus Metall, Glas und Holz – geplant, gefertigt und montiert in Wien, Niederösterreich und im Burgenland.', '') + header()
+    s += f'''<section class="hero" aria-label="Einstieg">
+<div class="hero-slides">{slides}</div>
+<div class="wrap hero-inner">
+<div class="hero-tag">Metall · Glas · Holz</div>
+<h1>Geländer und Treppen nach Maß.</h1>
+<p>Geplant, gefertigt und montiert – in Wien, Niederösterreich und im Burgenland.</p>
+<div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a><a class="btn btn-ghost btn-lg" href="referenzen.html">Referenzen ansehen</a></div>
+</div>
+<div class="hero-controls"><div class="wrap">{dots}<span class="hero-caption" aria-live="polite">{captions[0]}</span></div></div>
+</section>
+<section class="promise on-dark" aria-label="Unser Versprechen"><div class="wrap">
+<div><strong>Ein Ansprechpartner</strong><span>Von der Beratung bis zur Montage</span></div>
+<div><strong>Metall, Glas, Holz</strong><span>Kombiniert aus einer Hand</span></div>
+<div><strong>Exakte Pläne</strong><span>Zur Freigabe vor der Fertigung</span></div>
+<div><strong>Wien · NÖ · Bgld.</strong><span>Unser Einsatzgebiet</span></div>
+</div></section>
+<section class="section" aria-labelledby="sort-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Sortiment</div><h2 class="h2" id="sort-h">Wo wird montiert?</h2>
+<p class="lead">Innen zählen Optik und Haptik, außen Korrosionsschutz und Witterung. Deshalb finden Sie jedes Produkt dort, wo es eingebaut wird.</p></div>
+<div class="split">{panel('innen')}{panel('aussen')}</div>
+</div></section>
+<section class="section band-white" aria-labelledby="ablauf-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Ablauf</div><h2 class="h2" id="ablauf-h">Vom Foto zum fertigen Geländer.</h2></div>
+<ol class="steps">
+<li data-reveal><div class="num">01</div><h3>Foto schicken</h3><p>Ein Foto der Einbausituation und grobe Längenmaße reichen für den Anfang.</p></li>
+<li data-reveal><div class="num">02</div><h3>Beratung und Aufmaß</h3><p>Wir beraten telefonisch oder vor Ort, nehmen Maß und erstellen einen unverbindlichen Kostenvoranschlag.</p></li>
+<li data-reveal><div class="num">03</div><h3>Planung und Fertigung</h3><p>Sie erhalten exakte Pläne zur Freigabe. Danach wird nach Maß gefertigt, in der Regel in rund 8 Wochen.</p></li>
+<li data-reveal><div class="num">04</div><h3>Montage</h3><p>Wir montieren bei Ihnen und stimmen uns auf der Baustelle mit den anderen Gewerken ab.</p></li>
+</ol>
+</div></section>
+<section class="plan3d on-dark" aria-labelledby="plan-h"><div class="wrap">
+<h2 class="sr-only" id="plan-h">Planung und 3D-Visualisierung: Bis ins Detail geplant</h2>
+<div class="plan3d-text" aria-hidden="true"><div class="eyebrow">Planung &amp; 3D-Visualisierung</div><p class="h2">Bis ins Detail geplant.</p><p>Bevor gefertigt wird, sehen Sie Ihr Projekt als Ausführungsplan mit allen Maßen und als 3D-Modell. So können Sie Form, Material und Details in Ruhe prüfen.</p><ul><li>Aufmaß vor Ort</li><li>Ausführungsplan mit Bemaßung</li><li>3D-Ansicht vor der Fertigung</li></ul></div>
+<figure class="plan3d-fig" data-reveal><a href="img/planung-3d.jpg" data-lightbox="planung"><picture><source media="(max-width:700px)" srcset="img/planung-3d-mobil.webp" type="image/webp"><source media="(max-width:700px)" srcset="img/planung-3d-mobil.jpg"><source srcset="img/planung-3d.webp" type="image/webp"><img src="img/planung-3d.jpg" width="1600" height="1200" loading="lazy" alt="Bis ins Detail geplant: Bevor gefertigt wird, sehen Sie Ihr Projekt als Ausführungsplan mit allen Maßen und als 3D-Modell – Aufmaß vor Ort, Ausführungsplan mit Bemaßung, 3D-Ansicht vor der Fertigung. Beispiel: Seetreppe aus feuerverzinktem Stahl."></picture></a></figure>
+<div class="plan3d-cta" data-reveal><p>Ausführungsplan und 3D-Ansicht bekommen Sie zur Freigabe – erst danach wird gefertigt.</p><a class="btn btn-orange" href="anfrage.html">Projekt anfragen</a></div>
+</div></section>
+<section class="section" aria-labelledby="proj-h"><div class="wrap">
+<div class="section-head row"><div style="display:flex;flex-direction:column;gap:12px;max-width:720px"><div class="eyebrow">Aus unseren Projekten</div><h2 class="h2" id="proj-h">Gebaut in Wien und Umgebung.</h2></div><a class="link-u" href="referenzen.html">Alle Referenzen ansehen</a></div>
+<div class="cards">{teaser}</div>
+</div></section>
+<section class="on-dark" aria-labelledby="about-h"><div class="wrap section about">
+<div class="about-media" data-reveal><div class="placeholder">Foto · Bernhard Bauer</div></div>
+<div class="about-text" data-reveal>
+<div class="eyebrow">Über uns</div>
+<h2 class="h2" id="about-h">Ein Ansprechpartner. Von der Skizze bis zur Montage.</h2>
+<p class="lead">Bei METALLFUX sprechen Sie nicht mit einer Hotline, sondern mit dem, der Ihr Geländer plant und die Montage begleitet. Kurze Wege, klare Absprachen.</p>
+<div class="person"><b>{SITE['gf']}</b><span>Geschäftsführer</span></div>
+<address>{SITE['firma']} · {SITE['strasse']}, {SITE['ort']}</address>
+<div class="btns"><a class="btn btn-orange" href="ueber-uns.html">Mehr über uns</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div>
+</div>
+</div></section>
+'''
+    extra = ''
+    for p in area_pages('weitere'):
+        ims = imgs(p['slug']); im = ims[0] if ims else None
+        img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy">' if im else f'<div class="placeholder" style="height:220px;border-radius:0">Foto · {E(p["nav"])}</div>'
+        extra += f'<a class="ov-card" href="{p["slug"]}.html" data-reveal>{img}<div class="body"><h3>{E(p["nav"])}</h3><p>{E(p["card"])}</p></div></a>'
+    s += f'''<section class="section band-white" aria-labelledby="weitere-h"><div class="wrap">
+<div class="section-head row"><div style="display:flex;flex-direction:column;gap:12px;max-width:720px"><div class="eyebrow">Weitere Produkte</div><h2 class="h2" id="weitere-h">Auch das fertigen wir für Sie.</h2></div><a class="link-u" href="weitere-produkte.html">Alle weiteren Produkte</a></div>
+<div class="overview-grid">{extra}</div>
+</div></section>
+'''
+    s += cta_band() + footer()
+    write('index.html', s)
+
+# ---------- Referenzen ----------
+REF_OFFSETS = {'gablitz': 5, 'wien-1190': 6, 'wien-1210-efh': 9, 'medizinproduktion': 0, 'buero-wien-1210': 10, 'michelhausen': 0, 'zistersdorf': 9, 'klosterneuburg': 7}
+def ref_page():
+    idx = ''.join(f'<a href="#{r["id"]}">{i+1:02d} {E(r["title"].split(",")[-1].strip())}</a>' for i, r in enumerate(REFS))
+    blocks = ''
+    for i, r in enumerate(REFS):
+        pool = imgs(r['img'])
+        off = REF_OFFSETS.get(r['id'], 0)
+        sel = (pool[off:] + pool[:off])[:5] if pool else []
+        main = sel[0] if sel else None
+        thumbs = ''.join(f'<a href="{im["file"]}" data-lightbox="ref-{r["id"]}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy"></a>' for im in sel[1:5])
+        mainhtml = f'<a href="{main["file"]}" data-lightbox="ref-{r["id"]}" style="display:block;cursor:zoom-in"><img class="project-main" src="{main["thumb"]}" alt="{E(main["alt"])}" loading="lazy"></a>' if main else '<div class="placeholder project-main">Projektfotos folgen</div>'
+        note = 'Fotos bitte prüfen: vermutlich dieses Projekt.' if r['id'] == 'michelhausen' else 'Platzhalter-Fotos aus der passenden Produktkategorie – bitte durch Fotos dieses Projekts ersetzen.'
+        lis = ''.join(f'<li>{E(x)}</li>' for x in r['li'])
+        blocks += f'''<article class="project" id="{r['id']}" data-reveal>
+<div class="project-media">{mainhtml}<div class="project-thumbs">{thumbs}</div></div>
+<div class="project-text">
+<div class="project-no">PROJEKT {i+1:02d}</div>
+<h2>{E(r['title'])}</h2>
+<dl class="meta"><dt>Objekt</dt><dd>{E(r['objekt'])}</dd><dt>Ort</dt><dd>{E(r['ort'])}</dd><dt>Leistung</dt><dd>{E(r['produkte'])}</dd></dl>
+<ul class="facts" style="grid-template-columns:1fr">{''.join(f'<li>{CHECK}<span>{E(x)}</span></li>' for x in r['li'])}</ul>
+<p class="todo">Entwurf: {note} Projektbeschreibung hier ergänzen (Ausgangslage, Lösung, Besonderheiten).</p>
+</div>
+</article>'''
+    s = head('Referenzen – METALLFUX Wien', 'Ausgewählte Projekte: Geländer, Handläufe und Treppen in Wien und Niederösterreich.', 'referenzen.html') + header('referenzen')
+    s += crumbs([('Startseite', 'index.html'), ('Referenzen', None)])
+    s += f'''<section class="page-hero"><div class="wrap"><div class="page-hero-text" style="flex-basis:100%">
+<div class="eyebrow">Referenzen</div><h1>Gebaut in Wien und Umgebung.</h1>
+<p class="lead">Vom Einfamilienhaus bis zur Wohnhausanlage über mehrere Geschosse. Acht Projekte im Detail.</p>
+<nav class="ref-index" aria-label="Projekte">{idx}</nav></div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap projects">{blocks}</div></section>
+'''
+    s += cta_band() + footer()
+    write('referenzen.html', s)
+
+# ---------- Über uns ----------
+def about_page():
+    reasons = [
+        ('Beratung', 'Schicken Sie uns ein Foto Ihrer Einbausituation. Danach beraten wir Sie telefonisch oder vor Ort und bieten Ihnen das passende Produkt an.'),
+        ('Qualität', 'Alle Geländer und Treppen sind werkseitig vollverschweißt. So können die Rohre nicht auffrieren.'),
+        ('Planung', 'Sie erhalten exakte Pläne. Das erleichtert Ihnen die Vorbereitung der baulichen Maßnahmen.'),
+        ('Koordinierung', 'Wir kommen auf Wunsch zur Baubesprechung und stimmen uns mit den anderen Gewerken ab.'),
+        ('Flexibilität', 'Die Lieferzeit für maßgefertigte Elemente beträgt rund 8 Wochen. Wenn es schneller gehen muss, kommen wir Ihnen entgegen.'),
+        ('Designvielfalt', 'Vom modernen Glasgeländer bis zum klassischen, pulverbeschichteten Stahlgeländer: Für jede Einbausituation gibt es eine passende Lösung.'),
+    ]
+    values = [('Präzision', 'Sauber gearbeitete Details, vom Schweißpunkt bis zur Glasklemme.'),
+              ('Robustheit', 'Material und Ausführung, die Jahrzehnte halten.'),
+              ('Handwerk', 'Tradition trifft auf klare, moderne Form.'),
+              ('Verlässlichkeit', 'Ein ruhiger, direkter Ton und Termine, die halten.')]
+    s = head('Über uns – METALLFUX Wien', 'METALLFUX GmbH plant, liefert und montiert Geländer, Treppen und Handläufe aus Metall, Glas und Holz.', 'ueber-uns.html') + header('ueber-uns')
+    s += crumbs([('Startseite', 'index.html'), ('Über uns', None)])
+    s += f'''<section class="page-hero"><div class="wrap">
+<div class="page-hero-text"><div class="eyebrow">Über uns</div><h1>Ein Ansprechpartner. Von der Skizze bis zur Montage.</h1>
+<p class="lead">METALLFUX plant, liefert und montiert Geländer, Treppen und Handläufe aus Metall, Glas und Holz. Sie sprechen dabei immer mit derselben Person: mit dem, der Ihr Projekt plant und die Montage begleitet.</p>
+<div class="person"><b>{SITE['gf']}</b><span style="color:var(--muted)">Geschäftsführer</span></div>
+<div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Anfrage stellen</a><a class="btn btn-ghost btn-lg" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div></div>
+<div class="page-hero-media"><div class="placeholder" style="height:clamp(300px,38vw,520px)">Foto · Bernhard Bauer</div></div>
+</div></section>
+<section class="section band-white" aria-labelledby="werte-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Wofür wir stehen</div><h2 class="h2" id="werte-h">Präzise gearbeitet, klar besprochen.</h2></div>
+<div class="variants">{''.join(f'<article class="variant" data-reveal><h3>{t}</h3><p>{d}</p></article>' for t, d in values)}</div>
+</div></section>
+<section class="section" aria-labelledby="gruende-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Sechs Gründe</div><h2 class="h2" id="gruende-h">Warum Kundinnen und Kunden mit uns bauen.</h2></div>
+<div class="variants">{''.join(f'<article class="variant" data-reveal><div class="tagline">{i+1:02d}</div><h3>{t}</h3><p>{d}</p></article>' for i, (t, d) in enumerate(reasons))}</div>
+</div></section>
+<section class="on-dark"><div class="wrap section" style="display:flex;flex-wrap:wrap;gap:32px 64px;align-items:flex-start">
+<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px"><div class="eyebrow">Einsatzgebiet</div><h2 class="h2">{SITE['gebiet']}.</h2>
+<p class="lead">Von unserem Standort in Wien-Donaustadt sind wir rasch bei Ihnen – in ganz Wien, in Niederösterreich und im Burgenland.</p></div>
+<div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:10px">
+<address style="font-style:normal;color:var(--on-dark)">{SITE['firma']}<br>{SITE['strasse']}<br>{SITE['ort']}</address>
+<div style="color:var(--on-dark-muted)">Telefonisch erreichbar {SITE['zeiten']}</div>
+<div style="font-family:var(--font-head);font-size:24px;font-weight:800;user-select:all">{SITE['tel']}</div>
+<div style="user-select:all">{SITE['mail']}</div></div>
+</div></section>
+'''
+    s += cta_band() + footer()
+    write('ueber-uns.html', s)
+
+# ---------- Anfrage ----------
+def inquiry_page():
+    opts = ''.join(f'<option>{E(p["nav"])} ({AREAS[p["area"]]["nav"]})</option>' for p in PAGES)
+    s = head('Anfrage und Kontakt – METALLFUX Wien', 'Unverbindlichen Kostenvoranschlag für Geländer, Handlauf oder Treppe anfragen. Fotos und Pläne einfach mitschicken.', 'anfrage.html') + header('anfrage')
+    s += crumbs([('Startseite', 'index.html'), ('Anfrage', None)])
+    s += f'''<section class="inquiry"><div class="wrap section">
+<div class="inquiry-text">
+<div class="eyebrow" style="color:var(--ink)">Anfrage und Kontakt</div>
+<h1 style="font-size:clamp(34px,4.4vw,58px);font-weight:800;line-height:1.05">Kostenvoranschlag in zwei Minuten anfragen.</h1>
+<p style="font-size:18px">Je mehr wir sehen, desto genauer wird der Preis. Am meisten hilft uns:</p>
+<ul class="checks">
+<li>{CHECK}Fotos der Einbausituation</li>
+<li>{CHECK}Grobe Längenmaße oder ein Planausschnitt</li>
+<li>{CHECK}Ein Bild oder Link Ihrer Wunschausführung</li>
+</ul>
+<div class="direct">
+<div style="font-weight:600">Lieber gleich reden? {SITE['zeiten']}</div>
+<a class="big" href="tel:{SITE['tel_link']}">{SITE['tel']}</a>
+<a class="mail" href="mailto:{SITE['mail']}">{SITE['mail']}</a>
+</div>
+<address style="font-style:normal">{SITE['firma']}<br>{SITE['strasse']}, {SITE['ort']}</address>
+</div>
+<form class="form" id="anfrage-form" action="anfrage.php" method="post" enctype="multipart/form-data" novalidate>
+<fieldset><legend>Wo wird montiert?</legend>
+<div class="choice"><label><input type="radio" name="bereich" value="Innenbereich" checked> Innenbereich</label><label><input type="radio" name="bereich" value="Außenbereich"> Außenbereich</label></div>
+</fieldset>
+<div class="field"><label class="lbl" for="f-produkt">Was brauchen Sie?</label>
+<select id="f-produkt" name="produkt">{opts}<option>Etwas anderes</option></select></div>
+<div class="fields">
+<div class="field" style="flex:1 1 120px"><label class="lbl" for="f-plz">PLZ</label><input id="f-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" required></div>
+<div class="field" style="flex:2 1 200px"><label class="lbl" for="f-ort">Ort des Vorhabens</label><input id="f-ort" name="ort" type="text" autocomplete="address-level2" required></div>
+</div>
+<div class="hint" style="margin-top:-6px">Wir montieren in {SITE['gebiet']}.</div>
+<div class="fields">
+<div class="field"><label class="lbl" for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
+<div class="field"><label class="lbl" for="f-tel">Telefon</label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
+</div>
+<div class="field"><label class="lbl" for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+<div class="field"><label class="lbl" for="f-fotos">Fotos und Pläne</label>
+<div class="drop"><input id="f-fotos" name="dateien[]" type="file" multiple accept="image/jpeg,image/png,image/heic,application/pdf"><div class="hint">Bis zu 8 Dateien · JPG, PNG, HEIC oder PDF · zusammen max. 20 MB</div></div></div>
+<div class="field"><label class="lbl" for="f-text">Nachricht <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="f-text" name="nachricht" rows="4"></textarea></div>
+<div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<label class="consent"><input type="checkbox" name="rueckruf" value="ja"> Bitte rufen Sie mich zurück.</label>
+<label class="consent"><input type="checkbox" name="datenschutz" value="ja" required> Ich stimme zu, dass meine Angaben zur Beantwortung der Anfrage verarbeitet werden. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+<button class="btn btn-dark btn-lg" type="submit">Anfrage absenden</button>
+<p class="form-status" role="status" hidden></p>
+</form>
+</div></section>
+'''
+    s += footer()
+    write('anfrage.html', s)
+
+# ---------- Rechtstexte (Vorlagen) ----------
+def legal_pages():
+    imp = f'''<h1 class="h2">Impressum</h1>
+<p class="todo">Entwurf: Bitte die Angaben in eckigen Klammern ergänzen und vor dem Livegang prüfen lassen.</p>
+<p><b>{SITE['firma']}</b><br>{SITE['strasse']}<br>{SITE['ort']}<br>Österreich</p>
+<p>Telefon: {SITE['tel']}<br>E-Mail: {SITE['mail']}</p>
+<h2>Unternehmensangaben</h2>
+<p>Unternehmensgegenstand: Planung, Handel und Montage von Geländern, Treppen und Handläufen<br>
+Geschäftsführer: {SITE['gf']}<br>
+Firmenbuchnummer: [FN …]<br>Firmenbuchgericht: [Handelsgericht Wien]<br>UID-Nummer: [ATU …]<br>
+Mitglied der Wirtschaftskammer Wien, Fachgruppe [ … ]<br>Gewerbe: [ … ], verliehen in Österreich<br>
+Gewerbebehörde: [Magistratisches Bezirksamt für den 22. Bezirk]<br>Anwendbare Rechtsvorschriften: Gewerbeordnung, abrufbar unter www.ris.bka.gv.at</p>
+<h2>Haftung für Inhalte</h2>
+<p>Die Inhalte dieser Website wurden sorgfältig erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr. Preisangaben sind Preisbeispiele und kein Angebot im rechtlichen Sinn.</p>
+<h2>Bildnachweis</h2><p>Alle Fotos: {SITE['firma']}</p>'''
+    ds = f'''<h1 class="h2">Datenschutzerklärung</h1>
+<p class="todo">Entwurf: Diese Vorlage deckt Kontaktformular, Server-Logfiles und Google Fonts ab. Bitte vor dem Livegang rechtlich prüfen lassen.</p>
+<h2>Verantwortlicher</h2><p>{SITE['firma']}, {SITE['strasse']}, {SITE['ort']}, {SITE['mail']}</p>
+<h2>Anfrageformular und E-Mail</h2><p>Wenn Sie uns über das Formular oder per E-Mail kontaktieren, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Ort des Vorhabens, Nachricht und hochgeladene Dateien), um Ihre Anfrage zu beantworten und einen Kostenvoranschlag zu erstellen (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden gelöscht, sobald sie dafür nicht mehr nötig sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+<h2>Server-Logfiles</h2><p>Unser Hosting-Anbieter [ALL-INKL.COM – Neue Medien Münnich, Deutschland] speichert beim Aufruf der Website technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seite), um den Betrieb und die Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO).</p>
+<h2>Schriftarten</h2><p>Diese Website lädt Schriftarten von Google Fonts (Google Ireland Limited). Dabei wird Ihre IP-Adresse an Google übermittelt. [Empfehlung: Schriften vor dem Livegang lokal einbinden, dann entfällt dieser Absatz.]</p>
+<h2>Cookies und Tracking</h2><p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Werbedienste.</p>
+<h2>Ihre Rechte</h2><p>Sie haben das Recht auf Auskunft, Berichtigung, Löschung, Einschränkung, Datenübertragbarkeit und Widerspruch. Beschwerden können Sie bei der Österreichischen Datenschutzbehörde einbringen (www.dsb.gv.at).</p>'''
+    for name, title, body in [('impressum.html', 'Impressum', imp), ('datenschutz.html', 'Datenschutz', ds)]:
+        s = head(f'{title} – METALLFUX', f'{title} der {SITE["firma"]}', name) + header()
+        s += crumbs([('Startseite', 'index.html'), (title, None)])
+        s += f'<section class="section" style="padding-top:32px"><div class="wrap legal">{body}</div></section>' + footer()
+        write(name, s)
+
+def main():
+    if os.path.isdir(OUT):
+        for n in os.listdir(OUT):
+            p = os.path.join(OUT, n)
+            if n == 'img':
+                continue
+            shutil.rmtree(p) if os.path.isdir(p) else os.remove(p)
+    os.makedirs(OUT, exist_ok=True)
+    shutil.copytree(os.path.join(BASE, 'static', 'css'), os.path.join(OUT, 'css'))
+    shutil.copytree(os.path.join(BASE, 'static', 'js'), os.path.join(OUT, 'js'))
+    shutil.copy(os.path.join(BASE, 'static', 'anfrage.php'), OUT)
+    shutil.copy(os.path.join(BASE, 'static', '.htaccess'), OUT)
+    os.makedirs(os.path.join(OUT, 'img', 'thumb'), exist_ok=True)
+    for n in ('planung-3d.jpg', 'planung-3d.webp', 'planung-3d-mobil.jpg', 'planung-3d-mobil.webp'):
+        shutil.copy(os.path.join(BASE, '..', 'assets', n), os.path.join(OUT, 'img', n))
+    shutil.copy(os.path.join(BASE, '..', 'assets', 'planung-3d-thumb.jpg'), os.path.join(OUT, 'img', 'thumb', 'planung-3d.jpg'))
+    index_page()
+    for k in AREAS: area_page(k)
+    for p in PAGES:
+        product_page(p)
+        if p.get('materials'):
+            for mk, m in mat_list(p): material_page(p, mk, m)
+    ref_page(); about_page(); inquiry_page(); legal_pages()
+    print('ok', sorted(os.listdir(OUT)))
+
+if __name__ == '__main__':
+    main()
