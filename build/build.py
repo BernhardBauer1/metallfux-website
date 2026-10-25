@@ -6,8 +6,9 @@
                            bricht ab, solange Impressum-Angaben fehlen
 """
 import json, os, re, shutil, sys, html
+from urllib.parse import quote
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from content import SITE, PRICE_NOTE, V, LEISTUNGEN, FOLDER, PAGES, AREAS, REFS as ALL_REFS, IMPRESSUM
+from content import SITE, PRICE_NOTE, V, LEISTUNGEN, FOLDER, PAGES, AREAS, REFS as ALL_REFS, IMPRESSUM, GEBIET, FAQ
 
 LIVE = '--live' in sys.argv
 REFS = [r for r in ALL_REFS if not (LIVE and r.get('entwurf'))]
@@ -26,6 +27,8 @@ ARROW = svg('M5 12h14M13 6l6 6-6 6')
 CHEV = '<svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M2.5 4.5 6 8l3.5-3.5"></path></svg>'
 CHECK = svg('m5 12.5 4.5 4.5L19 7.5', 22, 2.4)
 PHONE = svg('M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2', 16)
+WA = svg('M3 21l1.6-4.7A8.5 8.5 0 1 1 8 19.6L3 21Z', 16)
+MAIL = svg('M3 6h18v12H3zM3 7l9 6 9-6', 16)
 BURGER = svg('M4 7h16M4 12h16M4 17h16', 24)
 
 def page_by_slug(s):
@@ -107,6 +110,11 @@ def footer():
 </div>
 </div>
 </footer>
+<nav class="m-bar" aria-label="Schnellkontakt">
+<a href="tel:{SITE['tel_link']}">{PHONE}<span>Anrufen</span></a>
+<a href="https://wa.me/{SITE['whatsapp']}?text={quote('Guten Tag, ich interessiere mich für ein Geländer / eine Treppe.')}" target="_blank" rel="noopener">{WA}<span>WhatsApp</span></a>
+<a class="m-bar-main" href="anfrage.html">{MAIL}<span>Anfrage</span></a>
+</nav>
 <script src="js/main.js" defer></script>
 </body>
 </html>
@@ -414,8 +422,29 @@ def index_page():
 <div class="overview-grid">{extra}</div>
 </div></section>
 '''
-    s += cta_band() + footer()
+    s += gebiet_section() + faq_section() + cta_band() + footer()
     write('index.html', s)
+
+def gebiet_section():
+    cols = ''.join(f'''<div class="area-col" data-reveal><h3>{E(land)}</h3><p class="area-sub">{E(sub)}</p><p class="area-list">{' · '.join(E(o) for o in orte)}</p></div>''' for land, sub, orte in GEBIET)
+    return f'''<section class="section" aria-labelledby="gebiet-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Einsatzgebiet</div><h2 class="h2" id="gebiet-h">Wir montieren in Wien, Niederösterreich und im Burgenland.</h2>
+<p class="lead">Beratung, Aufmaß und Montage bei Ihnen vor Ort.</p></div>
+<div class="area-grid">{cols}</div>
+</div></section>
+'''
+
+def faq_section():
+    items = ''.join(f'<details class="faq-item"><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in FAQ)
+    ld = json.dumps({'@context': 'https://schema.org', '@type': 'FAQPage', 'mainEntity': [
+        {'@type': 'Question', 'name': q, 'acceptedAnswer': {'@type': 'Answer', 'text': a}} for q, a in FAQ]}, ensure_ascii=False)
+    return f'''<section class="section band-white" aria-labelledby="faq-h"><div class="wrap faq-wrap">
+<div class="section-head"><div class="eyebrow">Häufige Fragen</div><h2 class="h2" id="faq-h">Gut zu wissen, bevor Sie anfragen.</h2></div>
+<p class="todo">Entwurf: Antworten bitte fachlich prüfen (Lieferzeit, OIB-Höhen, V2A/V4A, Verzinkung).</p>
+<div class="faq">{items}</div>
+<script type="application/ld+json">{ld}</script>
+</div></section>
+'''
 
 # ---------- Referenzen ----------
 REF_OFFSETS = {'gablitz': 5, 'wien-1190': 6, 'wien-1210-efh': 9, 'medizinproduktion': 0, 'buero-wien-1210': 10, 'michelhausen': 0, 'zistersdorf': 9, 'klosterneuburg': 7}

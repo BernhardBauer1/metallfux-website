@@ -13,7 +13,46 @@ SITE = {
     'gebiet': 'Wien, Niederösterreich und Burgenland',
     'zeiten': 'Mo–Fr, 08:00–18:00 Uhr',
     'gf': 'Bernhard Bauer',
+    'whatsapp': '4366499171224',   # Nummer für wa.me-Links (ohne + und Leerzeichen)
 }
+
+# Einsatzgebiet (Startseite, Abschnitt „Wo wir montieren“)
+GEBIET = [
+    ('Wien', 'Alle 23 Bezirke', ['Innere Stadt', 'Leopoldstadt', 'Landstraße', 'Wieden', 'Margareten', 'Mariahilf', 'Neubau', 'Josefstadt',
+        'Alsergrund', 'Favoriten', 'Simmering', 'Meidling', 'Hietzing', 'Penzing', 'Rudolfsheim-Fünfhaus', 'Ottakring', 'Hernals',
+        'Währing', 'Döbling', 'Brigittenau', 'Floridsdorf', 'Donaustadt', 'Liesing']),
+    ('Niederösterreich', 'Ganz Niederösterreich', ['Amstetten', 'Baden', 'Bruck an der Leitha', 'Gänserndorf', 'Gmünd', 'Hollabrunn', 'Horn',
+        'Korneuburg', 'Krems', 'Lilienfeld', 'Melk', 'Mistelbach', 'Mödling', 'Neunkirchen', 'St. Pölten', 'Scheibbs', 'Tulln',
+        'Waidhofen an der Thaya', 'Waidhofen an der Ybbs', 'Wiener Neustadt', 'Zwettl']),
+    ('Burgenland', 'Ganzes Burgenland', ['Eisenstadt', 'Rust', 'Neusiedl am See', 'Mattersburg', 'Oberpullendorf', 'Oberwart', 'Güssing', 'Jennersdorf']),
+]
+
+# Häufige Fragen (Startseite). Antworten vor dem Livegang fachlich prüfen.
+FAQ = [
+    ('Was kostet ein Geländer?',
+     'Das hängt von Material, Länge, Form und Montage ab. Als Richtwert je Laufmeter exkl. MwSt.: Stahl verzinkt ab € 320, '
+     'Edelstahl-Stabgeländer ab € 330, Edelstahl-Glas ab € 380, Nurglas ab € 590 (gerade Ausführung ab 10 lfm). '
+     'Den genauen Preis erhalten Sie mit dem unverbindlichen Kostenvoranschlag.'),
+    ('Wie lange dauert es vom Auftrag bis zur Montage?',
+     'Nach Ihrer Freigabe der Pläne wird gefertigt, in der Regel in rund 8 Wochen. Den Montagetermin stimmen wir mit Ihnen '
+     'und den anderen Gewerken auf der Baustelle ab.'),
+    ('Wie hoch muss ein Geländer sein?',
+     'In Österreich gilt die OIB-Richtlinie 4. Absturzsicherungen müssen in der Regel mindestens 100 cm hoch sein, ab 12 m '
+     'Absturzhöhe mindestens 110 cm. Öffnungen dürfen höchstens 12 cm breit sein, und das Geländer darf nicht zum Hochklettern '
+     'einladen. Wir planen jedes Geländer danach.'),
+    ('Verzinkt oder pulverbeschichtet – was ist besser?',
+     'Feuerverzinken schützt Stahl vor Rost, die Pulverbeschichtung gibt ihm die Farbe. Innen reicht pulverbeschichteter Stahl. '
+     'Außen empfehlen wir feuerverzinkt, auf Wunsch zusätzlich pulverbeschichtet in Ihrer RAL-Farbe.'),
+    ('Welcher Edelstahl eignet sich für außen?',
+     'Innen verwenden wir meist V2A. Für Balkone, Terrassen und besonders in der Nähe von Pool oder Streusalz empfehlen wir '
+     'den widerstandsfähigeren V4A.'),
+    ('Kommen Sie zur Beratung vor Ort?',
+     'Ja, in Wien, Niederösterreich und im Burgenland. Für eine erste Einschätzung reichen ein Foto der Einbausituation und grobe '
+     'Maße. Danach kommen wir zum Aufmaß zu Ihnen.'),
+    ('Wie pflege ich Edelstahl und Glas?',
+     'Mit Wasser und einem milden Reinigungsmittel. Bitte keine Scheuermittel und keine Stahlwolle verwenden, sie zerkratzen '
+     'die Oberfläche und können Flugrost verursachen.'),
+]
 
 # Impressum (Pflichtangaben laut ECG/UGB/GewO). Leere Felder erscheinen in der Vorschau
 # als „[bitte ergänzen]“; der Live-Bau (build.py --live) bricht ab, solange eines fehlt.
