@@ -74,6 +74,7 @@ def header(active=None, area=None):
 {drop('aussen')}
 <li class="nav-item"><a class="nav-link" href="referenzen.html"{cur('referenzen')}>Referenzen</a></li>
 <li class="nav-item"><a class="nav-link" href="ueber-uns.html"{cur('ueber-uns')}>Über uns</a></li>
+<li class="nav-item"><a class="nav-link" href="termin.html"{cur('termin')}>Termin</a></li>
 </ul>
 <div class="mobile-cta"><a class="btn btn-orange btn-lg" href="anfrage.html">Anfrage stellen</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{PHONE} {SITE['tel']}</a></div>
 </nav>
@@ -102,7 +103,7 @@ def footer():
 <div><h4><a href="innenbereich.html" style="padding:0;color:inherit">Innenbereich</a></h4>{col('innen')}</div>
 <div><h4><a href="aussenbereich.html" style="padding:0;color:inherit">Außenbereich</a></h4>{col('aussen')}</div>
 <div><h4><a href="weitere-produkte.html" style="padding:0;color:inherit">Weitere Produkte</a></h4>{col('weitere')}</div>
-<div><h4>Unternehmen</h4><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="anfrage.html">Anfrage</a></div>
+<div><h4>Unternehmen</h4><a href="referenzen.html">Referenzen</a><a href="ueber-uns.html">Über uns</a><a href="anfrage.html">Anfrage</a><a href="termin.html">Beratungstermin</a></div>
 </div>
 <div class="footer-bottom">
 <div>© {SITE['firma']} · Metall · Glas · Holz</div>
@@ -366,7 +367,7 @@ def index_page():
 <div class="hero-tag">Metall · Glas · Holz</div>
 <h1>Geländer und Treppen nach Maß.</h1>
 <p>Geplant, gefertigt und montiert – in Wien, Niederösterreich und im Burgenland.</p>
-<div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a><a class="btn btn-ghost btn-lg" href="referenzen.html">Referenzen ansehen</a></div>
+<div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a><a class="btn btn-ghost btn-lg" href="termin.html">Beratungstermin vor Ort</a></div>
 </div>
 <div class="hero-controls"><div class="wrap">{dots}<span class="hero-caption" aria-live="polite">{captions[0]}</span></div></div>
 </section>
@@ -546,6 +547,7 @@ def inquiry_page():
 <a class="big" href="tel:{SITE['tel_link']}">{SITE['tel']}</a>
 <a class="mail" href="mailto:{SITE['mail']}">{SITE['mail']}</a>
 </div>
+<p style="margin:0"><a class="link-u" href="termin.html" style="text-decoration-color:var(--ink)">Lieber gleich einen Termin vor Ort? Freie Zeiten ansehen</a></p>
 <address style="font-style:normal">{SITE['firma']}<br>{SITE['strasse']}, {SITE['ort']}</address>
 </div>
 <form class="form" id="anfrage-form" action="anfrage.php" method="post" enctype="multipart/form-data" novalidate>
@@ -568,8 +570,8 @@ def inquiry_page():
 <div class="drop"><input id="f-fotos" name="dateien[]" type="file" multiple accept="image/jpeg,image/png,image/heic,application/pdf"><div class="hint">Bis zu 8 Dateien · JPG, PNG, HEIC oder PDF · zusammen max. 20 MB</div></div></div>
 <div class="field"><label class="lbl" for="f-text">Nachricht <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="f-text" name="nachricht" rows="4"></textarea></div>
 <div class="hp" aria-hidden="true"><label for="f-web">Website</label><input id="f-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
-<label class="consent"><input type="checkbox" name="rueckruf" value="ja"> Bitte rufen Sie mich zurück.</label>
-<label class="consent"><input type="checkbox" name="datenschutz" value="ja" required> Ich stimme zu, dass meine Angaben zur Beantwortung der Anfrage verarbeitet werden. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</label>
+<label class="consent"><input type="checkbox" name="rueckruf" value="ja"> <span>Bitte rufen Sie mich zurück.</span></label>
+<label class="consent"><input type="checkbox" name="datenschutz" value="ja" required> <span>Ich stimme zu, dass meine Angaben zur Beantwortung der Anfrage verarbeitet werden. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span></label>
 <button class="btn btn-dark btn-lg" type="submit">Anfrage absenden</button>
 <p class="form-status" role="status" hidden></p>
 </form>
@@ -577,6 +579,56 @@ def inquiry_page():
 '''
     s += footer()
     write('anfrage.html', s)
+
+def termin_page():
+    opts = ''.join(f'<option>{E(p["nav"])} ({AREAS[p["area"]]["nav"]})</option>' for p in PAGES)
+    s = head('Beratungstermin vor Ort – METALLFUX Wien', 'Freie Termine für eine Beratung vor Ort in Wien, Niederösterreich und im Burgenland ansehen und unverbindlich anfragen.', 'termin.html') + header('termin')
+    s += crumbs([('Startseite', 'index.html'), ('Beratungstermin', None)])
+    s += f'''<section class="section" style="padding-top:24px"><div class="wrap termin-wrap">
+<div class="termin-intro">
+<div class="eyebrow">Beratung vor Ort</div>
+<h1 class="h2" style="font-size:clamp(34px,4.4vw,54px)">Wunschtermin wählen.</h1>
+<p class="lead">Wir kommen zu Ihnen, sehen uns die Einbausituation an, beraten Sie und nehmen Maß. Wählen Sie einen freien Termin. Sie bekommen innerhalb von 12 Stunden eine Bestätigung von uns.</p>
+<ul class="checks">
+<li>{CHECK}Rund 60 Minuten vor Ort</li>
+<li>{CHECK}Mo–Fr zwischen 9 und 17 Uhr</li>
+<li>{CHECK}In Wien, Niederösterreich und im Burgenland</li>
+<li>{CHECK}Unverbindlich, erst nach unserer Bestätigung fix</li>
+</ul>
+<p class="hint">Kein passender Termin dabei? Rufen Sie uns an unter <a href="tel:{SITE['tel_link']}">{SITE['tel']}</a> oder schicken Sie eine <a href="anfrage.html">Anfrage</a>.</p>
+</div>
+<div class="termin-app" id="termin-app" data-api="termine.php">
+<p class="termin-demo" hidden>Vorschau: Die Zeiten hier sind Beispiele. Auf der fertigen Website kommen sie live aus Ihrem Kalender.</p>
+<div class="termin-step"><div class="termin-label"><span>1</span> Tag wählen</div>
+<div class="termin-days" role="listbox" aria-label="Verfügbare Tage"><p class="hint">Freie Termine werden geladen …</p></div></div>
+<div class="termin-step" hidden><div class="termin-label"><span>2</span> Uhrzeit wählen</div>
+<div class="termin-slots" role="listbox" aria-label="Freie Uhrzeiten"></div></div>
+<form class="form termin-form" id="termin-form" action="termine.php" method="post" novalidate hidden>
+<div class="termin-label"><span>3</span> Ihre Angaben</div>
+<div class="termin-wahl" aria-live="polite"></div>
+<input type="hidden" name="termin" value="">
+<div class="fields">
+<div class="field"><label class="lbl" for="t-name">Name</label><input id="t-name" name="name" type="text" autocomplete="name" required></div>
+<div class="field"><label class="lbl" for="t-tel">Telefon</label><input id="t-tel" name="telefon" type="tel" autocomplete="tel" required></div>
+</div>
+<div class="field"><label class="lbl" for="t-mail">E-Mail</label><input id="t-mail" name="email" type="email" autocomplete="email" required></div>
+<div class="field"><label class="lbl" for="t-adr">Straße und Hausnummer</label><input id="t-adr" name="adresse" type="text" autocomplete="street-address"></div>
+<div class="fields">
+<div class="field" style="flex:1 1 120px"><label class="lbl" for="t-plz">PLZ</label><input id="t-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" required></div>
+<div class="field" style="flex:2 1 200px"><label class="lbl" for="t-ort">Ort</label><input id="t-ort" name="ort" type="text" autocomplete="address-level2" required></div>
+</div>
+<div class="field"><label class="lbl" for="t-produkt">Worum geht es?</label><select id="t-produkt" name="produkt">{opts}<option>Etwas anderes</option></select></div>
+<div class="field"><label class="lbl" for="t-text">Nachricht <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="t-text" name="nachricht" rows="3"></textarea></div>
+<div class="hp" aria-hidden="true"><label for="t-web">Website</label><input id="t-web" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+<label class="consent"><input type="checkbox" name="datenschutz" value="ja" required> <span>Ich stimme zu, dass meine Angaben zur Vereinbarung des Termins verarbeitet werden. Mehr dazu in der <a href="datenschutz.html">Datenschutzerklärung</a>.</span></label>
+<button class="btn btn-orange btn-lg" type="submit">Termin unverbindlich anfragen</button>
+<p class="form-status" role="status" hidden></p>
+</form>
+</div>
+</div></section>
+'''
+    s += footer()
+    write('termin.html', s)
 
 # ---------- Rechtstexte (Vorlagen) ----------
 def imp_f(k):
@@ -600,7 +652,8 @@ Gewerbebehörde: {imp_f('behoerde')}<br>Anwendbare Rechtsvorschriften: Gewerbeor
     ds = f'''<h1 class="h2">Datenschutzerklärung</h1>
 <p class="todo">Entwurf: Diese Vorlage deckt Kontaktformular und Server-Logfiles ab. Bitte vor dem Livegang rechtlich prüfen lassen.</p>
 <h2>Verantwortlicher</h2><p>{SITE['firma']}, {SITE['strasse']}, {SITE['ort']}, {SITE['mail']}</p>
-<h2>Anfrageformular und E-Mail</h2><p>Wenn Sie uns über das Formular oder per E-Mail kontaktieren, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Ort des Vorhabens, Nachricht und hochgeladene Dateien), um Ihre Anfrage zu beantworten und einen Kostenvoranschlag zu erstellen (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden gelöscht, sobald sie dafür nicht mehr nötig sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+<h2>Anfrage, Terminanfrage und E-Mail</h2><p>Wenn Sie uns über ein Formular oder per E-Mail kontaktieren, verarbeiten wir Ihre Angaben (Name, Kontaktdaten, Ort des Vorhabens, Nachricht und hochgeladene Dateien), um Ihre Anfrage zu beantworten und einen Kostenvoranschlag zu erstellen (Art. 6 Abs. 1 lit. b DSGVO). Die Daten werden gelöscht, sobald sie dafür nicht mehr nötig sind und keine gesetzlichen Aufbewahrungspflichten bestehen.</p>
+<h2>Terminkalender</h2><p>Die angezeigten freien Zeiten ermittelt unser Server aus unserem eigenen Kalender. Beim Aufruf der Terminseite werden keine Daten an Kalenderanbieter oder andere Dritte übermittelt. Ihre Terminanfrage (Wunschtermin, Name, Kontaktdaten, Adresse und Nachricht) erhalten wir per E-Mail und verwenden sie nur, um den Termin mit Ihnen zu vereinbaren (Art. 6 Abs. 1 lit. b DSGVO).</p>
 <h2>Server-Logfiles</h2><p>Unser Hosting-Anbieter [ALL-INKL.COM – Neue Medien Münnich, Deutschland] speichert beim Aufruf der Website technisch notwendige Daten (z. B. IP-Adresse, Zeitpunkt, aufgerufene Seite), um den Betrieb und die Sicherheit zu gewährleisten (Art. 6 Abs. 1 lit. f DSGVO).</p>
 <h2>Schriftarten</h2><p>Die verwendeten Schriftarten sind auf unserem Server gespeichert. Beim Aufruf der Website werden dafür keine Daten an Dritte übermittelt.</p>
 <h2>Cookies und Tracking</h2><p>Diese Website setzt keine Cookies und verwendet keine Analyse- oder Werbedienste.</p>
@@ -626,7 +679,8 @@ def main():
     shutil.copytree(os.path.join(BASE, 'static', 'css'), os.path.join(OUT, 'css'))
     shutil.copytree(os.path.join(BASE, 'static', 'js'), os.path.join(OUT, 'js'))
     shutil.copytree(os.path.join(BASE, 'static', 'fonts'), os.path.join(OUT, 'fonts'))
-    shutil.copy(os.path.join(BASE, 'static', 'anfrage.php'), OUT)
+    for n in ('anfrage.php', 'termine.php', 'termine-config.php'):
+        shutil.copy(os.path.join(BASE, 'static', n), OUT)
     shutil.copy(os.path.join(BASE, 'static', '.htaccess'), OUT)
     os.makedirs(os.path.join(OUT, 'img', 'thumb'), exist_ok=True)
     for n in ('planung-3d.jpg', 'planung-3d.webp', 'planung-3d-mobil.jpg', 'planung-3d-mobil.webp'):
@@ -638,7 +692,7 @@ def main():
         product_page(p)
         if p.get('materials'):
             for mk, m in mat_list(p): material_page(p, mk, m)
-    ref_page(); about_page(); inquiry_page(); legal_pages()
+    ref_page(); about_page(); inquiry_page(); termin_page(); legal_pages()
     print('ok', 'LIVE' if LIVE else 'Vorschau', len(REFS), 'Referenzen')
 
 if __name__ == '__main__':

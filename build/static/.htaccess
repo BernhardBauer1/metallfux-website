@@ -11,6 +11,12 @@ RewriteCond %{REQUEST_FILENAME} !-d
 RewriteCond %{REQUEST_FILENAME}.html -f
 RewriteRule ^(.+?)/?$ $1.html [L]
 
+# Kalender-Einstellung und Zwischenspeicher nicht öffentlich
+<Files "termine-config.php">
+Require all denied
+</Files>
+RewriteRule ^termine-cache/ - [F,L]
+
 # Uploads für das Anfrageformular (falls der Tarif es erlaubt)
 <IfModule mod_php.c>
 php_value upload_max_filesize 20M

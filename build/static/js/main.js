@@ -164,4 +164,99 @@
         .finally(function () { status.hidden = false; btn.disabled = false; btn.textContent = 'Anfrage absenden'; });
     });
   }
+  // ---------- Beratungstermin ----------
+  var app = document.getElementById('termin-app');
+  if (app) {
+    var daysEl = app.querySelector('.termin-days');
+    var slotStep = app.querySelector('.termin-slots').parentNode;
+    var slotsEl = app.querySelector('.termin-slots');
+    var tform = document.getElementById('termin-form');
+    var wahlEl = tform.querySelector('.termin-wahl');
+    var tstatus = tform.querySelector('.form-status');
+    var WT = ['So', 'Mo', 'Di', 'Mi', 'Do', 'Fr', 'Sa'];
+    var WTL = ['Sonntag', 'Montag', 'Dienstag', 'Mittwoch', 'Donnerstag', 'Freitag', 'Samstag'];
+    var MON = ['Jänner', 'Februar', 'März', 'April', 'Mai', 'Juni', 'Juli', 'August', 'September', 'Oktober', 'November', 'Dezember'];
+    var echteSeite = /metallfux-wien\.at$/.test(location.hostname);
+    var daten = {}, tag = null;
+
+    function d(iso) { var p = iso.split('-'); return new Date(+p[0], +p[1] - 1, +p[2]); }
+    function demo() {
+      var out = {}, t = new Date(); t.setHours(0, 0, 0, 0);
+      for (var i = 1, n = 0; n < 18 && i < 40; i++) {
+        var x = new Date(t.getTime() + i * 864e5), w = x.getDay();
+        if (w === 0 || w === 6) continue;
+        var iso = x.getFullYear() + '-' + ('0' + (x.getMonth() + 1)).slice(-2) + '-' + ('0' + x.getDate()).slice(-2);
+        out[iso] = ['09:00', '10:00', '11:00', '12:00', '13:00', '14:00', '15:00', '16:00'].filter(function (s, k) { return (k * 7 + i * 3) % 5 > 1; });
+        n++;
+      }
+      return out;
+    }
+    function zeigeTage() {
+      var keys = Object.keys(daten).filter(function (k) { return daten[k].length; });
+      if (!keys.length) { daysEl.innerHTML = '<p class="hint">Derzeit sind keine freien Termine online verfügbar. Bitte rufen Sie uns an.</p>'; return; }
+      daysEl.innerHTML = '';
+      keys.forEach(function (k) {
+        var x = d(k), b = document.createElement('button');
+        b.type = 'button'; b.className = 'termin-day'; b.setAttribute('role', 'option'); b.dataset.tag = k;
+        b.innerHTML = '<small>' + WT[x.getDay()] + '</small><b>' + x.getDate() + '.' + (x.getMonth() + 1) + '.</b><small>' + daten[k].length + ' frei</small>';
+        b.addEventListener('click', function () { waehleTag(k); });
+        daysEl.appendChild(b);
+      });
+    }
+    function waehleTag(k) {
+      tag = k;
+      daysEl.querySelectorAll('.termin-day').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.tag === k ? 'true' : 'false'); });
+      slotsEl.innerHTML = '';
+      daten[k].forEach(function (z) {
+        var b = document.createElement('button');
+        b.type = 'button'; b.className = 'termin-slot'; b.setAttribute('role', 'option'); b.textContent = z + ' Uhr'; b.dataset.zeit = z;
+        b.addEventListener('click', function () { waehleZeit(z); });
+        slotsEl.appendChild(b);
+      });
+      slotStep.hidden = false; tform.hidden = true;
+      slotStep.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    }
+    function waehleZeit(z) {
+      slotsEl.querySelectorAll('.termin-slot').forEach(function (b) { b.setAttribute('aria-selected', b.dataset.zeit === z ? 'true' : 'false'); });
+      var x = d(tag);
+      tform.elements.termin.value = tag + ' ' + z;
+      wahlEl.innerHTML = 'Ihr Wunschtermin: <b>' + WTL[x.getDay()] + ', ' + x.getDate() + '. ' + MON[x.getMonth()] + ' um ' + z + ' Uhr</b>';
+      tform.hidden = false; tstatus.hidden = true;
+      tform.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+    function laden() {
+      fetch(app.dataset.api + '?slots=1', { cache: 'no-store' })
+        .then(function (r) { return r.json(); })
+        .then(function (res) { if (!res || !res.ok) throw new Error(res && res.error || 'fail'); daten = res.slots || {}; zeigeTage(); })
+        .catch(function () {
+          if (!echteSeite) { app.querySelector('.termin-demo').hidden = false; daten = demo(); zeigeTage(); return; }
+          daysEl.innerHTML = '<p class="hint">Die freien Termine können gerade nicht geladen werden. Bitte rufen Sie uns an (0664 9917 1224) oder schicken Sie eine <a href="anfrage.html">Anfrage</a>.</p>';
+        });
+    }
+    laden();
+    tform.addEventListener('submit', function (e) {
+      e.preventDefault();
+      var btn = tform.querySelector('button[type=submit]');
+      if (!tform.checkValidity()) { tform.reportValidity(); return; }
+      btn.disabled = true; btn.textContent = 'Wird gesendet …';
+      fetch(tform.getAttribute('action'), { method: 'POST', body: new FormData(tform) })
+        .then(function (r) { return r.json().catch(function () { return { ok: false }; }); })
+        .then(function (res) {
+          if (res && res.ok) {
+            tstatus.className = 'form-status ok';
+            tstatus.textContent = 'Danke! Ihre Terminanfrage ist bei uns angekommen. Sie bekommen innerhalb von 12 Stunden eine Bestätigung.';
+            tform.querySelectorAll('.field, .fields, .consent, button[type=submit]').forEach(function (el) { el.hidden = true; });
+          } else {
+            if (res && res.vergeben) { daten[tag] = daten[tag].filter(function (z) { return z !== tform.elements.termin.value.slice(11); }); zeigeTage(); waehleTag(tag); }
+            throw new Error(res && res.error ? res.error : 'fail');
+          }
+        })
+        .catch(function (err) {
+          tstatus.className = 'form-status err';
+          tstatus.textContent = (err && err.message && err.message !== 'fail' && err.message.indexOf('Failed') === -1 ? err.message + ' ' : '') +
+            (echteSeite ? 'Falls es nicht klappt: 0664 9917 1224 oder office@metallfux-wien.at.' : 'In der Vorschau wird nichts verschickt.');
+        })
+        .finally(function () { tstatus.hidden = false; btn.disabled = false; btn.textContent = 'Termin unverbindlich anfragen'; });
+    });
+  }
 })();

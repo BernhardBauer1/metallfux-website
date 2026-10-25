@@ -204,6 +204,9 @@ p{margin:0}
 .choice label:has(input:checked){border:2px solid var(--anthrazit);font-weight:700}
 .choice input,.consent input{width:18px;height:18px;accent-color:var(--anthrazit)}
 .field{display:flex;flex-direction:column;gap:6px;flex:1 1 200px;min-width:0}
+[hidden]{display:none!important}
+.form>.field{flex:none}
+.nav-link{white-space:nowrap}
 .fields{display:flex;flex-wrap:wrap;gap:18px 16px}
 .form input[type=text],.form input[type=email],.form input[type=tel],.form select,.form textarea{font:inherit;font-size:16px;min-height:52px;padding:0 14px;border:1px solid #8A8A8A;border-radius:3px;background:var(--white);color:var(--text);width:100%}
 .form textarea{padding:12px 14px;resize:vertical;min-height:110px}
@@ -376,3 +379,25 @@ p{margin:0}
   .m-bar a:last-child{border-right:0}
   .m-bar .m-bar-main{background:var(--orange);color:var(--ink)}
 }
+
+/* Beratungstermin */
+.termin-wrap{display:flex;flex-wrap:wrap;gap:40px 64px;align-items:flex-start}
+.termin-intro{flex:1 1 340px;min-width:0;display:flex;flex-direction:column;gap:18px}
+.termin-intro .checks{margin:0}
+.termin-app{flex:1.4 1 520px;min-width:0;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:clamp(20px,3vw,32px);display:flex;flex-direction:column;gap:26px}
+.termin-label{display:flex;align-items:center;gap:10px;font-family:var(--font-head);font-weight:700;font-size:17px;margin-bottom:12px}
+.termin-label span{display:inline-flex;align-items:center;justify-content:center;width:28px;height:28px;border-radius:50%;background:var(--ink);color:var(--white);font-size:14px}
+.termin-days{display:grid;grid-template-columns:repeat(auto-fill,minmax(86px,1fr));gap:8px}
+.termin-day,.termin-slot{font:inherit;cursor:pointer;background:var(--white);color:var(--ink);border:1px solid #8A8A8A;border-radius:3px;transition:border-color .15s,background-color .15s}
+.termin-day{display:flex;flex-direction:column;align-items:center;gap:2px;padding:10px 6px}
+.termin-day b{font-family:var(--font-head);font-size:18px}
+.termin-day small{font-size:12px;color:var(--muted)}
+.termin-slots{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px}
+.termin-slot{min-height:48px;font-weight:700}
+.termin-day:hover,.termin-slot:hover{border-color:var(--ink)}
+.termin-day[aria-selected="true"],.termin-slot[aria-selected="true"]{background:var(--ink);color:var(--white);border-color:var(--ink)}
+.termin-day[aria-selected="true"] small{color:var(--hellgrau)}
+.termin-day:focus-visible,.termin-slot:focus-visible{outline:3px solid var(--orange);outline-offset:2px}
+.termin-form{padding:0;border-top:1px solid var(--line);padding-top:24px;border-radius:0}
+.termin-wahl{background:#FFF3E3;border-left:4px solid var(--orange);padding:12px 16px;border-radius:3px}
+.termin-demo{margin:0;font-size:14px;background:#FFF3E3;border:1px dashed var(--orange);color:#6A3D0C;padding:10px 14px;border-radius:3px}

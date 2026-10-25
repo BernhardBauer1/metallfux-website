@@ -1,7 +1,7 @@
 import os, re, shutil, sys
 S=sys.argv[1]; src=os.path.join(S,'site'); dst=os.path.join(S,'site-artifact')
 if os.path.isdir(dst): shutil.rmtree(dst)
-shutil.copytree(src, dst, ignore=shutil.ignore_patterns('anfrage.php','.htaccess'))
+shutil.copytree(src, dst, ignore=shutil.ignore_patterns('*.php','.htaccess'))
 p=os.path.join(dst,'index.html'); s=open(p,encoding='utf-8').read()
 headm=re.search(r'<head>(.*?)</head>', s, re.S).group(1)
 headm=re.sub(r'<meta charset[^>]*>\s*|<meta name="viewport"[^>]*>\s*','',headm)
