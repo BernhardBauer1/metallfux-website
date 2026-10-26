@@ -361,7 +361,7 @@ def index_page():
     for key, kicker, title, text in [
         ('aussen-balkon-terrasse', 'Außenbereich', 'Balkon- und Terrassengeländer', 'Nurglas, Edelstahl-Glas und Stahl für Balkon und Dach.'),
         ('innen-treppengelaender', 'Innenbereich', 'Treppen- und Galeriegeländer', 'Glas, Edelstahl und Stahl für Stiegenhaus und Galerie.'),
-        ('aussentreppen', 'Außenbereich', 'Außentreppen', 'Stahltreppen für Terrasse, Garten und Pool.')]:
+        ('aussentreppen', 'Außenbereich', 'Außentreppen', 'Stahltreppen für Terrasse, Balkon und Garten.')]:
         ims = imgs(key)
         im = ims[2] if len(ims) > 2 else (ims[0] if ims else None)
         img = f'<div class="img"><img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy"></div>' if im else ''

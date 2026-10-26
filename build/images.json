@@ -2443,7 +2443,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2453,7 +2453,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2463,7 +2463,7 @@
    "h": 1125,
    "tw": 900,
    "th": 675,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2473,7 +2473,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2483,7 +2483,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2493,7 +2493,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2503,7 +2503,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2513,7 +2513,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2523,7 +2523,7 @@
    "h": 800,
    "tw": 900,
    "th": 720,
-   "alt": "Außentreppen, Pool- und Seetreppen – Außentreppe",
+   "alt": "Außentreppen – Außentreppe",
    "placeholder": false
   },
   {
@@ -2533,7 +2533,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Spindeltreppe",
+   "alt": "Außentreppen – Spindeltreppe",
    "placeholder": false
   },
   {
@@ -2543,7 +2543,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Spindeltreppe",
+   "alt": "Außentreppen – Spindeltreppe",
    "placeholder": false
   },
   {
@@ -2553,27 +2553,7 @@
    "h": 1080,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Spindeltreppe",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussentreppen-12.jpg",
-   "thumb": "img/thumb/aussentreppen-12.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Seetreppe",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussentreppen-13.jpg",
-   "thumb": "img/thumb/aussentreppen-13.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Seetreppe",
+   "alt": "Außentreppen – Spindeltreppe",
    "placeholder": false
   },
   {
@@ -2583,7 +2563,7 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen, Pool- und Seetreppen – Nurglasgeländer",
+   "alt": "Außentreppen – Nurglasgeländer",
    "placeholder": false
   }
  ],
@@ -2879,6 +2859,28 @@
    "placeholder": false,
    "mat": null,
    "src": "Duschanlage_9.jpg"
+  }
+ ],
+ "seetreppen": [
+  {
+   "file": "img/aussentreppen-12.jpg",
+   "thumb": "img/thumb/aussentreppen-12.jpg",
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen – Seetreppe",
+   "placeholder": false
+  },
+  {
+   "file": "img/aussentreppen-13.jpg",
+   "thumb": "img/thumb/aussentreppen-13.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen – Seetreppe",
+   "placeholder": false
   }
  ]
 }

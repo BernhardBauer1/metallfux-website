@@ -229,12 +229,18 @@ PAGES = [
          variants=['handlauf-edelstahl', 'handlauf-aussen-stahl'],
          cross=('innen-handlaeufe', 'Sie suchen einen Handlauf für innen?'),
          card='Halt an Eingang, Rampe und Gartenstiege.'),
-    dict(slug='aussentreppen', area='aussen', nav='Außentreppen, Pool und See', short='Stahlwangen · Spindel · Pool',
-         title='Außentreppen, Pool- und Seetreppen', h1='Außentreppen, Pool- und Seetreppen',
-         lead='Vom Garten auf die Terrasse, vom Balkon in den Hof oder ins Wasser: Wir planen und montieren Außentreppen aus Stahl, auf Wunsch mit passendem Geländer.',
-         variants=['aussen-wangen', 'spindel', 'holm', 'pool', 'see', 'rfk'],
+    dict(slug='aussentreppen', area='aussen', nav='Außentreppen', short='Stahlwangen · Spindel · Holm',
+         title='Außentreppen', h1='Außentreppen aus Stahl',
+         lead='Vom Garten auf die Terrasse, vom Balkon in den Hof oder aufs Dach: Wir planen und montieren Außentreppen aus Stahl, auf Wunsch mit passendem Geländer.',
+         variants=['aussen-wangen', 'spindel', 'holm', 'rfk'],
          cross=('innentreppen', 'Sie suchen eine Treppe für innen?'),
-         card='Stahltreppen für Terrasse, Garten, Pool und See.'),
+         card='Stahltreppen für Terrasse, Balkon und Garten.'),
+    dict(slug='seetreppen', area='aussen', nav='Seetreppen', short='Badesee · Teich · Pool',
+         title='Seetreppen und Pooltreppen', h1='Seetreppen und Pooltreppen',
+         lead='Ein sicherer Einstieg ins Wasser: Wir fertigen Seetreppen für Badesee und Teich sowie Pooltreppen aus Edelstahl, jeweils nach Maß.',
+         variants=['see', 'pool'],
+         cross=('aussentreppen', 'Sie suchen eine Treppe für Garten oder Terrasse?'),
+         card='Sicherer Einstieg in Badesee, Teich und Pool.'),
 ]
 
 AREAS = {

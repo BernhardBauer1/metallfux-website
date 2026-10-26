@@ -1,5 +1,5 @@
 {
- "_note": "Format: [Ordnernummer, Bildnummer im Kontaktbogen]. Ordnernummern laut sheets2.py (sortierte Ordner in Pr\u00e4sentation).",
+ "_note": "Format: [Ordnernummer, Bildnummer im Kontaktbogen]. Ordnernummern laut sheets2.py (sortierte Ordner in Präsentation).",
  "hero": [
   [
    15,
@@ -1053,14 +1053,6 @@
    13
   ],
   [
-   31,
-   5
-  ],
-  [
-   31,
-   9
-  ],
-  [
    4,
    35
   ]
@@ -1209,6 +1201,16 @@
   [
    33,
    21
+  ]
+ ],
+ "seetreppen": [
+  [
+   31,
+   5
+  ],
+  [
+   31,
+   9
   ]
  ]
 }
