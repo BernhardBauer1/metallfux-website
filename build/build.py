@@ -441,7 +441,7 @@ def index_page():
 <div class="overview-grid">{extra}</div>
 </div></section>
 '''
-    s += gebiet_section() + faq_section() + cta_band() + footer()
+    s += gebiet_section() + cta_band() + footer()
     write('index.html', s)
 
 BAND = [
