@@ -424,9 +424,6 @@ p{margin:0}
 @keyframes linie{from{transform:scaleX(0)}to{transform:scaleX(1)}}
 /* gestaffeltes Einblenden */
 .reveal-in{transition-delay:var(--d,0s)}
-/* Fotos wie ein Vorhang */
-.reveal-in img{animation:vorhang 1.1s calc(var(--d,0s) + .1s) cubic-bezier(.65,0,.25,1) both}
-@keyframes vorhang{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
 /* Projekt-Band */
 .photo-band{background:var(--ink);padding:clamp(56px,8vw,104px) 0;overflow:hidden;display:flex;flex-direction:column;gap:clamp(28px,4vw,44px)}
 .photo-band>.wrap{width:100%}
