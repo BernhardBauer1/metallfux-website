@@ -472,3 +472,8 @@ p{margin:0}
 .pg-links a:hover svg{transform:translateX(3px)}
 @media (max-width:900px){.pg-grid{grid-template-columns:1fr}.pg-img{aspect-ratio:16/9}}
 @media (max-width:600px){.pg-grid{grid-template-columns:1fr}.pg-img{aspect-ratio:16/9}}
+/* Meistersiegel */
+.meister{display:flex;align-items:center;gap:16px;flex-wrap:wrap}
+.meister img{height:96px;width:auto}
+.meister-ph{width:96px;height:96px;border-radius:50%;border:2px dashed var(--orange);display:flex;align-items:center;justify-content:center;text-align:center;font-family:var(--font-head);font-weight:700;font-size:12px;line-height:1.2;color:var(--orange);padding:8px}
+.meister .todo{max-width:320px;margin:0}

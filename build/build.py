@@ -341,6 +341,14 @@ def area_page(key):
     s += cta_band() + footer()
     write(f"{a['slug']}.html", s)
 
+MEISTER = os.path.join(BASE, '..', 'assets', 'meistersiegel.png')
+def meister_siegel():
+    if os.path.exists(MEISTER):
+        return '<div class="meister"><img src="img/meistersiegel.png" alt="Meisterbetrieb" height="96" loading="lazy"></div>'
+    if LIVE:
+        return ''
+    return '<div class="meister"><div class="meister-ph">Meister&shy;siegel</div><p class="todo">Platzhalter: offizielle Grafik des Meistersiegels fehlt noch.</p></div>'
+
 # ---------- Startseite: Produkt-Kacheln ----------
 PRODUKT_GRUPPEN = [
     ('Geländer', 'Für Treppe, Galerie, Balkon und Terrasse.', ('aussen-balkon-terrasse', 1),
@@ -426,6 +434,7 @@ def index_page():
 <h2 class="h2" id="about-h">Ein Ansprechpartner. Von der Skizze bis zur Montage.</h2>
 <p class="lead">Bei METALLFUX sprechen Sie nicht mit einer Hotline, sondern mit dem, der Ihr Geländer plant und die Montage begleitet. Kurze Wege, klare Absprachen.</p>
 <div class="person"><b>{SITE['gf']}</b><span>Geschäftsführer</span></div>
+{meister_siegel()}
 <address>{SITE['firma']} · {SITE['strasse']}, {SITE['ort']}</address>
 <div class="btns"><a class="btn btn-orange" href="ueber-uns.html">Mehr über uns</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div>
 </div>
@@ -731,6 +740,8 @@ def main():
     os.makedirs(os.path.join(OUT, 'img', 'thumb'), exist_ok=True)
     for n in ('planung-3d.jpg', 'planung-3d.webp', 'planung-3d-mobil.jpg', 'planung-3d-mobil.webp'):
         shutil.copy(os.path.join(BASE, '..', 'assets', n), os.path.join(OUT, 'img', n))
+    if os.path.exists(MEISTER):
+        shutil.copy(MEISTER, os.path.join(OUT, 'img', 'meistersiegel.png'))
     shutil.copy(os.path.join(BASE, '..', 'assets', 'planung-3d-thumb.jpg'), os.path.join(OUT, 'img', 'thumb', 'planung-3d.jpg'))
     index_page()
     for k in AREAS: area_page(k)
