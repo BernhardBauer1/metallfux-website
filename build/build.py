@@ -101,6 +101,7 @@ def footer():
 <address>{SITE['firma']}<br>{SITE['strasse']}<br>{SITE['ort']}</address>
 <div><a href="tel:{SITE['tel_link']}">{SITE['tel']}</a><br><a href="mailto:{SITE['mail']}">{SITE['mail']}</a></div>
 <div class="hint" style="color:var(--on-dark-muted)">Einsatzgebiet: {SITE['gebiet']}</div>
+{meister_siegel()}
 </div>
 <div><h4><a href="innenbereich.html" style="padding:0;color:inherit">Innenbereich</a></h4>{col('innen')}</div>
 <div><h4><a href="aussenbereich.html" style="padding:0;color:inherit">Außenbereich</a></h4>{col('aussen')}</div>
@@ -344,7 +345,7 @@ def area_page(key):
 MEISTER = os.path.join(BASE, '..', 'assets', 'meistersiegel.png')
 def meister_siegel():
     if os.path.exists(MEISTER):
-        return '<div class="meister"><img src="img/meistersiegel.png" alt="Meisterbetrieb" height="96" loading="lazy"></div>'
+        return '<div class="meister"><img src="img/meistersiegel.png" alt="Meisterbetrieb" width="88" height="88" loading="lazy"></div>'
     if LIVE:
         return ''
     return '<div class="meister"><div class="meister-ph">Meister&shy;siegel</div><p class="todo">Platzhalter: offizielle Grafik des Meistersiegels fehlt noch.</p></div>'
@@ -434,7 +435,6 @@ def index_page():
 <h2 class="h2" id="about-h">Ein Ansprechpartner. Von der Skizze bis zur Montage.</h2>
 <p class="lead">Bei METALLFUX sprechen Sie nicht mit einer Hotline, sondern mit dem, der Ihr Geländer plant und die Montage begleitet. Kurze Wege, klare Absprachen.</p>
 <div class="person"><b>{SITE['gf']}</b><span>Geschäftsführer</span></div>
-{meister_siegel()}
 <address>{SITE['firma']} · {SITE['strasse']}, {SITE['ort']}</address>
 <div class="btns"><a class="btn btn-orange" href="ueber-uns.html">Mehr über uns</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div>
 </div>
