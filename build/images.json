@@ -2567,68 +2567,6 @@
    "placeholder": false
   }
  ],
- "ref-michelhausen": [
-  {
-   "file": "img/ref-michelhausen-00.jpg",
-   "thumb": "img/thumb/ref-michelhausen-00.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Wohnhausanlage Michelhausen – Geländer mit Sonderfüllung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ref-michelhausen-01.jpg",
-   "thumb": "img/thumb/ref-michelhausen-01.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Wohnhausanlage Michelhausen – Geländer mit Sonderfüllung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ref-michelhausen-02.jpg",
-   "thumb": "img/thumb/ref-michelhausen-02.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Wohnhausanlage Michelhausen – Geländer mit Sonderfüllung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ref-michelhausen-03.jpg",
-   "thumb": "img/thumb/ref-michelhausen-03.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Wohnhausanlage Michelhausen – Geländer mit Sonderfüllung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ref-michelhausen-04.jpg",
-   "thumb": "img/thumb/ref-michelhausen-04.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Wohnhausanlage Michelhausen – Geländer mit Sonderfüllung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ref-michelhausen-05.jpg",
-   "thumb": "img/thumb/ref-michelhausen-05.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Wohnhausanlage Michelhausen – Geländer mit Sonderfüllung",
-   "placeholder": false
-  }
- ],
  "ueberdachungen": [
   {
    "file": "img/ueberdachungen-00.jpg",
@@ -2881,6 +2819,722 @@
    "th": 900,
    "alt": "Seetreppen und Pooltreppen – Seetreppe",
    "placeholder": false
+  }
+ ],
+ "ref-breitenfurt": [
+  {
+   "file": "img/ref-breitenfurt-00.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Breitenfurt – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4534.jpg"
+  },
+  {
+   "file": "img/ref-breitenfurt-01.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Breitenfurt – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4540.jpg"
+  },
+  {
+   "file": "img/ref-breitenfurt-02.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Breitenfurt – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4549.jpg"
+  },
+  {
+   "file": "img/ref-breitenfurt-03.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Breitenfurt – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4550.jpg"
+  },
+  {
+   "file": "img/ref-breitenfurt-04.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Breitenfurt – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_9351.jpg"
+  },
+  {
+   "file": "img/ref-breitenfurt-05.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Breitenfurt – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_9355.jpg"
+  }
+ ],
+ "ref-harmannsdorf": [
+  {
+   "file": "img/ref-harmannsdorf-00.jpg",
+   "thumb": "img/thumb/ref-harmannsdorf-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Stiegenhaus Harmannsdorf – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0039.jpg"
+  },
+  {
+   "file": "img/ref-harmannsdorf-01.jpg",
+   "thumb": "img/thumb/ref-harmannsdorf-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Stiegenhaus Harmannsdorf – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2817.JPEG"
+  },
+  {
+   "file": "img/ref-harmannsdorf-02.jpg",
+   "thumb": "img/thumb/ref-harmannsdorf-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Stiegenhaus Harmannsdorf – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2818.JPEG"
+  }
+ ],
+ "ref-hoeflein": [
+  {
+   "file": "img/ref-hoeflein-00.jpg",
+   "thumb": "img/thumb/ref-hoeflein-00.jpg",
+   "w": 1012,
+   "h": 1800,
+   "tw": 506,
+   "th": 900,
+   "alt": "Einfamilienhaus Höflein – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20231115_123731000_iOS.jpg"
+  },
+  {
+   "file": "img/ref-hoeflein-01.jpg",
+   "thumb": "img/thumb/ref-hoeflein-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Höflein – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20231115_131249458_iOS.heic"
+  },
+  {
+   "file": "img/ref-hoeflein-02.jpg",
+   "thumb": "img/thumb/ref-hoeflein-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Höflein – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20231115_131332658_iOS.heic"
+  },
+  {
+   "file": "img/ref-hoeflein-03.jpg",
+   "thumb": "img/thumb/ref-hoeflein-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Höflein – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20231115_132404274_iOS.heic"
+  },
+  {
+   "file": "img/ref-hoeflein-04.jpg",
+   "thumb": "img/thumb/ref-hoeflein-04.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Einfamilienhaus Höflein – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20231115_133320000_iOS.jpg"
+  },
+  {
+   "file": "img/ref-hoeflein-05.jpg",
+   "thumb": "img/thumb/ref-hoeflein-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Höflein – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_1735.jpg"
+  }
+ ],
+ "ref-klosterneuburg": [
+  {
+   "file": "img/ref-klosterneuburg-00.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Klosterneuburg – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0941.jpg"
+  },
+  {
+   "file": "img/ref-klosterneuburg-01.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Klosterneuburg – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0943.jpg"
+  },
+  {
+   "file": "img/ref-klosterneuburg-02.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Klosterneuburg – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0945.jpg"
+  },
+  {
+   "file": "img/ref-klosterneuburg-03.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-03.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Wohnhaus Klosterneuburg – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0948.jpg"
+  },
+  {
+   "file": "img/ref-klosterneuburg-04.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-04.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Wohnhaus Klosterneuburg – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0950.jpg"
+  },
+  {
+   "file": "img/ref-klosterneuburg-05.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-05.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Wohnhaus Klosterneuburg – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2062.jpg"
+  }
+ ],
+ "ref-kroatien": [
+  {
+   "file": "img/ref-kroatien-00.jpg",
+   "thumb": "img/thumb/ref-kroatien-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Ferienhaus Kroatien – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230523_062514535_iOS.heic"
+  },
+  {
+   "file": "img/ref-kroatien-01.jpg",
+   "thumb": "img/thumb/ref-kroatien-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Ferienhaus Kroatien – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230523_091812025_iOS.heic"
+  },
+  {
+   "file": "img/ref-kroatien-02.jpg",
+   "thumb": "img/thumb/ref-kroatien-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Ferienhaus Kroatien – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230523_110905571_iOS.heic"
+  },
+  {
+   "file": "img/ref-kroatien-03.jpg",
+   "thumb": "img/thumb/ref-kroatien-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Ferienhaus Kroatien – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230523_164411528_iOS.heic"
+  },
+  {
+   "file": "img/ref-kroatien-04.jpg",
+   "thumb": "img/thumb/ref-kroatien-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Ferienhaus Kroatien – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230523_164459996_iOS.heic"
+  },
+  {
+   "file": "img/ref-kroatien-05.jpg",
+   "thumb": "img/thumb/ref-kroatien-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Ferienhaus Kroatien – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230523_164709476_iOS.heic"
+  }
+ ],
+ "ref-wien-1070": [
+  {
+   "file": "img/ref-wien-1070-00.jpg",
+   "thumb": "img/thumb/ref-wien-1070-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnbau Schottenfeldgasse, Wien 1070 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "dji_fly_20231120_125138_63_1700495632152_photo.JPG"
+  },
+  {
+   "file": "img/ref-wien-1070-01.jpg",
+   "thumb": "img/thumb/ref-wien-1070-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnbau Schottenfeldgasse, Wien 1070 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0239.jpg"
+  },
+  {
+   "file": "img/ref-wien-1070-02.jpg",
+   "thumb": "img/thumb/ref-wien-1070-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnbau Schottenfeldgasse, Wien 1070 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0245.jpg"
+  },
+  {
+   "file": "img/ref-wien-1070-03.jpg",
+   "thumb": "img/thumb/ref-wien-1070-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnbau Schottenfeldgasse, Wien 1070 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_0248.jpg"
+  },
+  {
+   "file": "img/ref-wien-1070-04.jpg",
+   "thumb": "img/thumb/ref-wien-1070-04.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Wohnbau Schottenfeldgasse, Wien 1070 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_3041.jpg"
+  },
+  {
+   "file": "img/ref-wien-1070-05.jpg",
+   "thumb": "img/thumb/ref-wien-1070-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnbau Schottenfeldgasse, Wien 1070 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_3042.jpg"
+  },
+  {
+   "file": "img/ref-wien-1070-06.jpg",
+   "thumb": "img/thumb/ref-wien-1070-06.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnbau Schottenfeldgasse, Wien 1070 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5300.jpg"
+  }
+ ],
+ "ref-wien-1090": [
+  {
+   "file": "img/ref-wien-1090-00.jpg",
+   "thumb": "img/thumb/ref-wien-1090-00.jpg",
+   "w": 1012,
+   "h": 1800,
+   "tw": 506,
+   "th": 900,
+   "alt": "Dachgeschoss Wien 1090 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230406_153647000_iOS.jpg"
+  },
+  {
+   "file": "img/ref-wien-1090-01.jpg",
+   "thumb": "img/thumb/ref-wien-1090-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachgeschoss Wien 1090 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230504_133540885_iOS.heic"
+  },
+  {
+   "file": "img/ref-wien-1090-02.jpg",
+   "thumb": "img/thumb/ref-wien-1090-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachgeschoss Wien 1090 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230504_133556678_iOS.heic"
+  },
+  {
+   "file": "img/ref-wien-1090-03.jpg",
+   "thumb": "img/thumb/ref-wien-1090-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachgeschoss Wien 1090 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230504_133626810_iOS.heic"
+  },
+  {
+   "file": "img/ref-wien-1090-04.jpg",
+   "thumb": "img/thumb/ref-wien-1090-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachgeschoss Wien 1090 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230504_133840508_iOS.heic"
+  },
+  {
+   "file": "img/ref-wien-1090-05.jpg",
+   "thumb": "img/thumb/ref-wien-1090-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachgeschoss Wien 1090 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "20230504_154206000_iOS.jpg"
+  }
+ ],
+ "ref-wien-1160": [
+  {
+   "file": "img/ref-wien-1160-00.jpg",
+   "thumb": "img/thumb/ref-wien-1160-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Wien 1160 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5323.jpg"
+  },
+  {
+   "file": "img/ref-wien-1160-01.jpg",
+   "thumb": "img/thumb/ref-wien-1160-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Wien 1160 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5325.jpg"
+  },
+  {
+   "file": "img/ref-wien-1160-02.jpg",
+   "thumb": "img/thumb/ref-wien-1160-02.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Wohnhaus Wien 1160 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5349.jpg"
+  },
+  {
+   "file": "img/ref-wien-1160-03.jpg",
+   "thumb": "img/thumb/ref-wien-1160-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Wien 1160 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5350.jpg"
+  },
+  {
+   "file": "img/ref-wien-1160-04.jpg",
+   "thumb": "img/thumb/ref-wien-1160-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Wien 1160 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5352.jpg"
+  },
+  {
+   "file": "img/ref-wien-1160-05.jpg",
+   "thumb": "img/thumb/ref-wien-1160-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Wohnhaus Wien 1160 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5356.jpg"
+  }
+ ],
+ "ref-wien-1190": [
+  {
+   "file": "img/ref-wien-1190-00.jpg",
+   "thumb": "img/thumb/ref-wien-1190-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachterrasse Wien 1190 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_1186.jpg"
+  },
+  {
+   "file": "img/ref-wien-1190-01.jpg",
+   "thumb": "img/thumb/ref-wien-1190-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachterrasse Wien 1190 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2257.jpg"
+  },
+  {
+   "file": "img/ref-wien-1190-02.jpg",
+   "thumb": "img/thumb/ref-wien-1190-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachterrasse Wien 1190 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2258.jpg"
+  },
+  {
+   "file": "img/ref-wien-1190-03.jpg",
+   "thumb": "img/thumb/ref-wien-1190-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachterrasse Wien 1190 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2259.jpg"
+  },
+  {
+   "file": "img/ref-wien-1190-04.jpg",
+   "thumb": "img/thumb/ref-wien-1190-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachterrasse Wien 1190 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2261.jpg"
+  },
+  {
+   "file": "img/ref-wien-1190-05.jpg",
+   "thumb": "img/thumb/ref-wien-1190-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Dachterrasse Wien 1190 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2264.jpg"
+  }
+ ],
+ "ref-wien-1210": [
+  {
+   "file": "img/ref-wien-1210-00.jpg",
+   "thumb": "img/thumb/ref-wien-1210-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Wien 1210 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2481.jpg"
+  },
+  {
+   "file": "img/ref-wien-1210-01.jpg",
+   "thumb": "img/thumb/ref-wien-1210-01.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Einfamilienhaus Wien 1210 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2484.jpg"
+  },
+  {
+   "file": "img/ref-wien-1210-02.jpg",
+   "thumb": "img/thumb/ref-wien-1210-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Wien 1210 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2492.jpg"
+  },
+  {
+   "file": "img/ref-wien-1210-03.jpg",
+   "thumb": "img/thumb/ref-wien-1210-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Wien 1210 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2495.jpg"
+  },
+  {
+   "file": "img/ref-wien-1210-04.jpg",
+   "thumb": "img/thumb/ref-wien-1210-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Wien 1210 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "Nurglas2.jpg"
+  },
+  {
+   "file": "img/ref-wien-1210-05.jpg",
+   "thumb": "img/thumb/ref-wien-1210-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Einfamilienhaus Wien 1210 – Projektfoto",
+   "placeholder": false,
+   "mat": null,
+   "src": "Nurglas.jpg"
   }
  ]
 }

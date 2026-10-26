@@ -1,0 +1,660 @@
+{
+ "ref-breitenfurt": [
+  {
+   "src": "IMG_4534.jpg",
+   "ordner": "Breitenfurt",
+   "file": "img/ref-breitenfurt-00.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_4540.jpg",
+   "ordner": "Breitenfurt",
+   "file": "img/ref-breitenfurt-01.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_4549.jpg",
+   "ordner": "Breitenfurt",
+   "file": "img/ref-breitenfurt-02.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_4550.jpg",
+   "ordner": "Breitenfurt",
+   "file": "img/ref-breitenfurt-03.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_9351.jpg",
+   "ordner": "Breitenfurt",
+   "file": "img/ref-breitenfurt-04.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_9355.jpg",
+   "ordner": "Breitenfurt",
+   "file": "img/ref-breitenfurt-05.jpg",
+   "thumb": "img/thumb/ref-breitenfurt-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-harmannsdorf": [
+  {
+   "src": "IMG_0039.jpg",
+   "ordner": "Harmannsdorf",
+   "file": "img/ref-harmannsdorf-00.jpg",
+   "thumb": "img/thumb/ref-harmannsdorf-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2817.JPEG",
+   "ordner": "Harmannsdorf",
+   "file": "img/ref-harmannsdorf-01.jpg",
+   "thumb": "img/thumb/ref-harmannsdorf-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2818.JPEG",
+   "ordner": "Harmannsdorf",
+   "file": "img/ref-harmannsdorf-02.jpg",
+   "thumb": "img/thumb/ref-harmannsdorf-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-hoeflein": [
+  {
+   "src": "20231115_123731000_iOS.jpg",
+   "ordner": "Höflein",
+   "file": "img/ref-hoeflein-00.jpg",
+   "thumb": "img/thumb/ref-hoeflein-00.jpg",
+   "w": 1012,
+   "h": 1800,
+   "tw": 506,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20231115_131249458_iOS.heic",
+   "ordner": "Höflein",
+   "file": "img/ref-hoeflein-01.jpg",
+   "thumb": "img/thumb/ref-hoeflein-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20231115_131332658_iOS.heic",
+   "ordner": "Höflein",
+   "file": "img/ref-hoeflein-02.jpg",
+   "thumb": "img/thumb/ref-hoeflein-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20231115_132404274_iOS.heic",
+   "ordner": "Höflein",
+   "file": "img/ref-hoeflein-03.jpg",
+   "thumb": "img/thumb/ref-hoeflein-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20231115_133320000_iOS.jpg",
+   "ordner": "Höflein",
+   "file": "img/ref-hoeflein-04.jpg",
+   "thumb": "img/thumb/ref-hoeflein-04.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "mat": null
+  },
+  {
+   "src": "IMG_1735.jpg",
+   "ordner": "Höflein",
+   "file": "img/ref-hoeflein-05.jpg",
+   "thumb": "img/thumb/ref-hoeflein-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-klosterneuburg": [
+  {
+   "src": "IMG_0941.jpg",
+   "ordner": "Klosterneuburg",
+   "file": "img/ref-klosterneuburg-00.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_0943.jpg",
+   "ordner": "Klosterneuburg",
+   "file": "img/ref-klosterneuburg-01.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_0945.jpg",
+   "ordner": "Klosterneuburg",
+   "file": "img/ref-klosterneuburg-02.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_0948.jpg",
+   "ordner": "Klosterneuburg",
+   "file": "img/ref-klosterneuburg-03.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-03.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "mat": null
+  },
+  {
+   "src": "IMG_0950.jpg",
+   "ordner": "Klosterneuburg",
+   "file": "img/ref-klosterneuburg-04.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-04.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "mat": null
+  },
+  {
+   "src": "IMG_2062.jpg",
+   "ordner": "Klosterneuburg",
+   "file": "img/ref-klosterneuburg-05.jpg",
+   "thumb": "img/thumb/ref-klosterneuburg-05.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "mat": null
+  }
+ ],
+ "ref-kroatien": [
+  {
+   "src": "20230523_062514535_iOS.heic",
+   "ordner": "Kroatien",
+   "file": "img/ref-kroatien-00.jpg",
+   "thumb": "img/thumb/ref-kroatien-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230523_091812025_iOS.heic",
+   "ordner": "Kroatien",
+   "file": "img/ref-kroatien-01.jpg",
+   "thumb": "img/thumb/ref-kroatien-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230523_110905571_iOS.heic",
+   "ordner": "Kroatien",
+   "file": "img/ref-kroatien-02.jpg",
+   "thumb": "img/thumb/ref-kroatien-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230523_164411528_iOS.heic",
+   "ordner": "Kroatien",
+   "file": "img/ref-kroatien-03.jpg",
+   "thumb": "img/thumb/ref-kroatien-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230523_164459996_iOS.heic",
+   "ordner": "Kroatien",
+   "file": "img/ref-kroatien-04.jpg",
+   "thumb": "img/thumb/ref-kroatien-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230523_164709476_iOS.heic",
+   "ordner": "Kroatien",
+   "file": "img/ref-kroatien-05.jpg",
+   "thumb": "img/thumb/ref-kroatien-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-wien-1070": [
+  {
+   "src": "dji_fly_20231120_125138_63_1700495632152_photo.JPG",
+   "ordner": "Schottenfeldgasse 1070",
+   "file": "img/ref-wien-1070-00.jpg",
+   "thumb": "img/thumb/ref-wien-1070-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_0239.jpg",
+   "ordner": "Schottenfeldgasse 1070",
+   "file": "img/ref-wien-1070-01.jpg",
+   "thumb": "img/thumb/ref-wien-1070-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_0245.jpg",
+   "ordner": "Schottenfeldgasse 1070",
+   "file": "img/ref-wien-1070-02.jpg",
+   "thumb": "img/thumb/ref-wien-1070-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_0248.jpg",
+   "ordner": "Schottenfeldgasse 1070",
+   "file": "img/ref-wien-1070-03.jpg",
+   "thumb": "img/thumb/ref-wien-1070-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_3041.jpg",
+   "ordner": "Schottenfeldgasse 1070",
+   "file": "img/ref-wien-1070-04.jpg",
+   "thumb": "img/thumb/ref-wien-1070-04.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "mat": null
+  },
+  {
+   "src": "IMG_3042.jpg",
+   "ordner": "Schottenfeldgasse 1070",
+   "file": "img/ref-wien-1070-05.jpg",
+   "thumb": "img/thumb/ref-wien-1070-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_5300.jpg",
+   "ordner": "Schottenfeldgasse 1070",
+   "file": "img/ref-wien-1070-06.jpg",
+   "thumb": "img/thumb/ref-wien-1070-06.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-wien-1090": [
+  {
+   "src": "20230406_153647000_iOS.jpg",
+   "ordner": "Wien 1090",
+   "file": "img/ref-wien-1090-00.jpg",
+   "thumb": "img/thumb/ref-wien-1090-00.jpg",
+   "w": 1012,
+   "h": 1800,
+   "tw": 506,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230504_133540885_iOS.heic",
+   "ordner": "Wien 1090",
+   "file": "img/ref-wien-1090-01.jpg",
+   "thumb": "img/thumb/ref-wien-1090-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230504_133556678_iOS.heic",
+   "ordner": "Wien 1090",
+   "file": "img/ref-wien-1090-02.jpg",
+   "thumb": "img/thumb/ref-wien-1090-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230504_133626810_iOS.heic",
+   "ordner": "Wien 1090",
+   "file": "img/ref-wien-1090-03.jpg",
+   "thumb": "img/thumb/ref-wien-1090-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230504_133840508_iOS.heic",
+   "ordner": "Wien 1090",
+   "file": "img/ref-wien-1090-04.jpg",
+   "thumb": "img/thumb/ref-wien-1090-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "20230504_154206000_iOS.jpg",
+   "ordner": "Wien 1090",
+   "file": "img/ref-wien-1090-05.jpg",
+   "thumb": "img/thumb/ref-wien-1090-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-wien-1160": [
+  {
+   "src": "IMG_5323.jpg",
+   "ordner": "Wien 1160",
+   "file": "img/ref-wien-1160-00.jpg",
+   "thumb": "img/thumb/ref-wien-1160-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_5325.jpg",
+   "ordner": "Wien 1160",
+   "file": "img/ref-wien-1160-01.jpg",
+   "thumb": "img/thumb/ref-wien-1160-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_5349.jpg",
+   "ordner": "Wien 1160",
+   "file": "img/ref-wien-1160-02.jpg",
+   "thumb": "img/thumb/ref-wien-1160-02.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "mat": null
+  },
+  {
+   "src": "IMG_5350.jpg",
+   "ordner": "Wien 1160",
+   "file": "img/ref-wien-1160-03.jpg",
+   "thumb": "img/thumb/ref-wien-1160-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_5352.jpg",
+   "ordner": "Wien 1160",
+   "file": "img/ref-wien-1160-04.jpg",
+   "thumb": "img/thumb/ref-wien-1160-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_5356.jpg",
+   "ordner": "Wien 1160",
+   "file": "img/ref-wien-1160-05.jpg",
+   "thumb": "img/thumb/ref-wien-1160-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-wien-1190": [
+  {
+   "src": "IMG_1186.jpg",
+   "ordner": "Wien 1190",
+   "file": "img/ref-wien-1190-00.jpg",
+   "thumb": "img/thumb/ref-wien-1190-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2257.jpg",
+   "ordner": "Wien 1190",
+   "file": "img/ref-wien-1190-01.jpg",
+   "thumb": "img/thumb/ref-wien-1190-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2258.jpg",
+   "ordner": "Wien 1190",
+   "file": "img/ref-wien-1190-02.jpg",
+   "thumb": "img/thumb/ref-wien-1190-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2259.jpg",
+   "ordner": "Wien 1190",
+   "file": "img/ref-wien-1190-03.jpg",
+   "thumb": "img/thumb/ref-wien-1190-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2261.jpg",
+   "ordner": "Wien 1190",
+   "file": "img/ref-wien-1190-04.jpg",
+   "thumb": "img/thumb/ref-wien-1190-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2264.jpg",
+   "ordner": "Wien 1190",
+   "file": "img/ref-wien-1190-05.jpg",
+   "thumb": "img/thumb/ref-wien-1190-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ],
+ "ref-wien-1210": [
+  {
+   "src": "IMG_2481.jpg",
+   "ordner": "Wien 1210",
+   "file": "img/ref-wien-1210-00.jpg",
+   "thumb": "img/thumb/ref-wien-1210-00.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2484.jpg",
+   "ordner": "Wien 1210",
+   "file": "img/ref-wien-1210-01.jpg",
+   "thumb": "img/thumb/ref-wien-1210-01.jpg",
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "mat": null
+  },
+  {
+   "src": "IMG_2492.jpg",
+   "ordner": "Wien 1210",
+   "file": "img/ref-wien-1210-02.jpg",
+   "thumb": "img/thumb/ref-wien-1210-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "IMG_2495.jpg",
+   "ordner": "Wien 1210",
+   "file": "img/ref-wien-1210-03.jpg",
+   "thumb": "img/thumb/ref-wien-1210-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "Nurglas2.jpg",
+   "ordner": "Wien 1210",
+   "file": "img/ref-wien-1210-04.jpg",
+   "thumb": "img/thumb/ref-wien-1210-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  },
+  {
+   "src": "Nurglas.jpg",
+   "ordner": "Wien 1210",
+   "file": "img/ref-wien-1210-05.jpg",
+   "thumb": "img/thumb/ref-wien-1210-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "mat": null
+  }
+ ]
+}

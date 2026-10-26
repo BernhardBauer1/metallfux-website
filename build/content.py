@@ -255,22 +255,27 @@ AREAS = {
 # Referenzen (Projekte von winnox.at, Texte wörtlich übernommen)
 # entwurf=True: nur in der Vorschau sichtbar, beim Live-Bau (build.py --live) ausgeblendet
 REFS = [
-    dict(id='gablitz', title='Einfamilienhaus, Gablitz', objekt='Einfamilienhaus', ort='Gablitz (NÖ)', produkte='Edelstahl-Glasgeländer, Podesttreppe',
-         li=['Edelstahl-Glasgeländer mit blickdichtem Verbundscheiben-Sicherheitsglas 8,76 mm', 'Ausführung einer Podesttreppe mit feuerverzinktem Gitterrostbelag'], img='aussen-balkon-terrasse', entwurf=True),
-    dict(id='wien-1190', title='Wohnhausanlage, Wien 1190', objekt='Wohnhausanlage', ort='Wien, 19. Bezirk', produkte='Treppengeländer, Handlauf',
-         li=['Flachstahl-Treppengeländer pulverbeschichtet RAL 1019 matt', 'Mit vorgesetztem Edelstahl-Handlauf'], img='innen-treppengelaender', entwurf=True),
-    dict(id='wien-1210-efh', title='Einfamilienhaus, Wien 1210', objekt='Einfamilienhaus', ort='Wien, 21. Bezirk', produkte='Nurglasgeländer',
-         li=['Nurglasgeländer mit Punkthaltern und aufgesetztem Edelstahl-U-Profil', 'VSG TVG 16,76 mm transparent'], img='innen-galerie', entwurf=True),
-    dict(id='medizinproduktion', title='Medizinproduktion, Wien 1210', objekt='Gewerbe', ort='Wien, 21. Bezirk', produkte='Edelstahlgeländer, Wandhandläufe',
-         li=['Edelstahlgeländer über 4 Geschosse mit vorgesetztem Handlauf und Flachstahlfüllung', 'Passende Wandhandläufe in barrierefreier Ausführung'], img='innen-handlaeufe', entwurf=True),
-    dict(id='buero-wien-1210', title='Bürogebäude, Wien 1210', objekt='Bürogebäude', ort='Wien, 21. Bezirk', produkte='Treppengeländer Edelstahl-Glas',
-         li=['Treppengeländer aus Edelstahl über mehrere Geschosse', 'Gefüllt mit Verbundscheiben-Sicherheitsglas 8,76 mm, transparent'], img='innen-treppengelaender', entwurf=True),
-    dict(id='michelhausen', title='Wohnhausanlage, Michelhausen', objekt='Wohnhausanlage', ort='Michelhausen (NÖ)', produkte='Balkongeländer, Pfosten-Riegel-Konstruktion',
-         li=['Edelstahl-Balkongeländer mit aufgeschraubten Schichtstoffplatten im Außenbereich', 'Passende Pfosten-Riegel-Konstruktion für die Abtrennung von 16 Abstellräumen'], img='ref-michelhausen'),
-    dict(id='zistersdorf', title='Wohnhausanlage, Zistersdorf', objekt='Wohnhausanlage', ort='Zistersdorf (NÖ)', produkte='Edelstahl-Glasgeländer',
-         li=['Edelstahl-Glasgeländer mit blickdichtem Verbundscheiben-Sicherheitsglas 8,76 mm', 'Seitliche Verblendung mit großem Windfang'], img='aussen-balkon-terrasse', entwurf=True),
-    dict(id='klosterneuburg', title='Wohnhausanlage, Klosterneuburg', objekt='Wohnhausanlage', ort='Klosterneuburg (NÖ)', produkte='Flachstahlgeländer',
-         li=['Flachstahlgeländer in verzinkter und pulverbeschichteter Ausführung', 'Geländer seitlich mit 3 mm Abdeckblech montiert'], img='aussen-treppengelaender', entwurf=True),
+    # Fotos: Website-Fotos/15 Referenzen/<Ordner>. Texte von Claude nach den Fotos formuliert – bitte prüfen.
+    dict(id='breitenfurt', title='Einfamilienhaus Breitenfurt', ort='Breitenfurt (NÖ)', objekt='Einfamilienhaus', produkte='Glasgeländer innen und außen',
+         text='Modernes Einfamilienhaus in Hanglage: Nurglasgeländer an der Holztreppe im Inneren, dazu Glas- und Stabgeländer an Terrassen und Balkonen.', cover=1),
+    dict(id='harmannsdorf', title='Stiegenhaus Harmannsdorf', ort='Harmannsdorf (NÖ)', objekt='Mehrparteienhaus', produkte='Edelstahl-Stabgeländer, Wandhandlauf',
+         text='Treppengeländer aus Edelstahl mit senkrechten Stäben über alle Geschosse, ergänzt durch einen durchgehenden Wandhandlauf.', cover=1),
+    dict(id='hoeflein', title='Einfamilienhaus Höflein', ort='Höflein (NÖ)', objekt='Einfamilienhaus', produkte='Außentreppe, Glasgeländer',
+         text='Außentreppe aus Stahl in Anthrazit mit Glasgeländer bis zur Dachterrasse. Die fertigen Teile wurden mit dem Kran eingehoben.', cover=4),
+    dict(id='klosterneuburg', title='Wohnhaus Klosterneuburg', ort='Klosterneuburg (NÖ)', objekt='Wohnhaus', produkte='Stahlgeländer, Einfriedung, Terrassengeländer',
+         text='Schlankes Stahlgeländer in Schwarz im Stiegenhaus, dazu Einfriedung und Terrassengeländer im gleichen Stil.', cover=2),
+    dict(id='kroatien', title='Ferienhaus Kroatien', ort='Kroatien', objekt='Ferienhaus', produkte='Terrassen- und Treppengeländer Edelstahl',
+         text='Edelstahl-Stabgeländer für Terrassen und Außentreppen mit Blick aufs Meer.', cover=2),
+    dict(id='wien-1070', title='Wohnbau Schottenfeldgasse, Wien 1070', ort='Wien, 7. Bezirk', objekt='Wohnhausanlage', produkte='Glasgeländer, Treppengeländer',
+         text='Glasgeländer für Balkone und Dachterrassen über mehrere Geschosse, dazu Glasgeländer im Stiegenhaus.', cover=3),
+    dict(id='wien-1090', title='Dachgeschoss Wien 1090', ort='Wien, 9. Bezirk', objekt='Dachgeschossausbau', produkte='Terrassengeländer, Außentreppe',
+         text='Terrassengeländer aus Stahl und eine Außentreppe für den Dachgeschossausbau.', cover=4),
+    dict(id='wien-1160', title='Wohnhaus Wien 1160', ort='Wien, 16. Bezirk', objekt='Wohnhaus', produkte='Edelstahl-Glasgeländer, Treppengeländer',
+         text='Edelstahl-Glasgeländer an Balkonen und Terrasse, im Inneren ein Treppengeländer aus Edelstahl mit Glasfüllung.', cover=1),
+    dict(id='wien-1190', title='Dachterrasse Wien 1190', ort='Wien, 19. Bezirk', objekt='Dachterrasse', produkte='Terrassengeländer, Spindeltreppe',
+         text='Geländer rund um die Dachterrasse mit Blick über Wien und eine maßgefertigte Spindeltreppe als Zugang.', cover=4),
+    dict(id='wien-1210', title='Einfamilienhaus Wien 1210', ort='Wien, 21. Bezirk', objekt='Einfamilienhaus', produkte='Nurglasgeländer',
+         text='Nurglasgeländer an einer offenen Holztreppe – ohne Steher, mit viel Licht im ganzen Treppenraum.', cover=4),
 ]
 
 # ---------- Weitere Produkte (am Seitenende der Startseite und im Fußbereich) ----------

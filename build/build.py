@@ -379,15 +379,7 @@ def index_page():
         cap = captions[i] if i < len(captions) else ''
         slides += f'<div class="hero-slide{" is-active" if i == 0 else ""}" data-caption="{E(cap)}"><img src="{im["file"]}" alt="" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""}></div>'
     dots = ''.join(f'<button class="hero-dot" type="button" aria-label="Bild {i+1} zeigen" aria-current="{"true" if i == 0 else "false"}"><span></span></button>' for i in range(len(hero)))
-    teaser = ''
-    for key, kicker, title, text in [
-        ('aussen-balkon-terrasse', 'Außenbereich', 'Balkon- und Terrassengeländer', 'Nurglas, Edelstahl-Glas und Stahl für Balkon und Dach.'),
-        ('innen-treppengelaender', 'Innenbereich', 'Treppen- und Galeriegeländer', 'Glas, Edelstahl und Stahl für Stiegenhaus und Galerie.'),
-        ('aussentreppen', 'Außenbereich', 'Außentreppen', 'Stahltreppen für Terrasse, Balkon und Garten.')]:
-        ims = imgs(key)
-        im = ims[2] if len(ims) > 2 else (ims[0] if ims else None)
-        img = f'<div class="img"><img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy"></div>' if im else ''
-        teaser += f'<a class="ref-card" href="{key}.html" data-reveal>{img}<div class="kicker">{kicker}</div><h3>{title}</h3><p>{text}</p></a>'
+    teaser = ''.join(ref_tile(r, 'ref-tile') for r in REFS[:3])
     s = head('METALLFUX – Geländer und Treppen nach Maß in Wien', 'Geländer, Handläufe und Treppen aus Metall, Glas und Holz – geplant, gefertigt und montiert in Wien, Niederösterreich und im Burgenland.', '') + header(home=True)
     s += f'''<section class="hero" aria-label="Einstieg">
 <div class="hero-slides">{slides}</div>
@@ -426,7 +418,7 @@ def index_page():
 </div></section>
 <section class="section" aria-labelledby="proj-h"><div class="wrap">
 <div class="section-head row"><div style="display:flex;flex-direction:column;gap:12px;max-width:720px"><div class="eyebrow">Aus unseren Projekten</div><h2 class="h2" id="proj-h">Gebaut in Wien und Umgebung.</h2></div><a class="link-u" href="referenzen.html">Alle Referenzen ansehen</a></div>
-<div class="cards">{teaser}</div>
+<div class="ref-grid ref-grid-3">{teaser}</div>
 </div></section>
 <section class="on-dark" aria-labelledby="about-h"><div class="wrap section about">
 <div class="about-media" data-reveal><div class="placeholder">Foto · Bernhard Bauer</div></div>
@@ -503,40 +495,51 @@ def faq_section():
 '''
 
 # ---------- Referenzen ----------
-REF_OFFSETS = {'gablitz': 5, 'wien-1190': 6, 'wien-1210-efh': 9, 'medizinproduktion': 0, 'buero-wien-1210': 10, 'michelhausen': 0, 'zistersdorf': 9, 'klosterneuburg': 7}
-ZAHL = {1: 'Ein Projekt', 2: 'Zwei Projekte', 3: 'Drei Projekte', 4: 'Vier Projekte', 5: 'Fünf Projekte', 6: 'Sechs Projekte', 7: 'Sieben Projekte', 8: 'Acht Projekte'}
+def ref_cover(r):
+    ims = imgs('ref-' + r['id'])
+    return ims[min(r.get('cover', 0), len(ims) - 1)] if ims else None
+
+def ref_tile(r, cls='ref-tile'):
+    im = ref_cover(r)
+    img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async">' if im else '<div class="placeholder"></div>'
+    return f'''<a class="{cls}" href="referenz-{r['id']}.html" data-reveal><div class="rt-img">{img}</div>
+<div class="rt-body"><span class="rt-ort">{E(r['ort'])}</span><h3>{E(r['title'])}</h3><p>{E(r['produkte'])}</p></div></a>'''
+
 def ref_page():
-    idx = ''.join(f'<a href="#{r["id"]}">{i+1:02d} {E(r["title"].split(",")[-1].strip())}</a>' for i, r in enumerate(REFS))
-    blocks = ''
-    for i, r in enumerate(REFS):
-        pool = imgs(r['img'])
-        off = REF_OFFSETS.get(r['id'], 0)
-        sel = (pool[off:] + pool[:off])[:5] if pool else []
-        main = sel[0] if sel else None
-        thumbs = ''.join(f'<a href="{im["file"]}" data-lightbox="ref-{r["id"]}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy"></a>' for im in sel[1:5])
-        mainhtml = f'<a href="{main["file"]}" data-lightbox="ref-{r["id"]}" style="display:block;cursor:zoom-in"><img class="project-main" src="{main["thumb"]}" alt="{E(main["alt"])}" loading="lazy"></a>' if main else '<div class="placeholder project-main">Projektfotos folgen</div>'
-        note = 'Fotos bitte prüfen: vermutlich dieses Projekt.' if not r.get('entwurf') else 'Platzhalter-Fotos aus der passenden Produktkategorie – bitte durch Fotos dieses Projekts ersetzen.'
-        lis = ''.join(f'<li>{E(x)}</li>' for x in r['li'])
-        blocks += f'''<article class="project" id="{r['id']}" data-reveal>
-<div class="project-media">{mainhtml}<div class="project-thumbs">{thumbs}</div></div>
-<div class="project-text">
-<div class="project-no">PROJEKT {i+1:02d}</div>
-<h2>{E(r['title'])}</h2>
-<dl class="meta"><dt>Objekt</dt><dd>{E(r['objekt'])}</dd><dt>Ort</dt><dd>{E(r['ort'])}</dd><dt>Leistung</dt><dd>{E(r['produkte'])}</dd></dl>
-<ul class="facts" style="grid-template-columns:1fr">{''.join(f'<li>{CHECK}<span>{E(x)}</span></li>' for x in r['li'])}</ul>
-<p class="todo">Entwurf: {note} Projektbeschreibung hier ergänzen (Ausgangslage, Lösung, Besonderheiten).</p>
-</div>
-</article>'''
-    s = head('Referenzen – METALLFUX Wien', 'Ausgewählte Projekte: Geländer, Handläufe und Treppen in Wien und Niederösterreich.', 'referenzen.html') + header('referenzen')
+    tiles = ''.join(ref_tile(r) for r in REFS)
+    s = head('Referenzen – METALLFUX Wien', 'Ausgewählte Projekte: Geländer, Handläufe und Treppen in Wien, Niederösterreich und darüber hinaus.', 'referenzen.html') + header('referenzen')
     s += crumbs([('Startseite', 'index.html'), ('Referenzen', None)])
     s += f'''<section class="page-hero"><div class="wrap"><div class="page-hero-text" style="flex-basis:100%">
 <div class="eyebrow">Referenzen</div><h1>Gebaut in Wien und Umgebung.</h1>
-<p class="lead">Vom Einfamilienhaus bis zur Wohnhausanlage über mehrere Geschosse. {ZAHL[len(REFS)]} im Detail.</p>
-<nav class="ref-index" aria-label="Projekte">{idx}</nav></div></div></section>
-<section class="section" style="padding-top:0"><div class="wrap projects">{blocks}</div></section>
+<p class="lead">Eine Auswahl unserer Projekte, vom Einfamilienhaus bis zur Wohnhausanlage. Ein Projekt antippen, um alle Fotos zu sehen.</p></div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="ref-grid">{tiles}</div></div></section>
 '''
     s += cta_band() + footer()
     write('referenzen.html', s)
+    for i, r in enumerate(REFS):
+        ref_detail(i, r)
+
+def ref_detail(i, r):
+    ims = imgs('ref-' + r['id'])
+    cov = ref_cover(r)
+    order = ([cov] if cov else []) + [im for im in ims if im is not cov]
+    gal = ''.join(f'<a class="rd-item{" rd-wide" if n == 0 else ""}" href="{im["file"]}" data-lightbox="ref-{r["id"]}"><img src="{im["file"] if n == 0 else im["thumb"]}" alt="{E(im["alt"])}" width="{im["w"] if n == 0 else im["tw"]}" height="{im["h"] if n == 0 else im["th"]}" {"fetchpriority=\"high\"" if n == 0 else "loading=\"lazy\""} decoding="async"></a>' for n, im in enumerate(order))
+    prev, nxt = REFS[i - 1], REFS[(i + 1) % len(REFS)]
+    s = head(f"{r['title']} – Referenz | METALLFUX", f"{r['produkte']} – {r['title']}. {r['text']}"[:155], f"referenz-{r['id']}.html") + header('referenzen')
+    s += crumbs([('Startseite', 'index.html'), ('Referenzen', 'referenzen.html'), (r['title'], None)])
+    s += f'''<section class="page-hero rd-hero"><div class="wrap"><div class="rd-head">
+<div class="rd-title"><div class="eyebrow">Referenz {i + 1:02d}</div><h1>{E(r['title'])}</h1><p class="lead">{E(r['text'])}</p>
+<p class="todo">Entwurf: Text von Claude nach den Fotos formuliert – bitte prüfen und ergänzen.</p></div>
+<dl class="rd-meta"><dt>Ort</dt><dd>{E(r['ort'])}</dd><dt>Objekt</dt><dd>{E(r['objekt'])}</dd><dt>Leistung</dt><dd>{E(r['produkte'])}</dd></dl>
+</div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="rd-gallery">{gal}</div>
+<nav class="rd-nav" aria-label="Weitere Projekte"><a href="referenz-{prev['id']}.html"><small>Vorheriges Projekt</small><span>{E(prev['title'])}</span></a>
+<a class="rd-all" href="referenzen.html">Alle Referenzen</a>
+<a class="rd-next" href="referenz-{nxt['id']}.html"><small>Nächstes Projekt</small><span>{E(nxt['title'])}</span></a></nav>
+</div></section>
+'''
+    s += cta_band() + footer()
+    write(f"referenz-{r['id']}.html", s)
 
 # ---------- Über uns ----------
 def about_page():
