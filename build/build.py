@@ -506,13 +506,18 @@ def ref_tile(r, cls='ref-tile'):
 <div class="rt-body"><span class="rt-ort">{E(r['ort'])}</span><h3>{E(r['title'])}</h3><p>{E(r['produkte'])}</p></div></a>'''
 
 def ref_page():
-    tiles = ''.join(ref_tile(r) for r in REFS)
+    tiles = ''
+    for r in REFS:
+        im = ref_cover(r)
+        img = f'<img src="{im["thumb"]}" alt="" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async">' if im else ''
+        tiles += f'<a class="mosaic-tile" href="referenz-{r["id"]}.html">{img}<span class="mosaic-cap"><b>{E(r["title"])}</b><small>{E(r["ort"])}</small></span></a>'
+
     s = head('Referenzen – METALLFUX Wien', 'Ausgewählte Projekte: Geländer, Handläufe und Treppen in Wien, Niederösterreich und darüber hinaus.', 'referenzen.html') + header('referenzen')
     s += crumbs([('Startseite', 'index.html'), ('Referenzen', None)])
     s += f'''<section class="page-hero"><div class="wrap"><div class="page-hero-text" style="flex-basis:100%">
 <div class="eyebrow">Referenzen</div><h1>Gebaut in Wien und Umgebung.</h1>
-<p class="lead">Eine Auswahl unserer Projekte, vom Einfamilienhaus bis zur Wohnhausanlage. Ein Projekt antippen, um alle Fotos zu sehen.</p></div></div></section>
-<section class="section" style="padding-top:0"><div class="wrap"><div class="ref-grid">{tiles}</div></div></section>
+<p class="lead">Eine Auswahl unserer Projekte, vom Einfamilienhaus bis zur Wohnhausanlage. Ein Projekt anklicken, um alle Fotos zu sehen.</p></div></div></section>
+<section class="section" style="padding-top:0"><div class="wrap"><div class="mosaic">{tiles}</div></div></section>
 '''
     s += cta_band() + footer()
     write('referenzen.html', s)
@@ -523,19 +528,20 @@ def ref_detail(i, r):
     ims = imgs('ref-' + r['id'])
     cov = ref_cover(r)
     order = ([cov] if cov else []) + [im for im in ims if im is not cov]
-    gal = ''.join(f'<a class="rd-item{" rd-wide" if n == 0 else ""}" href="{im["file"]}" data-lightbox="ref-{r["id"]}"><img src="{im["file"] if n == 0 else im["thumb"]}" alt="{E(im["alt"])}" width="{im["w"] if n == 0 else im["tw"]}" height="{im["h"] if n == 0 else im["th"]}" {"fetchpriority=\"high\"" if n == 0 else "loading=\"lazy\""} decoding="async"></a>' for n, im in enumerate(order))
+    gal = ''.join(f'<a class="rd-item{" rd-wide" if n % 3 == 0 else ""}" href="{im["file"]}" data-lightbox="ref-{r["id"]}"><img src="{im["file"] if n == 0 else im["thumb"]}" alt="{E(im["alt"])}" width="{im["w"] if n == 0 else im["tw"]}" height="{im["h"] if n == 0 else im["th"]}" {"fetchpriority=\"high\"" if n == 0 else "loading=\"lazy\""} decoding="async"></a>' for n, im in enumerate(order))
     prev, nxt = REFS[i - 1], REFS[(i + 1) % len(REFS)]
     s = head(f"{r['title']} – Referenz | METALLFUX", f"{r['produkte']} – {r['title']}. {r['text']}"[:155], f"referenz-{r['id']}.html") + header('referenzen')
     s += crumbs([('Startseite', 'index.html'), ('Referenzen', 'referenzen.html'), (r['title'], None)])
-    s += f'''<section class="page-hero rd-hero"><div class="wrap"><div class="rd-head">
-<div class="rd-title"><div class="eyebrow">Referenz {i + 1:02d}</div><h1>{E(r['title'])}</h1><p class="lead">{E(r['text'])}</p>
-<p class="todo">Entwurf: Text von Claude nach den Fotos formuliert – bitte prüfen und ergänzen.</p></div>
-<dl class="rd-meta"><dt>Ort</dt><dd>{E(r['ort'])}</dd><dt>Objekt</dt><dd>{E(r['objekt'])}</dd><dt>Leistung</dt><dd>{E(r['produkte'])}</dd></dl>
-</div></div></section>
-<section class="section" style="padding-top:0"><div class="wrap"><div class="rd-gallery">{gal}</div>
+    s += f'''<section class="section rd"><div class="wrap rd-layout">
+<aside class="rd-side"><div class="rd-sticky">
+<h1 class="rd-h1">{E(r['title'])}</h1>
+<dl class="rd-info"><dt>Projekt</dt><dd>{E(r['text'])}</dd><dt>Leistung</dt><dd>{E(r['produkte'])}</dd><dt>Ort</dt><dd>{E(r['ort'])}</dd></dl>
+<p class="todo">Entwurf: Text von Claude nach den Fotos formuliert – bitte prüfen und ergänzen.</p>
+<a class="link-u" href="referenzen.html">Alle Referenzen</a>
+</div></aside>
+<div class="rd-main"><div class="rd-gallery">{gal}</div>
 <nav class="rd-nav" aria-label="Weitere Projekte"><a href="referenz-{prev['id']}.html"><small>Vorheriges Projekt</small><span>{E(prev['title'])}</span></a>
-<a class="rd-all" href="referenzen.html">Alle Referenzen</a>
-<a class="rd-next" href="referenz-{nxt['id']}.html"><small>Nächstes Projekt</small><span>{E(nxt['title'])}</span></a></nav>
+<a class="rd-next" href="referenz-{nxt['id']}.html"><small>Nächstes Projekt</small><span>{E(nxt['title'])}</span></a></nav></div>
 </div></section>
 '''
     s += cta_band() + footer()
