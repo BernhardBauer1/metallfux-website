@@ -3,44 +3,52 @@
   {
    "file": "img/hero-00.jpg",
    "thumb": "img/thumb/hero-00.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "METALLFUX – Nurglasgeländer",
-   "placeholder": false
+   "alt": "METALLFUX",
+   "placeholder": false,
+   "mat": null,
+   "src": "Titelbild_1.JPG"
   },
   {
    "file": "img/hero-01.jpg",
    "thumb": "img/thumb/hero-01.jpg",
-   "w": 800,
-   "h": 1000,
-   "tw": 720,
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
    "th": 900,
-   "alt": "METALLFUX – Spindeltreppe",
-   "placeholder": false
+   "alt": "METALLFUX",
+   "placeholder": false,
+   "mat": null,
+   "src": "Titelbild_2.jpg"
   }
  ],
  "innen-treppengelaender": [
   {
    "file": "img/innen-treppengelaender-00.jpg",
    "thumb": "img/thumb/innen-treppengelaender-00.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_1.jpg"
   },
   {
    "file": "img/innen-treppengelaender-01.jpg",
    "thumb": "img/thumb/innen-treppengelaender-01.jpg",
-   "w": 768,
-   "h": 1024,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_2.jpg"
   },
   {
    "file": "img/innen-treppengelaender-02.jpg",
@@ -49,28 +57,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_3.jpg"
   },
   {
    "file": "img/innen-treppengelaender-03.jpg",
    "thumb": "img/thumb/innen-treppengelaender-03.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-04.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-04.jpg",
    "w": 1440,
    "h": 1800,
    "tw": 720,
    "th": 900,
-   "alt": "Treppengeländer für innen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_4.JPG"
+  },
+  {
+   "file": "img/innen-treppengelaender-04.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_5.jpg"
   },
   {
    "file": "img/innen-treppengelaender-05.jpg",
@@ -79,18 +93,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_6.jpg"
   },
   {
    "file": "img/innen-treppengelaender-06.jpg",
    "thumb": "img/thumb/innen-treppengelaender-06.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 768,
+   "h": 1024,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_7.JPG"
   },
   {
    "file": "img/innen-treppengelaender-07.jpg",
@@ -99,78 +117,94 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Relinggeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_8.jpg"
   },
   {
    "file": "img/innen-treppengelaender-08.jpg",
    "thumb": "img/thumb/innen-treppengelaender-08.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Treppengeländer für innen – Relinggeländer",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_9.jpg"
   },
   {
    "file": "img/innen-treppengelaender-09.jpg",
    "thumb": "img/thumb/innen-treppengelaender-09.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Seilgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-10.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-10.jpg",
-   "w": 1440,
-   "h": 1440,
-   "tw": 900,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-11.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-11.jpg",
-   "w": 1280,
-   "h": 1600,
-   "tw": 720,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-12.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-12.jpg",
    "w": 1200,
    "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_10.JPG"
   },
   {
-   "file": "img/innen-treppengelaender-13.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-13.jpg",
+   "file": "img/innen-treppengelaender-10.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-10.jpg",
    "w": 1350,
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_11.jpg"
+  },
+  {
+   "file": "img/innen-treppengelaender-11.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-11.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_12.jpg"
+  },
+  {
+   "file": "img/innen-treppengelaender-12.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-12.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_13.jpg"
+  },
+  {
+   "file": "img/innen-treppengelaender-13.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-13.jpg",
+   "w": 1440,
+   "h": 1800,
+   "tw": 720,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_14.JPG"
   },
   {
    "file": "img/innen-treppengelaender-14.jpg",
    "thumb": "img/thumb/innen-treppengelaender-14.jpg",
-   "w": 1280,
-   "h": 1600,
-   "tw": 720,
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Innengeländer_Edelstahl_15.jpeg"
   },
   {
    "file": "img/innen-treppengelaender-15.jpg",
@@ -179,88 +213,106 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_1.jpg"
   },
   {
    "file": "img/innen-treppengelaender-16.jpg",
    "thumb": "img/thumb/innen-treppengelaender-16.jpg",
-   "w": 768,
-   "h": 1024,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_2.jpg"
   },
   {
    "file": "img/innen-treppengelaender-17.jpg",
    "thumb": "img/thumb/innen-treppengelaender-17.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_3.jpg"
   },
   {
    "file": "img/innen-treppengelaender-18.jpg",
    "thumb": "img/thumb/innen-treppengelaender-18.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_4.jpeg"
   },
   {
    "file": "img/innen-treppengelaender-19.jpg",
    "thumb": "img/thumb/innen-treppengelaender-19.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_5.jpg"
   },
   {
    "file": "img/innen-treppengelaender-20.jpg",
    "thumb": "img/thumb/innen-treppengelaender-20.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_6.jpg"
   },
   {
    "file": "img/innen-treppengelaender-21.jpg",
    "thumb": "img/thumb/innen-treppengelaender-21.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_7.jpg"
   },
   {
    "file": "img/innen-treppengelaender-22.jpg",
    "thumb": "img/thumb/innen-treppengelaender-22.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_8.jpg"
   },
   {
    "file": "img/innen-treppengelaender-23.jpg",
    "thumb": "img/thumb/innen-treppengelaender-23.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_9.jpg"
   },
   {
    "file": "img/innen-treppengelaender-24.jpg",
@@ -269,48 +321,58 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Designgeländer aus Stahl",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_10.jpg"
   },
   {
    "file": "img/innen-treppengelaender-25.jpg",
    "thumb": "img/thumb/innen-treppengelaender-25.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-26.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-26.jpg",
-   "w": 768,
-   "h": 1024,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-27.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-27.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-28.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-28.jpg",
    "w": 1350,
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_11.jpg"
+  },
+  {
+   "file": "img/innen-treppengelaender-26.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-26.jpg",
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_12.JPG"
+  },
+  {
+   "file": "img/innen-treppengelaender-27.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-27.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_13.JPG"
+  },
+  {
+   "file": "img/innen-treppengelaender-28.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-28.jpg",
+   "w": 1012,
+   "h": 1800,
+   "tw": 506,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_14.JPG"
   },
   {
    "file": "img/innen-treppengelaender-29.jpg",
@@ -319,18 +381,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "Innengeländer_Glas_15.jpg"
   },
   {
    "file": "img/innen-treppengelaender-30.jpg",
    "thumb": "img/thumb/innen-treppengelaender-30.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_1.JPG"
   },
   {
    "file": "img/innen-treppengelaender-31.jpg",
@@ -339,48 +405,58 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_2.jpg"
   },
   {
    "file": "img/innen-treppengelaender-32.jpg",
    "thumb": "img/thumb/innen-treppengelaender-32.jpg",
-   "w": 1440,
+   "w": 1012,
    "h": 1800,
-   "tw": 720,
+   "tw": 506,
    "th": 900,
-   "alt": "Treppengeländer für innen – Stabgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_3.jpeg"
   },
   {
    "file": "img/innen-treppengelaender-33.jpg",
    "thumb": "img/thumb/innen-treppengelaender-33.jpg",
-   "w": 1011,
-   "h": 1800,
-   "tw": 505,
-   "th": 900,
-   "alt": "Treppengeländer für innen – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-treppengelaender-34.jpg",
-   "thumb": "img/thumb/innen-treppengelaender-34.jpg",
    "w": 1350,
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Relinggeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_4.JPG"
+  },
+  {
+   "file": "img/innen-treppengelaender-34.jpg",
+   "thumb": "img/thumb/innen-treppengelaender-34.jpg",
+   "w": 1011,
+   "h": 1800,
+   "tw": 505,
+   "th": 900,
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_5.JPG"
   },
   {
    "file": "img/innen-treppengelaender-35.jpg",
    "thumb": "img/thumb/innen-treppengelaender-35.jpg",
-   "w": 1440,
-   "h": 1800,
-   "tw": 720,
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Relinggeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_6.JPG"
   },
   {
    "file": "img/innen-treppengelaender-36.jpg",
@@ -389,28 +465,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Relinggeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_7.jpeg"
   },
   {
    "file": "img/innen-treppengelaender-37.jpg",
    "thumb": "img/thumb/innen-treppengelaender-37.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_8.JPG"
   },
   {
    "file": "img/innen-treppengelaender-38.jpg",
    "thumb": "img/thumb/innen-treppengelaender-38.jpg",
-   "w": 768,
-   "h": 1024,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_9.JPG"
   },
   {
    "file": "img/innen-treppengelaender-39.jpg",
@@ -419,28 +501,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_10.jpeg"
   },
   {
    "file": "img/innen-treppengelaender-40.jpg",
    "thumb": "img/thumb/innen-treppengelaender-40.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_11.JPG"
   },
   {
    "file": "img/innen-treppengelaender-41.jpg",
    "thumb": "img/thumb/innen-treppengelaender-41.jpg",
-   "w": 1200,
+   "w": 1350,
    "h": 1800,
-   "tw": 600,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_12.JPG"
   },
   {
    "file": "img/innen-treppengelaender-42.jpg",
@@ -449,28 +537,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_13.JPG"
   },
   {
    "file": "img/innen-treppengelaender-43.jpg",
    "thumb": "img/thumb/innen-treppengelaender-43.jpg",
-   "w": 1350,
+   "w": 1440,
    "h": 1800,
-   "tw": 675,
+   "tw": 720,
    "th": 900,
-   "alt": "Treppengeländer für innen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_14.JPG"
   },
   {
    "file": "img/innen-treppengelaender-44.jpg",
    "thumb": "img/thumb/innen-treppengelaender-44.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für innen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für innen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Innengeländer_Stahl_15.JPG"
   }
  ],
  "innen-galerie": [
@@ -929,22 +1023,26 @@
   {
    "file": "img/innen-handlaeufe-00.jpg",
    "thumb": "img/thumb/innen-handlaeufe-00.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
-  },
-  {
-   "file": "img/innen-handlaeufe-01.jpg",
-   "thumb": "img/thumb/innen-handlaeufe-01.jpg",
    "w": 1440,
    "h": 1800,
    "tw": 720,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "0F61F53B-90F1-45AC-B326-238A00B687E4.JPG"
+  },
+  {
+   "file": "img/innen-handlaeufe-01.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "3.JPG"
   },
   {
    "file": "img/innen-handlaeufe-02.jpg",
@@ -953,68 +1051,82 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "5b1027f2-fe22-4e7a-ac04-380d36da7609.JPG"
   },
   {
    "file": "img/innen-handlaeufe-03.jpg",
    "thumb": "img/thumb/innen-handlaeufe-03.jpg",
-   "w": 1440,
+   "w": 1012,
    "h": 1800,
-   "tw": 720,
+   "tw": 506,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "5dab1bd9-57c6-4dc4-8163-27c65535603d.JPG"
   },
   {
    "file": "img/innen-handlaeufe-04.jpg",
    "thumb": "img/thumb/innen-handlaeufe-04.jpg",
-   "w": 899,
-   "h": 1599,
-   "tw": 506,
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "06cc8552-9b0b-4b1c-b55f-cf0a5a9928a5.JPG"
   },
   {
    "file": "img/innen-handlaeufe-05.jpg",
    "thumb": "img/thumb/innen-handlaeufe-05.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "59b65ee0-bd5b-402c-87bb-294bcce3bc2d.JPG"
   },
   {
    "file": "img/innen-handlaeufe-06.jpg",
    "thumb": "img/thumb/innen-handlaeufe-06.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "61b05ea9-4e6d-41a3-b7a9-a8254adbc217.JPG"
   },
   {
    "file": "img/innen-handlaeufe-07.jpg",
    "thumb": "img/thumb/innen-handlaeufe-07.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "b89e8e0d-a3d7-4a79-b281-146b18835991.JPG"
   },
   {
    "file": "img/innen-handlaeufe-08.jpg",
    "thumb": "img/thumb/innen-handlaeufe-08.jpg",
-   "w": 1350,
+   "w": 1440,
    "h": 1800,
-   "tw": 675,
+   "tw": 720,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "D058474C-137C-4CC9-9843-BF51889AE5B4.JPG"
   },
   {
    "file": "img/innen-handlaeufe-09.jpg",
@@ -1023,8 +1135,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_1482.jpg"
   },
   {
    "file": "img/innen-handlaeufe-10.jpg",
@@ -1033,18 +1147,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2225.jpeg"
   },
   {
    "file": "img/innen-handlaeufe-11.jpg",
    "thumb": "img/thumb/innen-handlaeufe-11.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2840.JPG"
   },
   {
    "file": "img/innen-handlaeufe-12.jpg",
@@ -1053,8 +1171,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2943.jpg"
   },
   {
    "file": "img/innen-handlaeufe-13.jpg",
@@ -1063,18 +1183,166 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_2946.jpg"
   },
   {
    "file": "img/innen-handlaeufe-14.jpg",
    "thumb": "img/thumb/innen-handlaeufe-14.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Handläufe für innen – Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_3469.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-15.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-15.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_3472.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-16.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-16.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_3538.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-17.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-17.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_3614.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-18.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-18.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_3968.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-19.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-19.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4695.jpeg"
+  },
+  {
+   "file": "img/innen-handlaeufe-20.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-20.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5280.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-21.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-21.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5672.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-22.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-22.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_6004.jpeg"
+  },
+  {
+   "file": "img/innen-handlaeufe-23.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-23.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_6854.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-24.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-24.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_9440.jpg"
+  },
+  {
+   "file": "img/innen-handlaeufe-25.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-25.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_9901.jpeg"
+  },
+  {
+   "file": "img/innen-handlaeufe-26.jpg",
+   "thumb": "img/thumb/innen-handlaeufe-26.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für innen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Wandhandlauf.jpg"
   }
  ],
  "innentreppen": [
@@ -1233,22 +1501,26 @@
   {
    "file": "img/aussen-balkon-terrasse-00.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-00.jpg",
-   "w": 1350,
+   "w": 1440,
    "h": 1800,
-   "tw": 675,
+   "tw": 720,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "5B7F6672-5B77-4D75-9CE0-9F163FB84476.JPG"
   },
   {
    "file": "img/aussen-balkon-terrasse-01.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-01.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
+   "w": 1440,
+   "h": 1439,
+   "tw": 900,
+   "th": 899,
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "8057481C-A6A8-4794-BBD0-BD7638CD5366 1.JPG"
   },
   {
    "file": "img/aussen-balkon-terrasse-02.jpg",
@@ -1257,8 +1529,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "ca2a4305-1a09-435d-a7b8-3ec3bb8faa18.JPG"
   },
   {
    "file": "img/aussen-balkon-terrasse-03.jpg",
@@ -1267,18 +1541,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "dji_fly_20231120_125104_62_1700495632354_photo.JPG"
   },
   {
    "file": "img/aussen-balkon-terrasse-04.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-04.jpg",
-   "w": 1600,
-   "h": 1200,
-   "tw": 900,
-   "th": 675,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "dji_fly_20240315_155558_85_1710427939267_photo.JPG"
   },
   {
    "file": "img/aussen-balkon-terrasse-05.jpg",
@@ -1287,8 +1565,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Flachstahl_mit_Blende.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-06.jpg",
@@ -1297,8 +1577,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_1020.jpeg"
   },
   {
    "file": "img/aussen-balkon-terrasse-07.jpg",
@@ -1307,28 +1589,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_1263.jpeg"
   },
   {
    "file": "img/aussen-balkon-terrasse-08.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-08.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Edelstahl-Glasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-09.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-09.jpg",
    "w": 1800,
    "h": 1350,
    "tw": 900,
    "th": 675,
-   "alt": "Balkon- und Terrassengeländer – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_1976.JPG"
+  },
+  {
+   "file": "img/aussen-balkon-terrasse-09.jpg",
+   "thumb": "img/thumb/aussen-balkon-terrasse-09.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_2209.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-10.jpg",
@@ -1337,28 +1625,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stabgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_2954.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-11.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-11.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stabgeländer",
-   "placeholder": false
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_3399.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-12.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-12.jpg",
-   "w": 1024,
-   "h": 768,
-   "tw": 900,
-   "th": 675,
-   "alt": "Balkon- und Terrassengeländer – Relinggeländer",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_3419.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-13.jpg",
@@ -1367,48 +1661,58 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Seilgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_3963.jpeg"
   },
   {
    "file": "img/aussen-balkon-terrasse-14.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-14.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Balkon- und Terrassengeländer – Geländer mit Sonderfüllung",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_4023.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-15.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-15.jpg",
-   "w": 1599,
-   "h": 899,
-   "tw": 900,
-   "th": 506,
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
    "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_4028.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-16.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-16.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_4330.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-17.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-17.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_4332.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-18.jpg",
@@ -1417,8 +1721,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_4548.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-19.jpg",
@@ -1427,8 +1733,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_5232.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-20.jpg",
@@ -1438,7 +1746,9 @@
    "tw": 675,
    "th": 900,
    "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_6623.jpeg"
   },
   {
    "file": "img/aussen-balkon-terrasse-21.jpg",
@@ -1447,18 +1757,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_7096.jpeg"
   },
   {
    "file": "img/aussen-balkon-terrasse-22.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-22.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_7474.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-23.jpg",
@@ -1467,8 +1781,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_7752.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-24.jpg",
@@ -1478,7 +1794,9 @@
    "tw": 675,
    "th": 900,
    "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_9140.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-25.jpg",
@@ -1488,17 +1806,21 @@
    "tw": 675,
    "th": 900,
    "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_9907.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-26.jpg",
    "thumb": "img/thumb/aussen-balkon-terrasse-26.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Balkon- und Terrassengeländer – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "IMG_20190128_165946.jpg"
   },
   {
    "file": "img/aussen-balkon-terrasse-27.jpg",
@@ -1507,300 +1829,156 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-28.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-28.jpg",
-   "w": 768,
-   "h": 1024,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Stahlgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-29.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-29.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Balkon- und Terrassengeländer – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-30.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-30.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Balkon- und Terrassengeländer – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-31.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-31.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Balkon- und Terrassengeländer – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-32.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-32.jpg",
-   "w": 1440,
-   "h": 1440,
-   "tw": 900,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-33.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-33.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-34.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-34.jpg",
-   "w": 768,
-   "h": 1024,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-35.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-35.jpg",
-   "w": 1440,
-   "h": 1440,
-   "tw": 900,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-36.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-36.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Seilgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-37.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-37.jpg",
-   "w": 1800,
-   "h": 1200,
-   "tw": 900,
-   "th": 600,
-   "alt": "Balkon- und Terrassengeländer – Seilgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-38.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-38.jpg",
-   "w": 1440,
-   "h": 1795,
-   "tw": 722,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Seilgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-39.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-39.jpg",
-   "w": 1440,
-   "h": 1800,
-   "tw": 720,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Seilgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-40.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-40.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-41.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-41.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-42.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-42.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-43.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-43.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-balkon-terrasse-44.jpg",
-   "thumb": "img/thumb/aussen-balkon-terrasse-44.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Balkon- und Terrassengeländer – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Balkon- und Terrassengeländer – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Stabgeländer2.JPG"
   }
  ],
  "aussen-treppengelaender": [
   {
    "file": "img/aussen-treppengelaender-00.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-00.jpg",
-   "w": 1440,
-   "h": 1800,
-   "tw": 720,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "w": 1024,
+   "h": 768,
+   "tw": 900,
+   "th": 675,
+   "alt": "Treppengeländer für außen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "1977b0bb-bf29-4a59-9486-9750a0844826.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-01.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-01.jpg",
-   "w": 1200,
-   "h": 1599,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "w": 1800,
+   "h": 1011,
+   "tw": 900,
+   "th": 505,
+   "alt": "Treppengeländer für außen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "73245a7c-3292-495a-8d80-71658d4f5102.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-02.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-02.jpg",
-   "w": 1024,
-   "h": 768,
-   "tw": 900,
-   "th": 675,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für außen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "20230704_074042705_iOS.heic"
   },
   {
    "file": "img/aussen-treppengelaender-03.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-03.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Treppengeländer für außen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "20250203_165627 (002).jpg"
   },
   {
    "file": "img/aussen-treppengelaender-04.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-04.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "aee16146-3518-4323-a0e3-f3cdbe88280d.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-05.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-05.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Treppengeländer für außen – Nurglasgeländer",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für außen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "att.W5sqjWHcjBr86_nHFu6BoRj2jMqnoRq7d8mLbVtXB8c.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-06.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-06.jpg",
-   "w": 1440,
-   "h": 1440,
-   "tw": 900,
+   "w": 1139,
+   "h": 1524,
+   "tw": 673,
    "th": 900,
-   "alt": "Treppengeländer für außen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "be40cc34-d50b-4bab-9956-cbaa59c96398.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-07.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-07.jpg",
-   "w": 1024,
-   "h": 768,
-   "tw": 900,
-   "th": 675,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für außen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "d5c37aac-0512-42d6-981e-05f1094f5b65.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-08.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-08.jpg",
-   "w": 1800,
-   "h": 1200,
+   "w": 1440,
+   "h": 1440,
    "tw": 900,
-   "th": 600,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
+   "th": 900,
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "E198B9B6-B8B6-4A2D-985B-4DB04BB25765.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-09.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-09.jpg",
-   "w": 1800,
-   "h": 1200,
-   "tw": 900,
-   "th": 600,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
+   "w": 1440,
+   "h": 1800,
+   "tw": 720,
+   "th": 900,
+   "alt": "Treppengeländer für außen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "Flachstahl Variante 1.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-10.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-10.jpg",
-   "w": 1800,
-   "h": 1350,
+   "w": 1024,
+   "h": 768,
    "tw": 900,
    "th": 675,
-   "alt": "Treppengeländer für außen – Stabgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG-20190528-WA0001.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-11.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-11.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Treppengeländer für außen – Stabgeländer",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_0341.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-12.jpg",
@@ -1809,8 +1987,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Stabgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_0342.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-13.jpg",
@@ -1819,38 +1999,46 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Seilgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_0421.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-14.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-14.jpg",
-   "w": 800,
-   "h": 1000,
-   "tw": 720,
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Außentreppe",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Stahlgeländer",
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_1024.jpeg"
   },
   {
    "file": "img/aussen-treppengelaender-15.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-15.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
    "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_3710.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-16.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-16.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_4145.JPG"
   },
   {
    "file": "img/aussen-treppengelaender-17.jpg",
@@ -1860,17 +2048,21 @@
    "tw": 675,
    "th": 900,
    "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_4570.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-18.jpg",
    "thumb": "img/thumb/aussen-treppengelaender-18.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_5872.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-19.jpg",
@@ -1879,8 +2071,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Glasgeländer",
+   "placeholder": false,
+   "mat": "glas",
+   "src": "IMG_5875.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-20.jpg",
@@ -1889,8 +2083,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "IMG_6826.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-21.jpg",
@@ -1900,7 +2096,9 @@
    "tw": 675,
    "th": 900,
    "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_7785.jpeg"
   },
   {
    "file": "img/aussen-treppengelaender-22.jpg",
@@ -1910,7 +2108,9 @@
    "tw": 675,
    "th": 900,
    "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "placeholder": false,
+   "mat": "stahl",
+   "src": "IMG_8981.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-23.jpg",
@@ -1919,8 +2119,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "IMG_20190719_150826.jpg"
   },
   {
    "file": "img/aussen-treppengelaender-24.jpg",
@@ -1929,208 +2131,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-25.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-25.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-26.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-26.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-27.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-27.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-28.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-28.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stahlgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-29.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-29.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-30.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-30.jpg",
-   "w": 1800,
-   "h": 1200,
-   "tw": 900,
-   "th": 600,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-31.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-31.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-32.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-32.jpg",
-   "w": 768,
-   "h": 1024,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-33.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-33.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Relinggeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-34.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-34.jpg",
-   "w": 1440,
-   "h": 1440,
-   "tw": 900,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-35.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-35.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-36.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-36.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Stabgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-37.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-37.jpg",
-   "w": 1440,
-   "h": 1800,
-   "tw": 720,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-38.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-38.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-39.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-39.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-40.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-40.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Edelstahl-Glasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-41.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-41.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-42.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-42.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-43.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-43.jpg",
-   "w": 1440,
-   "h": 1440,
-   "tw": 900,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Nurglasgeländer",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-treppengelaender-44.jpg",
-   "thumb": "img/thumb/aussen-treppengelaender-44.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Treppengeländer für außen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Treppengeländer für außen – Edelstahlgeländer",
+   "placeholder": false,
+   "mat": "edelstahl",
+   "src": "Relinggeländer_Schlager2.jpg"
   }
  ],
  "aussen-franzoesische-balkone": [
@@ -2293,18 +2297,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "14ef3c34-27c9-415e-b440-c46407b8a90b.JPG"
   },
   {
    "file": "img/aussen-handlaeufe-01.jpg",
    "thumb": "img/thumb/aussen-handlaeufe-01.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "438fe859-336d-4c2b-b2b5-5bb8b36586cb.JPG"
   },
   {
    "file": "img/aussen-handlaeufe-02.jpg",
@@ -2313,8 +2321,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "84228e3b-8942-463c-9095-35f342fb9be2.JPG"
   },
   {
    "file": "img/aussen-handlaeufe-03.jpg",
@@ -2323,48 +2333,58 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "b9e9f2ac-5c5a-4b7a-a7dc-55c9451eb10e.JPG"
   },
   {
    "file": "img/aussen-handlaeufe-04.jpg",
    "thumb": "img/thumb/aussen-handlaeufe-04.jpg",
-   "w": 1350,
+   "w": 1011,
    "h": 1800,
-   "tw": 675,
+   "tw": 505,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "b090290f-f5b9-4359-b0aa-1360630c1ddd.JPG"
   },
   {
    "file": "img/aussen-handlaeufe-05.jpg",
    "thumb": "img/thumb/aussen-handlaeufe-05.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-handlaeufe-06.jpg",
-   "thumb": "img/thumb/aussen-handlaeufe-06.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-handlaeufe-07.jpg",
-   "thumb": "img/thumb/aussen-handlaeufe-07.jpg",
    "w": 1012,
    "h": 1800,
    "tw": 506,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "c87ca94c-fb2e-4ca1-ad85-cd7a0039b007.JPG"
+  },
+  {
+   "file": "img/aussen-handlaeufe-06.jpg",
+   "thumb": "img/thumb/aussen-handlaeufe-06.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4030.jpg"
+  },
+  {
+   "file": "img/aussen-handlaeufe-07.jpg",
+   "thumb": "img/thumb/aussen-handlaeufe-07.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4117.jpeg"
   },
   {
    "file": "img/aussen-handlaeufe-08.jpg",
@@ -2373,8 +2393,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_4402.jpg"
   },
   {
    "file": "img/aussen-handlaeufe-09.jpg",
@@ -2383,8 +2405,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_6995.jpg"
   },
   {
    "file": "img/aussen-handlaeufe-10.jpg",
@@ -2393,48 +2417,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_6998.jpg"
   },
   {
    "file": "img/aussen-handlaeufe-11.jpg",
    "thumb": "img/thumb/aussen-handlaeufe-11.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-handlaeufe-12.jpg",
-   "thumb": "img/thumb/aussen-handlaeufe-12.jpg",
    "w": 1012,
    "h": 1800,
    "tw": 506,
    "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-handlaeufe-13.jpg",
-   "thumb": "img/thumb/aussen-handlaeufe-13.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussen-handlaeufe-14.jpg",
-   "thumb": "img/thumb/aussen-handlaeufe-14.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Handläufe für außen – Edelstahl-Handlauf",
-   "placeholder": false
+   "alt": "Handläufe für außen",
+   "placeholder": false,
+   "mat": null,
+   "src": "WhatsApp Image 2026-10-16 at 13.12.04.jpeg"
   }
  ],
  "aussentreppen": [
@@ -2655,52 +2653,62 @@
   {
    "file": "img/ueberdachungen-00.jpg",
    "thumb": "img/thumb/ueberdachungen-00.jpg",
-   "w": 768,
-   "h": 1024,
-   "tw": 675,
-   "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ueberdachungen-01.jpg",
-   "thumb": "img/thumb/ueberdachungen-01.jpg",
    "w": 1350,
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_1.jpeg"
+  },
+  {
+   "file": "img/ueberdachungen-01.jpg",
+   "thumb": "img/thumb/ueberdachungen-01.jpg",
+   "w": 1440,
+   "h": 1800,
+   "tw": 720,
+   "th": 900,
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_2.JPG"
   },
   {
    "file": "img/ueberdachungen-02.jpg",
    "thumb": "img/thumb/ueberdachungen-02.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_3.jpg"
   },
   {
    "file": "img/ueberdachungen-03.jpg",
    "thumb": "img/thumb/ueberdachungen-03.jpg",
-   "w": 1800,
-   "h": 1200,
-   "tw": 900,
-   "th": 600,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_4.jpg"
   },
   {
    "file": "img/ueberdachungen-04.jpg",
    "thumb": "img/thumb/ueberdachungen-04.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_5.jpg"
   },
   {
    "file": "img/ueberdachungen-05.jpg",
@@ -2709,18 +2717,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_6.jpg"
   },
   {
    "file": "img/ueberdachungen-06.jpg",
    "thumb": "img/thumb/ueberdachungen-06.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_7.JPG"
   },
   {
    "file": "img/ueberdachungen-07.jpg",
@@ -2729,68 +2741,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_8.jpg"
   },
   {
    "file": "img/ueberdachungen-08.jpg",
    "thumb": "img/thumb/ueberdachungen-08.jpg",
-   "w": 1440,
+   "w": 1350,
    "h": 1800,
-   "tw": 720,
+   "tw": 675,
    "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_9.jpg"
   },
   {
    "file": "img/ueberdachungen-09.jpg",
    "thumb": "img/thumb/ueberdachungen-09.jpg",
-   "w": 1217,
-   "h": 900,
-   "tw": 900,
-   "th": 666,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ueberdachungen-10.jpg",
-   "thumb": "img/thumb/ueberdachungen-10.jpg",
-   "w": 1440,
-   "h": 1800,
-   "tw": 720,
-   "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ueberdachungen-11.jpg",
-   "thumb": "img/thumb/ueberdachungen-11.jpg",
-   "w": 768,
-   "h": 1024,
-   "tw": 675,
-   "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ueberdachungen-12.jpg",
-   "thumb": "img/thumb/ueberdachungen-12.jpg",
    "w": 1350,
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
-  },
-  {
-   "file": "img/ueberdachungen-13.jpg",
-   "thumb": "img/thumb/ueberdachungen-13.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Überdachungen – Überdachung",
-   "placeholder": false
+   "alt": "Überdachungen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Überdachung_10.jpeg"
   }
  ],
  "duschverglasung": [
@@ -2801,8 +2779,10 @@
    "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_1.jpeg"
   },
   {
    "file": "img/duschverglasung-01.jpg",
@@ -2811,8 +2791,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_2.jpg"
   },
   {
    "file": "img/duschverglasung-02.jpg",
@@ -2821,8 +2803,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_3.jpg"
   },
   {
    "file": "img/duschverglasung-03.jpg",
@@ -2831,8 +2815,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_4.jpg"
   },
   {
    "file": "img/duschverglasung-04.jpg",
@@ -2841,28 +2827,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_5.jpg"
   },
   {
    "file": "img/duschverglasung-05.jpg",
    "thumb": "img/thumb/duschverglasung-05.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_6.jpg"
   },
   {
    "file": "img/duschverglasung-06.jpg",
    "thumb": "img/thumb/duschverglasung-06.jpg",
-   "w": 1200,
-   "h": 1600,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_7.jpg"
   },
   {
    "file": "img/duschverglasung-07.jpg",
@@ -2871,8 +2863,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_8.jpg"
   },
   {
    "file": "img/duschverglasung-08.jpg",
@@ -2881,68 +2875,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
-  },
-  {
-   "file": "img/duschverglasung-09.jpg",
-   "thumb": "img/thumb/duschverglasung-09.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
-  },
-  {
-   "file": "img/duschverglasung-10.jpg",
-   "thumb": "img/thumb/duschverglasung-10.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
-  },
-  {
-   "file": "img/duschverglasung-11.jpg",
-   "thumb": "img/thumb/duschverglasung-11.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
-  },
-  {
-   "file": "img/duschverglasung-12.jpg",
-   "thumb": "img/thumb/duschverglasung-12.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
-  },
-  {
-   "file": "img/duschverglasung-13.jpg",
-   "thumb": "img/thumb/duschverglasung-13.jpg",
-   "w": 1348,
-   "h": 1800,
-   "tw": 674,
-   "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
-  },
-  {
-   "file": "img/duschverglasung-14.jpg",
-   "thumb": "img/thumb/duschverglasung-14.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Duschverglasung – Duschverglasung",
-   "placeholder": false
+   "alt": "Duschverglasung",
+   "placeholder": false,
+   "mat": null,
+   "src": "Duschanlage_9.jpg"
   }
  ]
 }

@@ -199,7 +199,11 @@ def mtext(p, m):
 def mat_imgs(p, m):
     sel = SEL.get(p['slug'], [])
     out = []
-    for im, e in zip(imgs(p['slug']), sel):
+    lst = imgs(p['slug'])
+    if lst and 'mat' in lst[0]:
+        # neue Fotos aus Website-Fotos: Material steht am Bild
+        return [im for im in lst if im['mat'] == m['key']][:15]
+    for im, e in zip(lst, sel):
         mat = e[2] if len(e) > 2 else None
         if (mat == m['key']) if mat else (e[0] in m['folders']):
             out.append(im)
@@ -339,7 +343,7 @@ def area_page(key):
 def index_page():
     hero = imgs('hero')
     slides = ''
-    captions = ['Nurglasgeländer an einer Innentreppe', 'Montage einer Spindeltreppe']
+    captions = ['Stahlgeländer an einer Innentreppe', 'Balkongeländer an einer Wohnhausanlage']
     for i, im in enumerate(hero):
         cap = captions[i] if i < len(captions) else ''
         slides += f'<div class="hero-slide{" is-active" if i == 0 else ""}" data-caption="{E(cap)}"><img src="{im["file"]}" alt="" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""}></div>'

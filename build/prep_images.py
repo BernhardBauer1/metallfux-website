@@ -41,8 +41,11 @@ def save(im, key, i, alt, placeholder):
 def main():
     os.makedirs(OUT, exist_ok=True)
     man, missing = {}, []
+    # Fotos aus Website-Fotos (import_fotos.py) behalten
+    old = json.load(open(os.path.join(BASE, 'images.json'), encoding='utf-8'))
+    man.update({k: v for k, v in old.items() if v and 'src' in v[0]})
     for key, items in SEL.items():
-        if key.startswith('_'):
+        if key.startswith('_') or key in man:
             continue
         man[key] = []
         for i, e in enumerate(items):
