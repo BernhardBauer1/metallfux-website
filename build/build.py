@@ -398,6 +398,9 @@ def index_page():
 <div><strong>Exakte Pläne</strong><span>Zur Freigabe vor der Fertigung</span></div>
 <div><strong>Wien · NÖ · Bgld.</strong><span>Unser Einsatzgebiet</span></div>
 </div></section>
+<section class="section" aria-label="Produkte"><div class="wrap">
+{produkt_kacheln()}
+</div></section>
 {projekt_band()}
 <section class="section band-white" aria-labelledby="ablauf-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Ablauf</div><h2 class="h2" id="ablauf-h">Vom Foto zum fertigen Geländer.</h2></div>
