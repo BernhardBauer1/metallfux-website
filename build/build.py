@@ -392,10 +392,11 @@ def index_page():
 </div>
 <div class="hero-controls"><div class="wrap">{dots}<span class="hero-caption" aria-live="polite">{captions[0]}</span></div></div>
 </section>
-<section class="section" aria-labelledby="sort-h"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Produkte</div><h2 class="h2" id="sort-h">Geländer, Treppen und Handläufe nach Maß.</h2>
-<p class="lead">Wählen Sie, was Sie suchen. Auf jeder Seite finden Sie die passenden Ausführungen, Materialien und Preise.</p></div>
-{produkt_kacheln()}
+<section class="promise on-dark" aria-label="Unser Versprechen"><div class="wrap">
+<div><strong>Ein Ansprechpartner</strong><span>Von der Beratung bis zur Montage</span></div>
+<div><strong>Metall, Glas, Holz</strong><span>Kombiniert aus einer Hand</span></div>
+<div><strong>Exakte Pläne</strong><span>Zur Freigabe vor der Fertigung</span></div>
+<div><strong>Wien · NÖ · Bgld.</strong><span>Unser Einsatzgebiet</span></div>
 </div></section>
 {projekt_band()}
 <section class="section band-white" aria-labelledby="ablauf-h"><div class="wrap">
