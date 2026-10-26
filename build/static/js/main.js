@@ -312,17 +312,3 @@
   update();
 })();
 
-/* Startseite: Produkte nach Innen / Außen filtern */
-(function () {
-  var btns = document.querySelectorAll('.pf-btn');
-  btns.forEach(function (b) {
-    b.addEventListener('click', function () {
-      var f = b.getAttribute('data-filter');
-      btns.forEach(function (x) { x.setAttribute('aria-pressed', x === b ? 'true' : 'false'); });
-      document.querySelectorAll('.pf-tile').forEach(function (t) {
-        t.hidden = f !== 'alle' && t.getAttribute('data-area') !== f;
-        t.classList.remove('reveal-pending'); t.classList.add('reveal-in');
-      });
-    });
-  });
-})();

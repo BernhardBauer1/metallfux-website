@@ -342,19 +342,26 @@ def area_page(key):
     write(f"{a['slug']}.html", s)
 
 # ---------- Startseite: Produkt-Kacheln ----------
-KACHEL_BILD = {'aussen-balkon-terrasse': 1}
+PRODUKT_GRUPPEN = [
+    ('Geländer', 'Für Treppe, Galerie, Balkon und Terrasse.', ('aussen-balkon-terrasse', 1),
+     [('innen-treppengelaender', 'Treppen- und Galeriegeländer innen'), ('aussen-balkon-terrasse', 'Balkon- und Terrassengeländer'),
+      ('aussen-treppengelaender', 'Treppengeländer außen'), ('aussen-franzoesische-balkone', 'Französische Balkone')]),
+    ('Handläufe', 'Aus Holz, Edelstahl oder Stahl, auf Wunsch mit LED.', ('innen-handlaeufe', 0),
+     [('innen-handlaeufe', 'Handläufe innen'), ('aussen-handlaeufe', 'Handläufe außen')]),
+    ('Treppen', 'Stahltreppen für Haus, Garten und Wasser.', ('aussentreppen', 0),
+     [('innentreppen', 'Innentreppen'), ('aussentreppen', 'Außentreppen'), ('seetreppen', 'Seetreppen')]),
+    ('Weitere Produkte', 'Auch das fertigen wir für Sie nach Maß.', ('ueberdachungen', 0),
+     [('ueberdachungen', 'Überdachungen'), ('duschverglasung', 'Duschverglasung'), ('hochbeete', 'Hochbeete')]),
+]
 def produkt_kacheln():
-    tabs = ''.join(f'<button class="pf-btn" type="button" data-filter="{k}" aria-pressed="{"true" if k == "alle" else "false"}">{l}</button>'
-                   for k, l in (('alle', 'Alle'), ('innen', 'Innen'), ('aussen', 'Außen')))
     tiles = ''
-    for p in [q for q in PAGES if q['area'] in ('innen', 'aussen')]:
-        ims = imgs(p['slug']); im = ims[min(KACHEL_BILD.get(p['slug'], 0), len(ims) - 1)] if ims else None
+    for title, text, (key, i), links in PRODUKT_GRUPPEN:
+        ims = imgs(key); im = ims[min(i, len(ims) - 1)] if ims else None
         img = f'<img src="{im["thumb"]}" alt="" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async">' if im else '<div class="placeholder"></div>'
-        tiles += f'''<a class="pf-tile" href="{p['slug']}.html" data-area="{p['area']}" data-reveal><div class="pf-img">{img}</div>
-<div class="pf-body"><span class="pf-area">{AREAS[p['area']]['nav']}</span><h3>{E(p['nav'])}</h3><small>{E(p['short'])}</small></div><span class="pf-arrow">{ARROW}</span></a>'''
-    return f'''<div class="pf-tabs" role="group" aria-label="Produkte filtern">{tabs}</div>
-<div class="pf-grid">{tiles}</div>
-<div class="pf-links"><a class="link-u" href="innenbereich.html">Alles für den Innenbereich</a><a class="link-u" href="aussenbereich.html">Alles für den Außenbereich</a></div>'''
+        rows = ''.join(f'<a href="{slug}.html"><span>{E(lab)}</span>{ARROW}</a>' for slug, lab in links)
+        tiles += f'''<article class="pg-card" data-reveal><a class="pg-img" href="{links[0][0]}.html" tabindex="-1" aria-hidden="true">{img}</a>
+<div class="pg-body"><h3>{E(title)}</h3><p>{E(text)}</p><nav class="pg-links" aria-label="{E(title)}">{rows}</nav></div></article>'''
+    return f'<div class="pg-grid">{tiles}</div>'
 
 # ---------- Startseite ----------
 def index_page():
@@ -365,13 +372,6 @@ def index_page():
         cap = captions[i] if i < len(captions) else ''
         slides += f'<div class="hero-slide{" is-active" if i == 0 else ""}" data-caption="{E(cap)}"><img src="{im["file"]}" alt="" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""}></div>'
     dots = ''.join(f'<button class="hero-dot" type="button" aria-label="Bild {i+1} zeigen" aria-current="{"true" if i == 0 else "false"}"><span></span></button>' for i in range(len(hero)))
-    def panel(key):
-        a = AREAS[key]
-        ims = imgs(area_pages(key)[0]['slug'])
-        im = ims[1] if len(ims) > 1 else (ims[0] if ims else None)
-        rows = ''.join(f'<a class="row-link" href="{p["slug"]}.html"><span><b>{E(p["nav"])}</b><small>{E(p["short"])}</small></span>{ARROW}</a>' for p in area_pages(key))
-        img = f'<a class="panel-img" href="{a["slug"]}.html" tabindex="-1" aria-hidden="true"><img src="{im["thumb"]}" alt="" loading="lazy"></a>' if im else ''
-        return f'<article class="panel" data-reveal>{img}<div class="panel-body"><h3>{a["nav"]}</h3><div class="rows">{rows}</div><a class="link-u" href="{a["slug"]}.html">Alles für den {a["nav"]}</a></div></article>'
     teaser = ''
     for key, kicker, title, text in [
         ('aussen-balkon-terrasse', 'Außenbereich', 'Balkon- und Terrassengeländer', 'Nurglas, Edelstahl-Glas und Stahl für Balkon und Dach.'),
@@ -400,7 +400,7 @@ def index_page():
 </div></section>
 <section class="section" aria-labelledby="sort-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Produkte</div><h2 class="h2" id="sort-h">Geländer, Treppen und Handläufe nach Maß.</h2>
-<p class="lead">Wählen Sie, ob Ihr Projekt innen oder außen liegt. Dort finden Sie alle passenden Ausführungen, Materialien und Preise.</p></div>
+<p class="lead">Wählen Sie, was Sie suchen. Auf jeder Seite finden Sie die passenden Ausführungen, Materialien und Preise.</p></div>
 {produkt_kacheln()}
 </div></section>
 {projekt_band()}
@@ -433,16 +433,6 @@ def index_page():
 <address>{SITE['firma']} · {SITE['strasse']}, {SITE['ort']}</address>
 <div class="btns"><a class="btn btn-orange" href="ueber-uns.html">Mehr über uns</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div>
 </div>
-</div></section>
-'''
-    extra = ''
-    for p in area_pages('weitere'):
-        ims = imgs(p['slug']); im = ims[0] if ims else None
-        img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy">' if im else f'<div class="placeholder" style="height:220px;border-radius:0">Foto · {E(p["nav"])}</div>'
-        extra += f'<a class="ov-card" href="{p["slug"]}.html" data-reveal>{img}<div class="body"><h3>{E(p["nav"])}</h3><p>{E(p["card"])}</p></div></a>'
-    s += f'''<section class="section band-white" aria-labelledby="weitere-h"><div class="wrap">
-<div class="section-head row"><div style="display:flex;flex-direction:column;gap:12px;max-width:720px"><div class="eyebrow">Weitere Produkte</div><h2 class="h2" id="weitere-h">Auch das fertigen wir für Sie.</h2></div><a class="link-u" href="weitere-produkte.html">Alle weiteren Produkte</a></div>
-<div class="overview-grid">{extra}</div>
 </div></section>
 '''
     s += gebiet_section() + faq_section() + cta_band() + footer()
