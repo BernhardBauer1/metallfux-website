@@ -384,8 +384,8 @@ def index_page():
 <div><strong>Wien · NÖ · Bgld.</strong><span>Unser Einsatzgebiet</span></div>
 </div></section>
 <section class="section" aria-labelledby="sort-h"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Sortiment</div><h2 class="h2" id="sort-h">Wo wird montiert?</h2>
-<p class="lead">Innen zählen Optik und Haptik, außen Korrosionsschutz und Witterung. Deshalb finden Sie jedes Produkt dort, wo es eingebaut wird.</p></div>
+<div class="section-head"><div class="eyebrow">Produkte</div><h2 class="h2" id="sort-h">Geländer, Treppen und Handläufe nach Maß.</h2>
+<p class="lead">Wählen Sie, ob Ihr Projekt innen oder außen liegt. Dort finden Sie alle passenden Ausführungen, Materialien und Preise.</p></div>
 <div class="split">{panel('innen')}{panel('aussen')}</div>
 </div></section>
 {projekt_band()}
