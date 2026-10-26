@@ -78,9 +78,15 @@
         });
       }, { rootMargin: '0px 0px -8% 0px', threshold: 0.08 });
       var vh = window.innerHeight;
-      document.querySelectorAll('[data-reveal]').forEach(function (el) {
+      document.querySelectorAll('[data-reveal], .section-head').forEach(function (el) {
         var r = el.getBoundingClientRect();
-        if (r.top > vh * 1.02) { el.classList.add('reveal-pending'); io.observe(el); }
+        if (r.top > vh * 1.02) {
+          /* Nebeneinander liegende Karten kurz nacheinander einblenden */
+          var prev = el.previousElementSibling, n = 0;
+          while (prev && prev.classList.contains('reveal-pending') && n < 4) { n++; prev = prev.previousElementSibling; }
+          if (n) el.style.setProperty('--d', (n * 0.12) + 's');
+          el.classList.add('reveal-pending'); io.observe(el);
+        }
       });
     };
     window.addEventListener('scroll', arm, { passive: true, once: true });
@@ -259,4 +265,49 @@
         .finally(function () { tstatus.hidden = false; btn.disabled = false; btn.textContent = 'Termin unverbindlich anfragen'; });
     });
   }
+})();
+
+/* Scroll-Effekte: Fortschrittsbalken, Kopfzeile, Titelbild-Parallax, Projekt-Band */
+(function () {
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var bar = document.querySelector('.scroll-progress');
+  var header = document.querySelector('.site-header.is-home');
+  var nav = document.getElementById('nav');
+  var hero = document.querySelector('.hero');
+  var heroSlides = hero && hero.querySelector('.hero-slides');
+  var heroInner = hero && hero.querySelector('.hero-inner');
+  var rows = [].slice.call(document.querySelectorAll('.band-row'));
+  var band = document.querySelector('.band-rows');
+  var ticking = false;
+  function update() {
+    ticking = false;
+    var y = window.scrollY || window.pageYOffset, vh = window.innerHeight;
+    var max = document.documentElement.scrollHeight - vh;
+    if (bar && !reduce) bar.style.transform = 'scaleX(' + (max > 0 ? Math.min(1, y / max) : 0) + ')';
+    if (header) header.classList.toggle('solid', y > 40 || (nav && nav.classList.contains('open')));
+    if (reduce) return;
+    if (hero && y < hero.offsetHeight) {
+      var h = hero.offsetHeight;
+      heroSlides.style.transform = 'translate3d(0,' + (y * 0.35) + 'px,0)';
+      heroInner.style.transform = 'translate3d(0,' + (y * 0.12) + 'px,0)';
+      heroInner.style.opacity = Math.max(0, 1 - y / (h * 0.65));
+    }
+    if (band) {
+      var r = band.getBoundingClientRect();
+      if (r.bottom > 0 && r.top < vh) {
+        var p = Math.min(1, Math.max(0, (vh - r.top) / (vh + r.height)));
+        rows.forEach(function (row) {
+          var shift = Math.max(0, row.scrollWidth - window.innerWidth);
+          var x = row.getAttribute('data-dir') === '1' ? -(1 - p) * shift : -p * shift;
+          row.style.transform = 'translate3d(' + x + 'px,0,0)';
+        });
+      }
+    }
+  }
+  function onScroll() { if (!ticking) { ticking = true; requestAnimationFrame(update); } }
+  window.addEventListener('scroll', onScroll, { passive: true });
+  window.addEventListener('resize', onScroll);
+  var burger = document.querySelector('.burger');
+  if (burger) burger.addEventListener('click', function () { setTimeout(update, 0); });
+  update();
 })();

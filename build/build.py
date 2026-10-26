@@ -57,7 +57,7 @@ def head(title, desc, canonical):
 <a class="skip" href="#inhalt">Zum Inhalt springen</a>
 '''
 
-def header(active=None, area=None):
+def header(active=None, area=None, home=False):
     def drop(a):
         ad = AREAS[a]
         items = ''.join(f'<a href="{p["slug"]}.html"><span>{E(p["nav"])}</span><small>{E(p["short"])}</small></a>' for p in area_pages(a))
@@ -65,9 +65,11 @@ def header(active=None, area=None):
         return f'''<li class="nav-item{act}"><button class="nav-link" type="button" aria-expanded="false" aria-controls="dd-{a}">{ad['nav']}{CHEV}</button>
 <div class="dropdown" id="dd-{a}">{items}<a class="all" href="{ad['slug']}.html"><span>Alles für den {ad['nav']} {ARROW}</span></a></div></li>'''
     cur = lambda k: ' aria-current="page"' if active == k else ''
-    return f'''<header class="site-header">
+    logo_w = '<img class="logo-w" src="img/logo-weiss.png" alt="" width="221" height="22">' if home else ''
+    return f'''<header class="site-header{' is-home' if home else ''}">
+<div class="scroll-progress" aria-hidden="true"></div>
 <div class="wrap header-inner">
-<a class="logo" href="index.html" aria-label="METALLFUX Startseite"><img src="img/logo-dunkel.png" alt="METALLFUX" width="221" height="22"></a>
+<a class="logo" href="index.html" aria-label="METALLFUX Startseite"><img class="logo-d" src="img/logo-dunkel.png" alt="METALLFUX" width="221" height="22">{logo_w}</a>
 <nav class="nav" id="nav" aria-label="Hauptmenü">
 <ul>
 {drop('innen')}
@@ -364,7 +366,7 @@ def index_page():
         im = ims[2] if len(ims) > 2 else (ims[0] if ims else None)
         img = f'<div class="img"><img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy"></div>' if im else ''
         teaser += f'<a class="ref-card" href="{key}.html" data-reveal>{img}<div class="kicker">{kicker}</div><h3>{title}</h3><p>{text}</p></a>'
-    s = head('METALLFUX – Geländer und Treppen nach Maß in Wien', 'Geländer, Handläufe und Treppen aus Metall, Glas und Holz – geplant, gefertigt und montiert in Wien, Niederösterreich und im Burgenland.', '') + header()
+    s = head('METALLFUX – Geländer und Treppen nach Maß in Wien', 'Geländer, Handläufe und Treppen aus Metall, Glas und Holz – geplant, gefertigt und montiert in Wien, Niederösterreich und im Burgenland.', '') + header(home=True)
     s += f'''<section class="hero" aria-label="Einstieg">
 <div class="hero-slides">{slides}</div>
 <div class="wrap hero-inner">
@@ -386,6 +388,7 @@ def index_page():
 <p class="lead">Innen zählen Optik und Haptik, außen Korrosionsschutz und Witterung. Deshalb finden Sie jedes Produkt dort, wo es eingebaut wird.</p></div>
 <div class="split">{panel('innen')}{panel('aussen')}</div>
 </div></section>
+{projekt_band()}
 <section class="section band-white" aria-labelledby="ablauf-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Ablauf</div><h2 class="h2" id="ablauf-h">Vom Foto zum fertigen Geländer.</h2></div>
 <ol class="steps">
@@ -430,12 +433,40 @@ def index_page():
     s += gebiet_section() + faq_section() + cta_band() + footer()
     write('index.html', s)
 
+BAND = [
+    [('innen-treppengelaender', 30), ('aussen-balkon-terrasse', 1), ('ueberdachungen', 0), ('aussen-treppengelaender', 8), ('innen-handlaeufe', 3),
+     ('aussen-balkon-terrasse', 14), ('innen-treppengelaender', 0), ('duschverglasung', 1), ('aussen-treppengelaender', 20), ('aussen-balkon-terrasse', 21)],
+    [('aussen-treppengelaender', 11), ('innen-treppengelaender', 16), ('aussen-balkon-terrasse', 10), ('aussen-handlaeufe', 2), ('innen-treppengelaender', 35),
+     ('aussen-balkon-terrasse', 17), ('ueberdachungen', 4), ('aussen-treppengelaender', 4), ('innen-treppengelaender', 20), ('aussen-balkon-terrasse', 7)],
+]
+def projekt_band():
+    rows = ''
+    for d, row in zip((-1, 1), BAND):
+        ims = ''.join(f'<img src="{im["thumb"]}" alt="" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async">'
+                      for im in (imgs(k)[i] for k, i in row if i < len(imgs(k))))
+        rows += f'<div class="band-row" data-dir="{d}">{ims}</div>'
+    return f'''<section class="photo-band on-dark" aria-labelledby="band-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Einblicke</div><h2 class="h2" id="band-h">Ein Blick auf unsere Arbeit.</h2></div></div>
+<div class="band-rows" aria-hidden="true">{rows}</div>
+<div class="wrap"><a class="link-u" href="referenzen.html">Zu den Referenzen</a></div>
+</section>
+'''
+
+KARTE = json.load(open(os.path.join(BASE, 'karte.json'), encoding='utf-8'))
+def karte():
+    ctx = ''.join(f'<path class="ctx" d="{KARTE[n]}"/>' for n in ('Oberösterreich', 'Steiermark'))
+    lands = ''.join(f'<path class="land" style="--i:{i}" d="{KARTE[n]}"/>' for i, n in ((1, 'Niederösterreich'), (2, 'Burgenland'), (0, 'Wien')))
+    labels = ''.join(f'<text class="lbl" style="--i:{i}" x="{KARTE["_c_" + n][0] + dx}" y="{KARTE["_c_" + n][1] + dy}" text-anchor="middle">{lab}</text>'
+                     for i, n, lab, dx, dy in ((1, 'Niederösterreich', 'Niederösterreich', -50, 60), (2, 'Burgenland', 'Burgenland', 0, 0), (0, 'Wien', 'Wien', 6, -34)))
+    return f'''<figure class="karte" data-reveal><svg viewBox="{KARTE['_vb']}" role="img" aria-label="Karte: Einsatzgebiet Wien, Niederösterreich und Burgenland">{ctx}{lands}{labels}</svg>
+<figcaption>Kartengrundlage: Statistik Austria, CC BY 4.0</figcaption></figure>'''
+
 def gebiet_section():
     cols = ''.join(f'''<div class="area-col" data-reveal><h3>{E(land)}</h3><p class="area-sub">{E(sub)}</p><p class="area-list">{' · '.join(E(o) for o in orte)}</p></div>''' for land, sub, orte in GEBIET)
     return f'''<section class="section" aria-labelledby="gebiet-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Einsatzgebiet</div><h2 class="h2" id="gebiet-h">Wir montieren in Wien, Niederösterreich und im Burgenland.</h2>
 <p class="lead">Beratung, Aufmaß und Montage bei Ihnen vor Ort.</p></div>
-<div class="area-grid">{cols}</div>
+<div class="gebiet">{karte()}<div class="area-grid">{cols}</div></div>
 </div></section>
 '''
 
