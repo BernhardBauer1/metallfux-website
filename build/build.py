@@ -360,7 +360,7 @@ def index_page():
     teaser = ''
     for key, kicker, title, text in [
         ('aussen-balkon-terrasse', 'Außenbereich', 'Balkon- und Terrassengeländer', 'Nurglas, Edelstahl-Glas und Stahl für Balkon und Dach.'),
-        ('innen-treppengelaender', 'Innenbereich', 'Treppengeländer', 'Glas, Edelstahl und Stahl im Stiegenhaus.'),
+        ('innen-treppengelaender', 'Innenbereich', 'Treppen- und Galeriegeländer', 'Glas, Edelstahl und Stahl für Stiegenhaus und Galerie.'),
         ('aussentreppen', 'Außenbereich', 'Außentreppen', 'Stahltreppen für Terrasse, Garten und Pool.')]:
         ims = imgs(key)
         im = ims[2] if len(ims) > 2 else (ims[0] if ims else None)
