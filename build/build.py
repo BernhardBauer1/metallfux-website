@@ -341,6 +341,21 @@ def area_page(key):
     s += cta_band() + footer()
     write(f"{a['slug']}.html", s)
 
+# ---------- Startseite: Produkt-Kacheln ----------
+KACHEL_BILD = {'aussen-balkon-terrasse': 1}
+def produkt_kacheln():
+    tabs = ''.join(f'<button class="pf-btn" type="button" data-filter="{k}" aria-pressed="{"true" if k == "alle" else "false"}">{l}</button>'
+                   for k, l in (('alle', 'Alle'), ('innen', 'Innen'), ('aussen', 'Außen')))
+    tiles = ''
+    for p in [q for q in PAGES if q['area'] in ('innen', 'aussen')]:
+        ims = imgs(p['slug']); im = ims[min(KACHEL_BILD.get(p['slug'], 0), len(ims) - 1)] if ims else None
+        img = f'<img src="{im["thumb"]}" alt="" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async">' if im else '<div class="placeholder"></div>'
+        tiles += f'''<a class="pf-tile" href="{p['slug']}.html" data-area="{p['area']}" data-reveal><div class="pf-img">{img}</div>
+<div class="pf-body"><span class="pf-area">{AREAS[p['area']]['nav']}</span><h3>{E(p['nav'])}</h3><small>{E(p['short'])}</small></div><span class="pf-arrow">{ARROW}</span></a>'''
+    return f'''<div class="pf-tabs" role="group" aria-label="Produkte filtern">{tabs}</div>
+<div class="pf-grid">{tiles}</div>
+<div class="pf-links"><a class="link-u" href="innenbereich.html">Alles für den Innenbereich</a><a class="link-u" href="aussenbereich.html">Alles für den Außenbereich</a></div>'''
+
 # ---------- Startseite ----------
 def index_page():
     hero = imgs('hero')
@@ -386,7 +401,7 @@ def index_page():
 <section class="section" aria-labelledby="sort-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Produkte</div><h2 class="h2" id="sort-h">Geländer, Treppen und Handläufe nach Maß.</h2>
 <p class="lead">Wählen Sie, ob Ihr Projekt innen oder außen liegt. Dort finden Sie alle passenden Ausführungen, Materialien und Preise.</p></div>
-<div class="split">{panel('innen')}{panel('aussen')}</div>
+{produkt_kacheln()}
 </div></section>
 {projekt_band()}
 <section class="section band-white" aria-labelledby="ablauf-h"><div class="wrap">
