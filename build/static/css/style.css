@@ -534,7 +534,7 @@ p{margin:0}
 .mosaic-tile:hover .mosaic-cap,.mosaic-tile:focus-visible .mosaic-cap{opacity:1;transform:none}
 .mosaic-tile:hover img{transform:scale(1.03)}
 /* Touch-Geräte ohne Maus: Namen immer zeigen */
-@media (hover:none){
+@media (hover:none) and (max-width:900px){
   .mosaic-tile::after{opacity:1;background:linear-gradient(180deg,rgba(15,15,16,0) 45%,rgba(15,15,16,.7))}
   .mosaic-cap{opacity:1;transform:none;justify-content:flex-end;align-items:flex-start;text-align:left;padding:16px}
   .mosaic-cap b{font-size:17px}
