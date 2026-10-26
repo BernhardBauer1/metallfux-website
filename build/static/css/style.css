@@ -457,7 +457,7 @@ p{margin:0}
 @media (max-width:900px){.site-header.is-home:not(.solid) .nav{color:var(--ink)}}
 
 /* Startseite: Produktgruppen */
-.pg-grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:20px}
+.pg-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}
 .pg-card{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);overflow:hidden}
 .pg-img{display:block;aspect-ratio:4/3;overflow:hidden;background:var(--ground)}
 .pg-img img,.pg-img .placeholder{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
@@ -470,5 +470,5 @@ p{margin:0}
 .pg-links a svg{flex:none;transition:transform .2s}
 .pg-links a:hover{color:var(--orange)}
 .pg-links a:hover svg{transform:translateX(3px)}
-@media (max-width:1100px){.pg-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:900px){.pg-grid{grid-template-columns:1fr}.pg-img{aspect-ratio:16/9}}
 @media (max-width:600px){.pg-grid{grid-template-columns:1fr}.pg-img{aspect-ratio:16/9}}

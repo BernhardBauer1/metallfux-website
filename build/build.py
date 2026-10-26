@@ -350,8 +350,6 @@ PRODUKT_GRUPPEN = [
      [('innen-handlaeufe', 'Handläufe innen'), ('aussen-handlaeufe', 'Handläufe außen')]),
     ('Treppen', 'Stahltreppen für Haus, Garten und Wasser.', ('aussentreppen', 0),
      [('innentreppen', 'Innentreppen'), ('aussentreppen', 'Außentreppen'), ('seetreppen', 'Seetreppen')]),
-    ('Weitere Produkte', 'Auch das fertigen wir für Sie nach Maß.', ('ueberdachungen', 0),
-     [('ueberdachungen', 'Überdachungen'), ('duschverglasung', 'Duschverglasung'), ('hochbeete', 'Hochbeete')]),
 ]
 def produkt_kacheln():
     tiles = ''
@@ -431,6 +429,16 @@ def index_page():
 <address>{SITE['firma']} · {SITE['strasse']}, {SITE['ort']}</address>
 <div class="btns"><a class="btn btn-orange" href="ueber-uns.html">Mehr über uns</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div>
 </div>
+</div></section>
+'''
+    extra = ''
+    for p in area_pages('weitere'):
+        ims = imgs(p['slug']); im = ims[0] if ims else None
+        img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy">' if im else f'<div class="placeholder" style="height:220px;border-radius:0">Foto · {E(p["nav"])}</div>'
+        extra += f'<a class="ov-card" href="{p["slug"]}.html" data-reveal>{img}<div class="body"><h3>{E(p["nav"])}</h3><p>{E(p["card"])}</p></div></a>'
+    s += f'''<section class="section band-white" aria-labelledby="weitere-h"><div class="wrap">
+<div class="section-head row"><div style="display:flex;flex-direction:column;gap:12px;max-width:720px"><div class="eyebrow">Weitere Produkte</div><h2 class="h2" id="weitere-h">Auch das fertigen wir für Sie.</h2></div><a class="link-u" href="weitere-produkte.html">Alle weiteren Produkte</a></div>
+<div class="overview-grid">{extra}</div>
 </div></section>
 '''
     s += gebiet_section() + faq_section() + cta_band() + footer()
