@@ -1,6 +1,9 @@
 /* METALLFUX – Navigation, Slideshow, Scroll-Animation, Lightbox, Anfrageformular */
 (function () {
   'use strict';
+  /* Neue Seite immer oben öffnen (die Vorschau behält sonst die alte Scrollposition) */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+  if (!location.hash) { window.scrollTo(0, 0); window.addEventListener('load', function () { if (!location.hash) window.scrollTo(0, 0); }); }
   var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
   /* Mobilmenü */
