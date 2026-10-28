@@ -352,12 +352,12 @@ def meister_siegel():
 
 # ---------- Startseite: Produkt-Kacheln ----------
 PRODUKT_GRUPPEN = [
-    ('Geländer', 'Für Treppe, Galerie, Balkon und Terrasse.', ('aussen-balkon-terrasse', 1),
-     [('innen-treppengelaender', 'Treppen- und Galeriegeländer innen'), ('aussen-balkon-terrasse', 'Balkon- und Terrassengeländer'),
-      ('aussen-treppengelaender', 'Treppengeländer außen'), ('aussen-franzoesische-balkone', 'Französische Balkone')]),
-    ('Handläufe', 'Aus Holz, Edelstahl oder Stahl, auf Wunsch mit LED.', ('innen-handlaeufe', 0),
-     [('innen-handlaeufe', 'Handläufe innen'), ('aussen-handlaeufe', 'Handläufe außen')]),
-    ('Treppen', 'Stahltreppen für Haus, Garten und Wasser.', ('aussentreppen', 0),
+    ('Geländer', '', ('aussen-balkon-terrasse', 1),
+     [('innen-treppengelaender', 'Treppen- und Galeriegeländer Innen'), ('aussen-balkon-terrasse', 'Balkon- und Terrassengeländer'),
+      ('aussen-treppengelaender', 'Treppengeländer Außen'), ('aussen-franzoesische-balkone', 'Französische Balkone')]),
+    ('Handläufe', '', ('innen-handlaeufe', 0),
+     [('innen-handlaeufe', 'Handläufe Innen'), ('aussen-handlaeufe', 'Handläufe Außen')]),
+    ('Treppen', '', ('aussentreppen', 0),
      [('innentreppen', 'Innentreppen'), ('aussentreppen', 'Außentreppen'), ('seetreppen', 'Seetreppen')]),
 ]
 def produkt_kacheln():
@@ -367,7 +367,7 @@ def produkt_kacheln():
         img = f'<img src="{im["thumb"]}" alt="" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async">' if im else '<div class="placeholder"></div>'
         rows = ''.join(f'<a href="{slug}.html"><span>{E(lab)}</span>{ARROW}</a>' for slug, lab in links)
         tiles += f'''<article class="pg-card" data-reveal><a class="pg-img" href="{links[0][0]}.html" tabindex="-1" aria-hidden="true">{img}</a>
-<div class="pg-body"><h3>{E(title)}</h3><p>{E(text)}</p><nav class="pg-links" aria-label="{E(title)}">{rows}</nav></div></article>'''
+<div class="pg-body"><h3>{E(title)}</h3>{f'<p>{E(text)}</p>' if text else ''}<nav class="pg-links" aria-label="{E(title)}">{rows}</nav></div></article>'''
     return f'<div class="pg-grid">{tiles}</div>'
 
 # ---------- Startseite ----------
@@ -384,7 +384,7 @@ def index_page():
     s += f'''<section class="hero" aria-label="Einstieg">
 <div class="hero-slides">{slides}</div>
 <div class="wrap hero-inner">
-<div class="hero-tag">Metall · Glas · Holz</div>
+<div class="hero-tag">Stahl · Edelstahl · Glas</div>
 <h1>Geländer und Treppen nach Maß.</h1>
 <p>Geplant, gefertigt und montiert – in Wien, Niederösterreich und im Burgenland.</p>
 <div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a><a class="btn btn-ghost btn-lg" href="termin.html">Beratungstermin vor Ort</a></div>
@@ -406,7 +406,7 @@ def index_page():
 <ol class="steps">
 <li data-reveal><div class="num">01</div><h3>Foto schicken</h3><p>Ein Foto der Einbausituation und grobe Längenmaße reichen für den Anfang.</p></li>
 <li data-reveal><div class="num">02</div><h3>Beratung und Aufmaß</h3><p>Wir beraten telefonisch oder vor Ort, nehmen Maß und erstellen einen unverbindlichen Kostenvoranschlag.</p></li>
-<li data-reveal><div class="num">03</div><h3>Planung und Fertigung</h3><p>Sie erhalten exakte Pläne zur Freigabe. Danach wird nach Maß gefertigt, in der Regel in rund 8 Wochen.</p></li>
+<li data-reveal><div class="num">03</div><h3>Planung und Fertigung</h3><p>Sie erhalten exakte Pläne zur Freigabe. Danach wird nach Maß gefertigt, in der Regel in rund 6 bis 8 Wochen.</p></li>
 <li data-reveal><div class="num">04</div><h3>Montage</h3><p>Wir montieren bei Ihnen und stimmen uns auf der Baustelle mit den anderen Gewerken ab.</p></li>
 </ol>
 </div></section>
@@ -554,7 +554,7 @@ def about_page():
         ('Qualität', 'Alle Geländer und Treppen sind werkseitig vollverschweißt. So können die Rohre nicht auffrieren.'),
         ('Planung', 'Sie erhalten exakte Pläne. Das erleichtert Ihnen die Vorbereitung der baulichen Maßnahmen.'),
         ('Koordinierung', 'Wir kommen auf Wunsch zur Baubesprechung und stimmen uns mit den anderen Gewerken ab.'),
-        ('Flexibilität', 'Die Lieferzeit für maßgefertigte Elemente beträgt rund 8 Wochen. Wenn es schneller gehen muss, kommen wir Ihnen entgegen.'),
+        ('Flexibilität', 'Die Lieferzeit für maßgefertigte Elemente beträgt rund 6 bis 8 Wochen. Wenn es schneller gehen muss, kommen wir Ihnen entgegen.'),
         ('Designvielfalt', 'Vom modernen Glasgeländer bis zum klassischen, pulverbeschichteten Stahlgeländer: Für jede Einbausituation gibt es eine passende Lösung.'),
     ]
     values = [('Präzision', 'Sauber gearbeitete Details, vom Schweißpunkt bis zur Glasklemme.'),

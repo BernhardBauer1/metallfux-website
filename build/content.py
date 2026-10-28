@@ -34,7 +34,7 @@ FAQ = [
      'Edelstahl-Stabgeländer ab € 330, Edelstahl-Glas ab € 380, Nurglas ab € 590 (gerade Ausführung ab 10 lfm). '
      'Den genauen Preis erhalten Sie mit dem unverbindlichen Kostenvoranschlag.'),
     ('Wie lange dauert es vom Auftrag bis zur Montage?',
-     'Nach Ihrer Freigabe der Pläne wird gefertigt, in der Regel in rund 8 Wochen. Den Montagetermin stimmen wir mit Ihnen '
+     'Nach Ihrer Freigabe der Pläne wird gefertigt, in der Regel in rund 6 bis 8 Wochen. Den Montagetermin stimmen wir mit Ihnen '
      'und den anderen Gewerken auf der Baustelle ab.'),
     ('Wie hoch muss ein Geländer sein?',
      'In Österreich gilt die OIB-Richtlinie 4. Absturzsicherungen müssen in der Regel mindestens 100 cm hoch sein, ab 12 m '
