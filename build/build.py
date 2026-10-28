@@ -251,10 +251,6 @@ def material_page(p, mk, m):
 </div>
 {hero_img}
 </div></section>
-<section class="section band-white" aria-labelledby="ausf-h"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Ausführungen in {m['label']}</div><h2 class="h2" id="ausf-h">Welche Ausführung passt?</h2></div>
-<div class="variants">{''.join(variant_card(k) for k in keys)}</div>
-</div></section>
 <section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">{E(p['nav'])} aus {m['label']}</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
 {('<div class="gallery">' + gal + '</div>') if gal else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
