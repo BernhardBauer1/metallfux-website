@@ -15,14 +15,14 @@
   {
    "file": "img/hero-01.jpg",
    "thumb": "img/thumb/hero-01.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
    "alt": "METALLFUX",
    "placeholder": false,
    "mat": null,
-   "src": "Titelbild_2.jpg"
+   "src": "Titelbild_2.JPG"
   }
  ],
  "innen-treppengelaender": [
@@ -1349,32 +1349,38 @@
   {
    "file": "img/innentreppen-00.jpg",
    "thumb": "img/thumb/innentreppen-00.jpg",
-   "w": 1800,
-   "h": 1350,
-   "tw": 900,
-   "th": 675,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
-  },
-  {
-   "file": "img/innentreppen-01.jpg",
-   "thumb": "img/thumb/innentreppen-01.jpg",
-   "w": 1600,
-   "h": 1200,
-   "tw": 900,
-   "th": 675,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
-  },
-  {
-   "file": "img/innentreppen-02.jpg",
-   "thumb": "img/thumb/innentreppen-02.jpg",
    "w": 1200,
    "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_1.JPG"
+  },
+  {
+   "file": "img/innentreppen-01.jpg",
+   "thumb": "img/thumb/innentreppen-01.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_2.jpeg"
+  },
+  {
+   "file": "img/innentreppen-02.jpg",
+   "thumb": "img/thumb/innentreppen-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_3.jpg"
   },
   {
    "file": "img/innentreppen-03.jpg",
@@ -1383,8 +1389,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_4.jpg"
   },
   {
    "file": "img/innentreppen-04.jpg",
@@ -1393,8 +1401,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_5.jpeg"
   },
   {
    "file": "img/innentreppen-05.jpg",
@@ -1403,28 +1413,34 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_6.jpeg"
   },
   {
    "file": "img/innentreppen-06.jpg",
    "thumb": "img/thumb/innentreppen-06.jpg",
-   "w": 1000,
-   "h": 800,
-   "tw": 900,
-   "th": 720,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_7.JPG"
   },
   {
    "file": "img/innentreppen-07.jpg",
    "thumb": "img/thumb/innentreppen-07.jpg",
-   "w": 1547,
+   "w": 1350,
    "h": 1800,
-   "tw": 773,
+   "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_8.jpg"
   },
   {
    "file": "img/innentreppen-08.jpg",
@@ -1433,18 +1449,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_9.jpg"
   },
   {
    "file": "img/innentreppen-09.jpg",
    "thumb": "img/thumb/innentreppen-09.jpg",
-   "w": 1350,
-   "h": 1800,
+   "w": 1200,
+   "h": 1600,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_10.JPG"
   },
   {
    "file": "img/innentreppen-10.jpg",
@@ -1453,38 +1473,46 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_11.jpg"
   },
   {
    "file": "img/innentreppen-11.jpg",
    "thumb": "img/thumb/innentreppen-11.jpg",
-   "w": 1000,
-   "h": 800,
-   "tw": 900,
-   "th": 720,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_12.jpg"
   },
   {
    "file": "img/innentreppen-12.jpg",
    "thumb": "img/thumb/innentreppen-12.jpg",
-   "w": 1000,
-   "h": 800,
-   "tw": 900,
-   "th": 720,
-   "alt": "Innentreppen – Innentreppe",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_13.jpg"
   },
   {
    "file": "img/innentreppen-13.jpg",
    "thumb": "img/thumb/innentreppen-13.jpg",
-   "w": 1038,
-   "h": 1038,
-   "tw": 900,
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_14.JPG"
   },
   {
    "file": "img/innentreppen-14.jpg",
@@ -1493,8 +1521,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Innentreppen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Innentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Innentreppe_15.jpg"
   }
  ],
  "aussen-balkon-terrasse": [
@@ -2443,8 +2473,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_1.jpg"
   },
   {
    "file": "img/aussentreppen-01.jpg",
@@ -2453,18 +2485,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_2.jpg"
   },
   {
    "file": "img/aussentreppen-02.jpg",
    "thumb": "img/thumb/aussentreppen-02.jpg",
-   "w": 1500,
-   "h": 1125,
-   "tw": 900,
-   "th": 675,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_3.jpg"
   },
   {
    "file": "img/aussentreppen-03.jpg",
@@ -2473,18 +2509,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_4.jpeg"
   },
   {
    "file": "img/aussentreppen-04.jpg",
    "thumb": "img/thumb/aussentreppen-04.jpg",
-   "w": 1350,
-   "h": 1800,
-   "tw": 675,
-   "th": 900,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "w": 1800,
+   "h": 1350,
+   "tw": 900,
+   "th": 675,
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_5.jpeg"
   },
   {
    "file": "img/aussentreppen-05.jpg",
@@ -2493,18 +2533,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_6.JPG"
   },
   {
    "file": "img/aussentreppen-06.jpg",
    "thumb": "img/thumb/aussentreppen-06.jpg",
-   "w": 1350,
+   "w": 1012,
    "h": 1800,
-   "tw": 675,
+   "tw": 506,
    "th": 900,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_7.jpeg"
   },
   {
    "file": "img/aussentreppen-07.jpg",
@@ -2513,18 +2557,22 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_8.jpg"
   },
   {
    "file": "img/aussentreppen-08.jpg",
    "thumb": "img/thumb/aussentreppen-08.jpg",
-   "w": 1000,
-   "h": 800,
-   "tw": 900,
-   "th": 720,
-   "alt": "Außentreppen – Außentreppe",
-   "placeholder": false
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_9.jpg"
   },
   {
    "file": "img/aussentreppen-09.jpg",
@@ -2533,8 +2581,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Spindeltreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_10.jpg"
   },
   {
    "file": "img/aussentreppen-10.jpg",
@@ -2543,18 +2593,46 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Spindeltreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_11.jpg"
   },
   {
    "file": "img/aussentreppen-11.jpg",
    "thumb": "img/thumb/aussentreppen-11.jpg",
-   "w": 810,
-   "h": 1080,
+   "w": 1350,
+   "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Spindeltreppe",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_12.jpeg"
+  },
+  {
+   "file": "img/aussentreppen-12.jpg",
+   "thumb": "img/thumb/aussentreppen-12.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_13.jpg"
+  },
+  {
+   "file": "img/aussentreppen-13.jpg",
+   "thumb": "img/thumb/aussentreppen-13.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_14.jpg"
   },
   {
    "file": "img/aussentreppen-14.jpg",
@@ -2563,8 +2641,10 @@
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Außentreppen – Nurglasgeländer",
-   "placeholder": false
+   "alt": "Außentreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Außentreppe_15.jpeg"
   }
  ],
  "ueberdachungen": [
@@ -2801,24 +2881,184 @@
  ],
  "seetreppen": [
   {
-   "file": "img/aussentreppen-12.jpg",
-   "thumb": "img/thumb/aussentreppen-12.jpg",
-   "w": 1200,
-   "h": 1600,
-   "tw": 675,
-   "th": 900,
-   "alt": "Seetreppen und Pooltreppen – Seetreppe",
-   "placeholder": false
-  },
-  {
-   "file": "img/aussentreppen-13.jpg",
-   "thumb": "img/thumb/aussentreppen-13.jpg",
+   "file": "img/seetreppen-00.jpg",
+   "thumb": "img/thumb/seetreppen-00.jpg",
    "w": 1350,
    "h": 1800,
    "tw": 675,
    "th": 900,
-   "alt": "Seetreppen und Pooltreppen – Seetreppe",
-   "placeholder": false
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_1.JPG"
+  },
+  {
+   "file": "img/seetreppen-01.jpg",
+   "thumb": "img/thumb/seetreppen-01.jpg",
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_2.JPG"
+  },
+  {
+   "file": "img/seetreppen-02.jpg",
+   "thumb": "img/thumb/seetreppen-02.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_3.jpeg"
+  },
+  {
+   "file": "img/seetreppen-03.jpg",
+   "thumb": "img/thumb/seetreppen-03.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_4.jpg"
+  },
+  {
+   "file": "img/seetreppen-04.jpg",
+   "thumb": "img/thumb/seetreppen-04.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_5.jpeg"
+  },
+  {
+   "file": "img/seetreppen-05.jpg",
+   "thumb": "img/thumb/seetreppen-05.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_6.jpeg"
+  },
+  {
+   "file": "img/seetreppen-06.jpg",
+   "thumb": "img/thumb/seetreppen-06.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_7.jpg"
+  },
+  {
+   "file": "img/seetreppen-07.jpg",
+   "thumb": "img/thumb/seetreppen-07.jpg",
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_8.JPG"
+  },
+  {
+   "file": "img/seetreppen-08.jpg",
+   "thumb": "img/thumb/seetreppen-08.jpg",
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_9.JPG"
+  },
+  {
+   "file": "img/seetreppen-09.jpg",
+   "thumb": "img/thumb/seetreppen-09.jpg",
+   "w": 768,
+   "h": 1024,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_10.JPG"
+  },
+  {
+   "file": "img/seetreppen-10.jpg",
+   "thumb": "img/thumb/seetreppen-10.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_11.JPG"
+  },
+  {
+   "file": "img/seetreppen-11.jpg",
+   "thumb": "img/thumb/seetreppen-11.jpg",
+   "w": 1200,
+   "h": 1600,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_12.JPG"
+  },
+  {
+   "file": "img/seetreppen-12.jpg",
+   "thumb": "img/thumb/seetreppen-12.jpg",
+   "w": 1024,
+   "h": 768,
+   "tw": 900,
+   "th": 675,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_13.JPG"
+  },
+  {
+   "file": "img/seetreppen-13.jpg",
+   "thumb": "img/thumb/seetreppen-13.jpg",
+   "w": 768,
+   "h": 1024,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "Seetreppe_14.JPG"
+  },
+  {
+   "file": "img/aussentreppen-15.jpg",
+   "thumb": "img/thumb/aussentreppen-15.jpg",
+   "w": 1350,
+   "h": 1800,
+   "tw": 675,
+   "th": 900,
+   "alt": "Seetreppen und Pooltreppen",
+   "placeholder": false,
+   "mat": null,
+   "src": "IMG_5113.jpg"
   }
  ],
  "ref-breitenfurt": [
