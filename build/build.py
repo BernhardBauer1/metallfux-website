@@ -254,7 +254,6 @@ def material_page(p, mk, m):
 <section class="section band-white" aria-labelledby="ausf-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Ausführungen in {m['label']}</div><h2 class="h2" id="ausf-h">Welche Ausführung passt?</h2></div>
 <div class="variants">{''.join(variant_card(k) for k in keys)}</div>
-{f'<p class="price-note">{PRICE_NOTE} Den genauen Preis erhalten Sie mit dem Kostenvoranschlag.</p>' if mp else ''}
 </div></section>
 <section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">{E(p['nav'])} aus {m['label']}</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
@@ -298,7 +297,7 @@ def product_page(p):
 {('<div class="section-head"><div class="eyebrow">Nach Material</div><h2 class="h2" id="ausf-h">Stahl, Edelstahl oder Glas?</h2><p class="lead">Wählen Sie das Material – auf jeder Seite finden Sie die passenden Ausführungen, Preise und Bilder.</p></div>' + material_cards(p)) if p.get('materials') else ''}
 {'' if p.get('materials') else '<div class="section-head"><div class="eyebrow">Ausführungen</div><h2 class="h2" id="ausf-h">Welche Ausführung passt?</h2></div>'}
 {'' if p.get('materials') else '<div class="variants">' + ''.join(variant_card(k) for k in p['variants']) + '</div>'}
-{f'<p class="price-note">{E(p["extra_note"])}</p>' if p.get('extra_note') else (f'<p class="price-note">{PRICE_NOTE} Den genauen Preis erhalten Sie mit dem Kostenvoranschlag.</p>' if has_price else '')}
+{f'<p class="price-note">{E(p["extra_note"])}</p>' if p.get('extra_note') else ''}
 </div></section>
 <section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">Aus unseren Projekten</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
