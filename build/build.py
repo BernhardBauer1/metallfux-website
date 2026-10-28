@@ -251,13 +251,11 @@ def material_page(p, mk, m):
 </div>
 {hero_img}
 </div></section>
-<section class="section band-white" aria-labelledby="mat-h"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Anderes Material</div><h2 class="h2" id="mat-h">{E(p['nav'])} in Stahl, Edelstahl oder Glas</h2></div>
-{material_cards(p, mk)}
-</div></section>
 <section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">{E(p['nav'])} aus {m['label']}</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
 {('<div class="gallery">' + gal + '</div>') if gal else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
+<div class="wunsch" role="note"><div class="wunsch-text"><h3>Kein Foto der Wunschausführung dabei?</h3><p>Senden Sie uns eine Skizze oder ein Bild Ihrer Vorstellungen und wir prüfen die Machbarkeit. Oder sehen Sie sich die beiden anderen Varianten an.</p></div>
+<div class="btns"><a class="btn btn-orange" href="anfrage.html">Skizze oder Bild senden</a>{''.join(f'<a class="btn btn-ghost" href="{p["slug"]}-{ok}.html">{om["label"]} ansehen</a>' for ok, om in mat_list(p) if ok != mk)}</div></div>
 </div></section>
 '''
     s += cta_band() + footer()
