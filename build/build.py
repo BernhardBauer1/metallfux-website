@@ -251,13 +251,13 @@ def material_page(p, mk, m):
 </div>
 {hero_img}
 </div></section>
-<section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">{E(p['nav'])} aus {m['label']}</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
-{('<div class="gallery">' + gal + '</div>') if gal else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
-</div></section>
 <section class="section band-white" aria-labelledby="mat-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Anderes Material</div><h2 class="h2" id="mat-h">{E(p['nav'])} in Stahl, Edelstahl oder Glas</h2></div>
 {material_cards(p, mk)}
+</div></section>
+<section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">{E(p['nav'])} aus {m['label']}</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
+{('<div class="gallery">' + gal + '</div>') if gal else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
 </div></section>
 '''
     s += cta_band() + footer()
