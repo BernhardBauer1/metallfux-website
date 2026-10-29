@@ -1,5 +1,6 @@
 # Erzeugte Website (build.py / prep_images.py) – wird nicht versioniert
-site/
+site/*
+!site/img/
 site-artifact/
 artifact-files.json
 
