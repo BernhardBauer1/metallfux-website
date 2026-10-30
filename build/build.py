@@ -438,6 +438,60 @@ def index_page():
     s += gebiet_section() + cta_band() + footer()
     write('index.html', s)
 
+# ---------- Startseite, ruhigere Variante (nur Vorschau zum Vergleichen) ----------
+def index_ruhig():
+    hero = imgs('hero')
+    slides = ''.join(f'<div class="hero-slide{" is-active" if i == 0 else ""}"><img src="{im["file"]}" alt="" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""}></div>' for i, im in enumerate(hero))
+    dots = ''.join(f'<button class="hero-dot" type="button" aria-label="Bild {i+1} zeigen" aria-current="{"true" if i == 0 else "false"}"><span></span></button>' for i in range(len(hero)))
+    teaser = ''.join(ref_tile(r, 'ref-tile') for r in REFS[:3])
+    weitere = ''.join(f'<a href="{p["slug"]}.html"><span>{E(p["nav"])}</span>{ARROW}</a>' for p in area_pages('weitere'))
+    s = head('METALLFUX – Startseite (ruhige Variante)', 'Vorschau', 'startseite-ruhig.html').replace('<body>', '<body class="ruhig">') + header(home=True)
+    s += f'''<div class="ruhig-hinweis"><div class="wrap"><b>Vorschau „Mehr Ruhe“</b><span>Zum Vergleich mit der jetzigen Startseite.</span><a href="index.html">Jetzige Startseite ansehen</a></div></div>
+<section class="hero" aria-label="Einstieg">
+<div class="hero-slides">{slides}</div>
+<div class="wrap hero-inner">
+<h1>Geländer und Treppen nach Maß.</h1>
+<p>Aus Stahl, Edelstahl und Glas. Geplant, gefertigt und montiert in Wien, Niederösterreich und im Burgenland.</p>
+<div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a><a class="hero-link" href="termin.html">Oder Beratungstermin vor Ort vereinbaren {ARROW}</a></div>
+</div>
+<div class="hero-controls"><div class="wrap">{dots}</div></div>
+</section>
+<section class="section" aria-labelledby="prod-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Was wir fertigen</div><h2 class="h2" id="prod-h">Für innen und außen.</h2></div>
+{produkt_kacheln()}
+</div></section>
+<section class="section band-white" aria-labelledby="ablauf-h"><div class="wrap">
+<div class="section-head"><div class="eyebrow">Ablauf</div><h2 class="h2" id="ablauf-h">In vier Schritten zum Geländer.</h2></div>
+<ol class="steps">
+<li data-reveal><div class="num">01</div><h3>Foto schicken</h3><p>Ein Foto und grobe Maße reichen.</p></li>
+<li data-reveal><div class="num">02</div><h3>Beratung und Aufmaß</h3><p>Telefonisch oder bei Ihnen vor Ort.</p></li>
+<li data-reveal><div class="num">03</div><h3>Plan und Fertigung</h3><p>Pläne zur Freigabe, Fertigung in rund 6 bis 8 Wochen.</p></li>
+<li data-reveal><div class="num">04</div><h3>Montage</h3><p>Sauber montiert, abgestimmt mit den anderen Gewerken.</p></li>
+</ol>
+</div></section>
+<section class="section" aria-labelledby="proj-h"><div class="wrap">
+<div class="section-head row"><div style="display:flex;flex-direction:column;gap:12px;max-width:720px"><div class="eyebrow">Referenzen</div><h2 class="h2" id="proj-h">Gebaut in Wien und Umgebung.</h2></div><a class="link-u" href="referenzen.html">Alle Referenzen ansehen</a></div>
+<div class="ref-grid ref-grid-3">{teaser}</div>
+</div></section>
+<section class="on-dark" aria-labelledby="about-h"><div class="wrap section about">
+<div class="about-media" data-reveal><div class="placeholder">Foto · Bernhard Bauer</div></div>
+<div class="about-text" data-reveal>
+<div class="eyebrow">Über uns</div>
+<h2 class="h2" id="about-h">Ein Ansprechpartner von der Skizze bis zur Montage.</h2>
+<p class="lead">Sie sprechen direkt mit dem, der Ihr Geländer plant und die Montage begleitet.</p>
+<div class="btns"><a class="btn btn-orange" href="ueber-uns.html">Mehr über uns</a><a class="btn btn-ghost" href="tel:{SITE['tel_link']}">{SITE['tel']}</a></div>
+</div>
+</div></section>
+<section class="section" aria-labelledby="gebiet-h"><div class="wrap ruhig-gebiet">
+<div class="section-head"><div class="eyebrow">Einsatzgebiet</div><h2 class="h2" id="gebiet-h">Wien, Niederösterreich und Burgenland.</h2>
+<p class="lead">Beratung, Aufmaß und Montage bei Ihnen vor Ort.</p>
+<div class="ruhig-weitere"><b>Außerdem fertigen wir</b><nav aria-label="Weitere Produkte">{weitere}</nav></div></div>
+{karte()}
+</div></section>
+'''
+    s += cta_band() + footer()
+    write('startseite-ruhig.html', s)
+
 BAND = [
     [('innen-treppengelaender', 30), ('aussen-balkon-terrasse', 1), ('ueberdachungen', 0), ('aussen-treppengelaender', 8), ('innen-handlaeufe', 3),
      ('aussen-balkon-terrasse', 14), ('innen-treppengelaender', 0), ('duschverglasung', 1), ('aussen-treppengelaender', 20), ('aussen-balkon-terrasse', 21)],
@@ -746,6 +800,7 @@ def main():
         shutil.copy(MEISTER, os.path.join(OUT, 'img', 'meistersiegel.png'))
     shutil.copy(os.path.join(BASE, '..', 'assets', 'planung-3d-thumb.jpg'), os.path.join(OUT, 'img', 'thumb', 'planung-3d.jpg'))
     index_page()
+    if not LIVE: index_ruhig()
     for k in AREAS: area_page(k)
     for p in PAGES:
         product_page(p)
