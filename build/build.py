@@ -374,8 +374,6 @@ def index_page():
     dots = ''.join(f'<button class="hero-dot" type="button" aria-label="Bild {i+1} zeigen" aria-current="{"true" if i == 0 else "false"}"><span></span></button>' for i in range(len(hero)))
     teaser = ''.join(ref_tile(r, 'ref-tile') for r in REFS[:3])
     s = head('METALLFUX – Geländer und Treppen nach Maß in Wien', 'Geländer, Handläufe und Treppen aus Metall, Glas und Holz – geplant, gefertigt und montiert in Wien, Niederösterreich und im Burgenland.', '') + header(home=True)
-    if not LIVE:
-        s += '<div class="ruhig-hinweis"><div class="wrap"><b>Vergleich</b><a href="startseite-ruhig.html">Variante „Mehr Ruhe“ ansehen</a></div></div>\n'
     s += f'''<section class="hero" aria-label="Einstieg">
 <div class="hero-slides">{slides}</div>
 <div class="wrap hero-inner">
