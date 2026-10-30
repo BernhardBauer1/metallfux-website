@@ -525,19 +525,19 @@ p{margin:0}
 .mosaic-tile{position:relative;display:block;overflow:hidden;background:var(--ink);grid-column:span 3}
 .mosaic-tile:nth-child(8n+1),.mosaic-tile:nth-child(8n+6){grid-column:span 4}
 .mosaic-tile:nth-child(8n+2),.mosaic-tile:nth-child(8n+5){grid-column:span 2}
-.mosaic-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s cubic-bezier(.2,.7,.2,1)}
-.mosaic-tile::after{content:"";position:absolute;inset:0;background:rgba(15,15,16,.45);opacity:0;transition:opacity .4s ease}
-.mosaic-cap{position:absolute;inset:0;z-index:1;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;padding:24px;text-align:center;color:var(--white);opacity:0;transform:translateY(8px);transition:opacity .4s ease,transform .4s ease}
-.mosaic-cap b{font-family:var(--font-head);font-weight:700;font-size:clamp(18px,2vw,26px);letter-spacing:.06em;text-transform:uppercase;line-height:1.25;max-width:22ch}
-.mosaic-cap small{font-size:13px;letter-spacing:.14em;text-transform:uppercase;color:var(--orange);font-weight:700}
-.mosaic-tile:hover::after,.mosaic-tile:focus-visible::after{opacity:1}
-.mosaic-tile:hover .mosaic-cap,.mosaic-tile:focus-visible .mosaic-cap{opacity:1;transform:none}
-.mosaic-tile:hover img{transform:scale(1.03)}
-/* Touch-Geräte ohne Maus: Namen immer zeigen */
+.mosaic-tile img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.7,.2,1),filter .6s ease}
+.mosaic-cap{position:absolute;left:0;right:0;bottom:0;z-index:1;display:flex;flex-direction:column;align-items:flex-start;gap:4px;padding:16px 20px 14px;text-align:left;color:var(--white);background:var(--ink);border-top:4px solid var(--orange);transform:translateY(calc(100% - 4px));transition:transform .5s cubic-bezier(.2,.7,.2,1)}
+.mosaic-cap b{font-family:var(--font-head);font-weight:700;font-size:clamp(16px,1.5vw,20px);letter-spacing:.04em;text-transform:uppercase;line-height:1.25}
+.mosaic-cap small{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#C9C9C6;font-weight:600}
+.mosaic-tile:hover img,.mosaic-tile:focus-visible img{transform:scale(1.07);filter:brightness(.82)}
+.mosaic-tile:hover .mosaic-cap,.mosaic-tile:focus-visible .mosaic-cap{transform:none}
+.mosaic-tile:focus-visible{outline:2px solid var(--orange);outline-offset:3px}
+/* Touch-Geräte ohne Maus: Leiste immer zeigen */
 @media (hover:none) and (max-width:900px){
-  .mosaic-tile::after{opacity:1;background:linear-gradient(180deg,rgba(15,15,16,0) 45%,rgba(15,15,16,.7))}
-  .mosaic-cap{opacity:1;transform:none;justify-content:flex-end;align-items:flex-start;text-align:left;padding:16px}
-  .mosaic-cap b{font-size:17px}
+  .mosaic-cap{transform:none}
+}
+@media (prefers-reduced-motion:reduce){
+  .mosaic-tile img,.mosaic-cap{transition:none}
 }
 @media (max-width:640px){
   .mosaic{grid-template-columns:1fr 1fr;grid-auto-rows:200px}
@@ -545,8 +545,8 @@ p{margin:0}
   .mosaic-tile:nth-child(3n+1){grid-column:span 2}
 }
 @media (max-width:640px){
-  .mosaic-cap{padding:12px}
-  .mosaic-cap b{font-size:14px;letter-spacing:.02em;hyphens:auto;overflow-wrap:anywhere}
+  .mosaic-cap{padding:10px 12px}
+  .mosaic-cap b{font-size:13px;letter-spacing:.02em;hyphens:auto;overflow-wrap:anywhere}
   .mosaic-cap small{font-size:11px;letter-spacing:.08em}
 }
 
