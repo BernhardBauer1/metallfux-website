@@ -574,38 +574,3 @@ p{margin:0}
 .wunsch-text{flex:1 1 420px;display:flex;flex-direction:column;gap:8px}
 .wunsch h3{font-size:22px}
 .wunsch p{margin:0;color:var(--muted)}
-
-/* Vorschau „Mehr Ruhe“ (startseite-ruhig.html, nur zum Vergleichen) */
-.ruhig-hinweis{position:fixed;z-index:70;right:max(16px,env(safe-area-inset-right,0px));bottom:calc(16px + env(safe-area-inset-bottom,0px));background:var(--orange);color:var(--ink);font-size:14px;border-radius:var(--radius);box-shadow:0 8px 24px rgba(0,0,0,.25);max-width:calc(100% - 32px)}
-.ruhig-hinweis .wrap{display:flex;flex-wrap:wrap;gap:2px 12px;align-items:center;padding:10px 16px;max-width:none}
-.ruhig-hinweis b{font-family:var(--font-head)}
-.ruhig-hinweis span{display:none}
-.ruhig-hinweis a{font-weight:700}
-@media (max-width:900px){.ruhig-hinweis{bottom:calc(76px + env(safe-area-inset-bottom,0px))}}
-.ruhig .section{padding-block:clamp(88px,11vw,152px)}
-.ruhig .section-head{margin-bottom:clamp(40px,5vw,72px)}
-.ruhig .h2{font-size:clamp(34px,4.4vw,60px);letter-spacing:-.02em}
-.ruhig .hero-inner{padding-block:clamp(120px,15vw,200px) clamp(130px,14vw,190px);gap:30px}
-.ruhig .hero h1{font-size:clamp(44px,7.4vw,104px)}
-.ruhig .hero::after{background:linear-gradient(90deg,rgba(15,15,16,.8) 0%,rgba(15,15,16,.45) 50%,rgba(15,15,16,0) 100%)}
-.ruhig .hero .btns{align-items:center;gap:16px 28px}
-.hero-link{color:var(--white);font-weight:600;text-decoration:none;display:inline-flex;align-items:center;gap:8px;border-bottom:1px solid rgba(255,255,255,.4);padding-bottom:2px}
-.hero-link:hover{border-color:var(--orange);color:var(--orange)}
-.ruhig .pg-grid{gap:clamp(24px,3vw,40px)}
-.ruhig .pg-card{background:none;border:0;border-radius:0}
-.ruhig .pg-img{aspect-ratio:4/5;border-radius:var(--radius)}
-.ruhig .pg-body{padding:22px 0 0}
-.ruhig .steps{gap:clamp(32px,4vw,56px)}
-.ruhig .steps li{border-top-width:2px;border-top-color:var(--line);gap:10px}
-.ruhig .steps li:first-child{border-top-color:var(--line)}
-.ruhig .steps .num{font-size:15px;color:var(--orange);letter-spacing:.1em}
-.ruhig .steps h3{font-size:22px}
-.ruhig .about-text .lead{max-width:44ch}
-.ruhig-gebiet{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(32px,6vw,96px);align-items:center}
-.ruhig-gebiet .section-head{margin:0}
-.ruhig-weitere{display:flex;flex-direction:column;gap:10px;margin-top:28px}
-.ruhig-weitere b{font-family:var(--font-head);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
-.ruhig-weitere nav{display:flex;flex-direction:column}
-.ruhig-weitere a{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:12px 0;border-top:1px solid var(--line);text-decoration:none;font-weight:600;max-width:420px;min-height:44px}
-.ruhig-weitere a:hover{color:var(--orange)}
-@media (max-width:900px){.ruhig-gebiet{grid-template-columns:1fr}.ruhig .pg-img{aspect-ratio:16/10}}
