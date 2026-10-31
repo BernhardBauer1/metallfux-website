@@ -589,7 +589,6 @@ def about_page():
 
 # ---------- Anfrage ----------
 def inquiry_page():
-    opts = ''.join(f'<option>{E(p["nav"])} ({AREAS[p["area"]]["nav"]})</option>' for p in PAGES)
     s = head('Anfrage und Kontakt – METALLFUX Wien', 'Unverbindlichen Kostenvoranschlag für Geländer, Handlauf oder Treppe anfragen. Fotos und Pläne einfach mitschicken.', 'anfrage.html') + header('anfrage')
     s += crumbs([('Startseite', 'index.html'), ('Anfrage', None)])
     s += f'''<section class="inquiry"><div class="wrap section">
@@ -611,15 +610,7 @@ def inquiry_page():
 <address style="font-style:normal">{SITE['firma']}<br>{SITE['strasse']}, {SITE['ort']}</address>
 </div>
 <form class="form" id="anfrage-form" action="anfrage.php" method="post" enctype="multipart/form-data" novalidate>
-<fieldset><legend>Wo wird montiert?</legend>
-<div class="choice"><label><input type="radio" name="bereich" value="Innenbereich" checked> Innenbereich</label><label><input type="radio" name="bereich" value="Außenbereich"> Außenbereich</label></div>
-</fieldset>
-<div class="field"><label class="lbl" for="f-produkt">Was brauchen Sie?</label>
-<select id="f-produkt" name="produkt">{opts}<option>Etwas anderes</option></select></div>
-<div class="fields">
-<div class="field" style="flex:1 1 120px"><label class="lbl" for="f-plz">PLZ</label><input id="f-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" required></div>
-<div class="field" style="flex:2 1 200px"><label class="lbl" for="f-ort">Ort des Vorhabens</label><input id="f-ort" name="ort" type="text" autocomplete="address-level2" required></div>
-</div>
+<div class="field" style="max-width:220px"><label class="lbl" for="f-plz">PLZ des Vorhabens</label><input id="f-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required></div>
 <div class="hint" style="margin-top:-6px">Wir montieren in {SITE['gebiet']}.</div>
 <div class="fields">
 <div class="field"><label class="lbl" for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>

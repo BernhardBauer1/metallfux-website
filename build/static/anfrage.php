@@ -34,13 +34,10 @@ $name   = zeile(feld('name', 120));
 $email  = zeile(feld('email', 160));
 $tel    = zeile(feld('telefon', 60));
 $plz    = zeile(feld('plz', 10));
-$ort    = zeile(feld('ort', 120));
-$bereich= zeile(feld('bereich', 40));
-$produkt= zeile(feld('produkt', 120));
 $text   = feld('nachricht', 5000);
 $rueck  = feld('rueckruf', 5) === 'ja' ? 'Ja' : 'Nein';
 
-if ($name === '' || $plz === '' || $ort === '') antwort(false, 'Bitte Name, PLZ und Ort ausfüllen.', 422);
+if ($name === '' || $plz === '') antwort(false, 'Bitte Name und PLZ ausfüllen.', 422);
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) antwort(false, 'Bitte eine gültige E-Mail-Adresse angeben.', 422);
 if (feld('datenschutz', 5) !== 'ja') antwort(false, 'Bitte der Datenverarbeitung zustimmen.', 422);
 
@@ -64,10 +61,10 @@ if (!empty($_FILES['dateien']) && is_array($_FILES['dateien']['name'])) {
     }
 }
 
-$betreff = 'Website-Anfrage: ' . $produkt . ' – ' . $plz . ' ' . $ort;
+$betreff = 'Website-Anfrage: ' . $name . ' – PLZ ' . $plz;
 $inhalt = "Neue Anfrage über " . ($_SERVER['HTTP_HOST'] ?? 'die Website') . "\n\n"
     . "Name:      $name\nE-Mail:    $email\nTelefon:   $tel\nRückruf:   $rueck\n"
-    . "Ort:       $plz $ort\nBereich:   $bereich\nProdukt:   $produkt\n"
+    . "PLZ:       $plz\n"
     . "Anhänge:   " . count($anhaenge) . "\n\nNachricht:\n" . ($text !== '' ? $text : '(keine)') . "\n";
 
 $grenze = 'mfx_' . bin2hex(random_bytes(12));
