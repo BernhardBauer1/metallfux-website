@@ -610,13 +610,13 @@ def inquiry_page():
 <address style="font-style:normal">{SITE['firma']}<br>{SITE['strasse']}, {SITE['ort']}</address>
 </div>
 <form class="form" id="anfrage-form" action="anfrage.php" method="post" enctype="multipart/form-data" novalidate>
-<div class="field" style="max-width:220px"><label class="lbl" for="f-plz">PLZ des Vorhabens</label><input id="f-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required></div>
-<div class="hint" style="margin-top:-6px">Wir montieren in {SITE['gebiet']}.</div>
 <div class="fields">
 <div class="field"><label class="lbl" for="f-name">Name</label><input id="f-name" name="name" type="text" autocomplete="name" required></div>
 <div class="field"><label class="lbl" for="f-tel">Telefon</label><input id="f-tel" name="telefon" type="tel" autocomplete="tel"></div>
 </div>
 <div class="field"><label class="lbl" for="f-mail">E-Mail</label><input id="f-mail" name="email" type="email" autocomplete="email" required></div>
+<div class="field" style="max-width:220px"><label class="lbl" for="f-plz">PLZ des Vorhabens</label><input id="f-plz" name="plz" type="text" inputmode="numeric" autocomplete="postal-code" maxlength="10" required></div>
+<div class="hint" style="margin-top:-6px">Wir montieren in {SITE['gebiet']}.</div>
 <div class="field"><label class="lbl" for="f-fotos">Fotos und Pläne</label>
 <div class="drop"><input id="f-fotos" name="dateien[]" type="file" multiple accept="image/jpeg,image/png,image/heic,application/pdf"><div class="hint">Bis zu 8 Dateien · JPG, PNG, HEIC oder PDF · zusammen max. 20 MB</div></div></div>
 <div class="field"><label class="lbl" for="f-text">Nachricht <span style="font-weight:400;color:var(--muted)">(optional)</span></label><textarea id="f-text" name="nachricht" rows="4"></textarea></div>
