@@ -173,8 +173,104 @@ def gallery_imgs(key):
 def gallery(key, group):
     out = []
     for im in gallery_imgs(key):
-        out.append(f'<a href="{im["file"]}" data-lightbox="{group}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async"></a>')
+        out.append(gal_link(im, group))
     return '<div class="gallery">' + ''.join(out) + '</div>'
+
+
+# ---------- Produktseiten: Fotonummern, Kurztitel, Fakten, Fragen ----------
+FOTO_KUERZEL = {'innen-treppengelaender': 'IG', 'innen-handlaeufe': 'IH', 'innentreppen': 'IT', 'aussen-balkon-terrasse': 'BT',
+                'aussen-treppengelaender': 'AG', 'aussen-franzoesische-balkone': 'FB', 'aussen-handlaeufe': 'AH', 'aussentreppen': 'AT',
+                'seetreppen': 'ST', 'ueberdachungen': 'UE', 'duschverglasung': 'DV', 'hochbeete': 'HB'}
+
+def foto_nr(im):
+    """Feste Nummer je Foto (z. B. IG-06), gleich auf Produkt- und Materialseite."""
+    m = re.search(r'([a-z-]+)-(\d+)\.jpg$', im['file'])
+    if not m or m.group(1) not in FOTO_KUERZEL:
+        return ''
+    return f"{FOTO_KUERZEL[m.group(1)]}-{int(m.group(2)) + 1:02d}"
+
+def gal_link(im, group):
+    nr = foto_nr(im)
+    badge = f'<span class="foto-nr">Nr. {nr}</span>' if nr else ''
+    return f'<a href="{im["file"]}" data-lightbox="{group}" data-nr="{nr}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async">{badge}</a>'
+
+# Kurze Überschriften für die Materialseiten (Feedback 31.10.); der volle Name bleibt im Seitentitel.
+KURZTITEL = {
+    'innen-treppengelaender': ({'stahl': 'Stahlgeländer für innen', 'edelstahl': 'Edelstahlgeländer für innen', 'glas': 'Glasgeländer für innen'}, 'Für Treppen und Galerien.'),
+    'aussen-treppengelaender': ({}, 'Für Außentreppen, Stiegen und Podeste.'),
+    'aussen-balkon-terrasse': ({}, 'Für Balkon, Terrasse und Loggia.'),
+    'aussen-franzoesische-balkone': ({}, 'Absturzsicherung vor bodentiefen Fenstern.'),
+}
+KURZ_FALLBACK = {'aussen-treppengelaender': 'Treppengeländer aus {m}', 'aussen-balkon-terrasse': 'Balkongeländer aus {m}', 'aussen-franzoesische-balkone': 'Französischer Balkon aus {m}'}
+
+def kurztitel(p, mk, m):
+    namen, sub = KURZTITEL.get(p['slug'], ({}, ''))
+    t = namen.get(mk) or KURZ_FALLBACK.get(p['slug'], '{p} aus {m}').format(p=p['title'], m=m['label'])
+    return t, sub
+
+# Gut zu wissen: je Produktart eigene Punkte. Entwurf aus den bestehenden Texten, von Bernhard zu prüfen.
+FAKTEN = {
+    'innen-handlaeufe': ['Edelstahl, Stahl oder Holz', 'Alle gängigen Holzarten', 'Halter in Edelstahl oder Stahl schwarz', 'Auf Wunsch mit integrierter LED', 'Wand- oder Geländerbefestigung', 'Auch in barrierefreier Ausführung'],
+    'aussen-handlaeufe': ['Edelstahl oder verzinkter Stahl', 'Pulverbeschichtet in RAL-Farbe', 'Wandhandlauf oder freistehend', 'Vollverschweißte Ausführung', 'Auch in barrierefreier Ausführung', 'Montage durch erfahrene Monteure'],
+    'innentreppen': ['Stahlwangen in RAL-Farbe', 'Massivholzstufen in heimischen Holzarten', 'Auch als Kragarmtreppe', 'Mit allen Geländermodellen kombinierbar', 'Exakte Pläne zur Freigabe', 'Montage durch erfahrene Monteure'],
+    'aussentreppen': ['Verzinkt, auf Wunsch beschichtet', 'Stufen aus Gitterrost, Kunststoff oder Lärche', 'Auch als Spindel- oder Holmtreppe', 'Mit jedem Geländertyp kombinierbar', 'Exakte Pläne zur Freigabe', 'Montage durch erfahrene Monteure'],
+    'seetreppen': ['Stahlholme mit Gitterroststufen', 'Handlauf aus Edelstahl', 'Pooltreppen aus Edelstahl V4A', 'Individuell gefertigt'],
+    'ueberdachungen': ['Stahl, Edelstahl oder Aluminium', 'Eindeckung nach Wahl', 'Passend zu Geländer und Fassade', 'Nach Maß geplant'],
+    'duschverglasung': ['Sicherheitsglas klar oder satiniert', 'Beschläge in Chrom, Edelstahl oder Schwarz', 'Aufmaß vor Ort', 'Auch für Nischen und Dachschrägen'],
+    'hochbeete': ['Cortenstahl oder pulverbeschichtet', 'Zentimetergenau nach Maß', 'Mono vollverschweißt oder modular', 'Offener oder geschlossener Boden'],
+}
+FAKTEN_ENTWURF = set(FAKTEN)
+
+def fakten(p):
+    if p['slug'] in FAKTEN:
+        return FAKTEN[p['slug']]
+    return LEISTUNGEN
+
+# Kurze Fragen je Produktart (Entwurf, nur in der Vorschau, bis Bernhard die Antworten bestätigt).
+F_KV = ('Was brauchen Sie für einen Kostenvoranschlag?', 'Fotos der Einbausituation, grobe Längenmaße oder einen Planausschnitt und, wenn vorhanden, ein Bild Ihrer Wunschausführung. Am einfachsten über das Anfrageformular.')
+F_DAUER = ('Wie lange dauert die Umsetzung?', 'Nach Freigabe der Pläne in der Regel rund 6 bis 8 Wochen bis zur Montage. Wenn es schneller gehen muss, sprechen Sie uns an.')
+FRAGEN_GELAENDER = [
+    ('Kann das Geländer an einer bestehenden Treppe montiert werden?', 'In den meisten Fällen ja. Beim Aufmaß prüfen wir den Untergrund und wählen die passende Befestigung.'),
+    ('Welche Befestigung passt zu meiner Einbausituation?', 'Aufgesetzt auf Stufe oder Boden, seitlich an der Stirnseite oder an der Wand. Welche Variante passt, klären wir beim Aufmaß vor Ort.'),
+    F_KV, F_DAUER]
+FRAGEN = {
+    'innen-handlaeufe': [('Kann ein Handlauf nachträglich montiert werden?', 'Ja. Wir montieren an der Wand oder am bestehenden Geländer und prüfen dafür vorab den Untergrund.'),
+                         ('Gibt es Handläufe mit Licht?', 'Ja, mit einem integrierten LED-Band in Holz, Edelstahl oder Stahl. Das Licht ist indirekt und blendet nicht.'), F_KV, F_DAUER],
+    'aussen-handlaeufe': [('Kann ein Handlauf nachträglich montiert werden?', 'Ja. Wir montieren an der Wand oder freistehend und prüfen dafür vorab den Untergrund.'), F_KV, F_DAUER],
+    'innentreppen': [('Welche Holzarten gibt es für die Stufen?', 'Massivholzstufen in allen heimischen Holzarten, 4 bis 8 cm stark, passend zu Ihrem Boden.'),
+                     ('Passt ein Geländer dazu?', 'Ja, die Treppen sind mit allen unseren Geländermodellen kombinierbar, besonders schön mit Nurglas.'), F_KV, F_DAUER],
+    'aussentreppen': [('Welche Stufen gibt es für außen?', 'Gitterrost, Kunststoff oder massives Lärchenholz. Die Konstruktion ist verzinkt und auf Wunsch beschichtet.'), F_KV, F_DAUER],
+    'seetreppen': [('Welches Material hält Salz- und Chlorwasser aus?', 'Pooltreppen fertigen wir aus Edelstahl V4A, der in salz- und chlorhaltigem Wasser beständig ist.'), F_KV, F_DAUER],
+    'ueberdachungen': [F_KV, F_DAUER],
+    'duschverglasung': [F_KV],
+    'hochbeete': [F_KV],
+}
+
+def fragen_section(p):
+    if LIVE:
+        return ''
+    fr = FRAGEN.get(p['slug'], FRAGEN_GELAENDER)
+    items = ''.join(f'<details class="faq-item"><summary>{E(q)}</summary><p>{E(a)}</p></details>' for q, a in fr)
+    return f'''<section class="section" aria-labelledby="fragen-h"><div class="wrap faq-wrap">
+<div class="section-head"><div class="eyebrow">Kurz gefragt</div><h2 class="h2" id="fragen-h">Häufige Fragen</h2></div>
+<p class="todo">Entwurf: Antworten bitte prüfen. Dieser Abschnitt erscheint erst nach Freigabe auf der echten Seite.</p>
+<div class="faq">{items}</div>
+</div></section>
+'''
+
+def eindeutig(keys):
+    # gleiche Ausführung (z. B. Nurglas gerade und an der Treppe) nur einmal zeigen
+    seen, out = set(), []
+    for k in keys:
+        if V[k]['t'] not in seen:
+            seen.add(V[k]['t']); out.append(k)
+    return out
+
+def planung_hinweis(p):
+    if p['area'] == 'weitere':
+        return ''
+    return f'''<div class="plan-hint" data-reveal><img src="img/thumb/planung-3d.jpg" alt="" width="320" height="240" loading="lazy">
+<div><h3>Erst planen, dann fertigen.</h3><p>Vor der Fertigung sehen Sie Ihre Lösung als Plan mit allen Maßen und als 3D-Ansicht.</p><a class="link-u" href="index.html#ablauf">So läuft es ab</a></div></div>'''
 
 def write(name, s):
     if LIVE:
@@ -240,15 +336,16 @@ def material_page(p, mk, m):
     mp = min_price(keys)
     chip = f'<div class="price-chip"><small>ab</small><b>€ {mp},–</b><small>/ lfm exkl. MwSt.</small></div>' if mp else ''
     hero_img = f'<div class="page-hero-media"><img src="{hero["file"]}" alt="{E(hero["alt"])}" width="{hero["w"]}" height="{hero["h"]}" fetchpriority="high"></div>' if hero else f'<div class="page-hero-media"><div class="placeholder" style="height:clamp(300px,38vw,520px)">Foto · {E(p["title"])} {m["label"]}</div></div>'
-    gal = ''.join(f'<a href="{im["file"]}" data-lightbox="{p["slug"]}-{mk}"><img src="{im["thumb"]}" alt="{E(im["alt"])}" width="{im["tw"]}" height="{im["th"]}" loading="lazy" decoding="async"></a>' for im in ims)
+    gal = ''.join(gal_link(im, f'{p["slug"]}-{mk}') for im in ims)
     title = f"{p['title']} aus {m['label']}"
+    kurz, sub = kurztitel(p, mk, m)
     s = head(f"{title} – METALLFUX Wien", f"{title}: {mtext(p, m)}"[:155], f"{p['slug']}-{mk}.html") + header(area=p['area'])
     s += crumbs([('Startseite', 'index.html'), (a['nav'], f"{a['slug']}.html"), (p['nav'], f"{p['slug']}.html"), (m['label'], None)])
     s += f'''<section class="page-hero"><div class="wrap">
 <div class="page-hero-text">
 <div class="eyebrow">{a['nav']} · {E(p['nav'])}</div>
-<h1>{E(title)}</h1>
-<p class="lead">{E(mtext(p, m))}</p>
+<h1>{E(kurz)}</h1>
+<p class="lead">{E((sub + ' ' if sub else '') + mtext(p, m))}</p>
 {chip}
 <div class="btns"><a class="btn btn-orange btn-lg" href="anfrage.html">Kostenvoranschlag anfragen</a><a class="btn btn-ghost btn-lg" href="#galerie">Bilder ansehen</a></div>
 </div>
@@ -257,10 +354,13 @@ def material_page(p, mk, m):
 <section class="section" id="galerie" aria-labelledby="gal-h" style="padding-top:clamp(8px,2vw,24px)"><div class="wrap">
 <h2 class="sr-only" id="gal-h">Galerie: {E(p['nav'])} aus {m['label']}</h2>
 {('<div class="gallery">' + gal + '</div>') if gal else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
+<div class="ausf" aria-labelledby="ausf-h"><h2 class="h3" id="ausf-h">Die Ausführungen</h2>
+<div class="variants">{''.join(variant_card(k) for k in eindeutig(keys))}</div></div>
+{planung_hinweis(p)}
 <div class="wunsch" role="note"><div class="wunsch-text"><h3>Kein Foto der Wunschausführung dabei?</h3><p>Senden Sie uns eine Skizze oder ein Bild Ihrer Vorstellungen und wir prüfen die Machbarkeit. Oder sehen Sie sich die beiden anderen Varianten an.</p></div>
 <div class="btns"><a class="btn btn-orange" href="anfrage.html">Skizze oder Bild senden</a>{''.join(f'<a class="btn btn-ghost" href="{p["slug"]}-{ok}.html">{om["label"]} ansehen</a>' for ok, om in mat_list(p) if ok != mk)}</div></div>
 </div></section>
-'''
+{fragen_section(p)}'''
     s += cta_band() + footer()
     write(f"{p['slug']}-{mk}.html", s)
 
@@ -299,18 +399,20 @@ def product_page(p):
 <section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">Aus unseren Projekten</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
 {gallery(p['slug'], p['slug']) if imgs(p['slug']) else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
+{planung_hinweis(p)}
 </div></section>
 <section class="section band-white" aria-labelledby="leist-h"><div class="wrap" style="display:flex;flex-wrap:wrap;gap:48px 64px">
 <div style="flex:1 1 420px;min-width:0">
 <div class="section-head" style="margin-bottom:28px"><div class="eyebrow">Gut zu wissen</div><h2 class="h2" id="leist-h">Darauf können Sie sich verlassen.</h2></div>
-<ul class="facts">{''.join(f'<li>{CHECK}<span>{E(x)}</span></li>' for x in (LEISTUNGEN if p['area'] != 'weitere' else ['Planung und Beratung aus einer Hand', 'Gefertigt nach Maß', 'Lieferung und Montage', 'Ein Ansprechpartner für alles']))}</ul>
+<ul class="facts">{''.join(f'<li>{CHECK}<span>{E(x)}</span></li>' for x in fakten(p))}</ul>
+{'<p class="todo" style="margin-top:20px">Entwurf: Punkte für dieses Produkt bitte prüfen.</p>' if p['slug'] in FAKTEN_ENTWURF else ''}
 </div>
 <div style="flex:1 1 360px;min-width:0">
 <div class="eyebrow" style="margin-bottom:12px">{'Weitere Produkte entdecken' if p['area'] == 'weitere' else 'Mehr im ' + a['nav']}</div>
 <div class="rows">{other_links}</div>
 </div>
 </div></section>
-<section class="wrap"><div class="cross"><p>{E(ct)}</p><a class="btn btn-dark" href="{cs}.html">{E(page_by_slug(cs)['title'])} {ARROW}</a></div></section>
+{fragen_section(p)}<section class="wrap"><div class="cross"><p>{E(ct)}</p><a class="btn btn-dark" href="{cs}.html">{E(page_by_slug(cs)['title'])} {ARROW}</a></div></section>
 '''
     s += cta_band() + footer()
     write(f"{p['slug']}.html", s)
@@ -397,7 +499,7 @@ def index_page():
 {produkt_kacheln()}
 </div></section>
 {projekt_band()}
-<section class="section band-white" aria-labelledby="ablauf-h"><div class="wrap">
+<section class="section band-white" id="ablauf" aria-labelledby="ablauf-h"><div class="wrap">
 <div class="section-head"><div class="eyebrow">Ablauf</div><h2 class="h2" id="ablauf-h">Vom Foto zum fertigen Geländer.</h2></div>
 <ol class="steps">
 <li data-reveal><div class="num">01</div><h3>Foto schicken</h3><p>Ein Foto der Einbausituation und grobe Längenmaße reichen für den Anfang.</p></li>

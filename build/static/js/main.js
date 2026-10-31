@@ -102,7 +102,7 @@
     (groups[g] = groups[g] || []).push(a);
     a.addEventListener('click', function (e) { e.preventDefault(); openLb(g, groups[g].indexOf(a)); });
   });
-  var lb = null, lbImg, lbCount, lbGroup, lbIdx, lastFocus;
+  var lb = null, lbImg, lbCount, lbAsk, lbGroup, lbIdx, lastFocus;
   function icon(d) { return '<svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="' + d + '"></path></svg>'; }
   function build() {
     lb = document.createElement('div');
@@ -110,9 +110,9 @@
     lb.setAttribute('role', 'dialog'); lb.setAttribute('aria-modal', 'true'); lb.setAttribute('aria-label', 'Bildansicht');
     lb.innerHTML = '<img alt=""><button class="lb-btn lb-close" type="button" aria-label="Schließen">' + icon('M6 6l12 12M18 6 6 18') + '</button>' +
       '<button class="lb-btn lb-prev" type="button" aria-label="Vorheriges Bild">' + icon('M15 6l-6 6 6 6') + '</button>' +
-      '<button class="lb-btn lb-next" type="button" aria-label="Nächstes Bild">' + icon('M9 6l6 6-6 6') + '</button><div class="lb-count"></div>';
+      '<button class="lb-btn lb-next" type="button" aria-label="Nächstes Bild">' + icon('M9 6l6 6-6 6') + '</button><a class="lb-ask" hidden></a><div class="lb-count"></div>';
     document.body.appendChild(lb);
-    lbImg = lb.querySelector('img'); lbCount = lb.querySelector('.lb-count');
+    lbImg = lb.querySelector('img'); lbCount = lb.querySelector('.lb-count'); lbAsk = lb.querySelector('.lb-ask');
     lb.querySelector('.lb-close').addEventListener('click', closeLb);
     lb.querySelector('.lb-prev').addEventListener('click', function () { step(-1); });
     lb.querySelector('.lb-next').addEventListener('click', function () { step(1); });
@@ -133,6 +133,9 @@
     var im = a.querySelector('img');
     lbImg.alt = im ? im.alt : '';
     lbCount.textContent = (lbIdx + 1) + ' / ' + groups[lbGroup].length;
+    var nr = a.getAttribute('data-nr');
+    lbAsk.hidden = !nr;
+    if (nr) { lbAsk.href = 'anfrage.html#foto-' + nr; lbAsk.textContent = 'Diese Ausführung anfragen · Nr. ' + nr; }
   }
   function openLb(g, i) {
     if (!lb) build();
@@ -147,6 +150,10 @@
   /* Anfrageformular: sendet an anfrage.php (funktioniert am Webserver) */
   var form = document.getElementById('anfrage-form');
   if (form) {
+    /* Aus der Bildansicht kommend: Fotonummer in die Nachricht übernehmen */
+    var fm = /^#foto-([A-Z]{2}-\d{2})$/.exec(location.hash);
+    var txt = document.getElementById('f-text');
+    if (fm && txt && !txt.value) txt.value = 'Mir gefällt die Ausführung auf Foto Nr. ' + fm[1] + '. ';
     var status = form.querySelector('.form-status');
     form.addEventListener('submit', function (e) {
       e.preventDefault();

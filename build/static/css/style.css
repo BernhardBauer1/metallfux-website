@@ -574,3 +574,17 @@ p{margin:0}
 .wunsch-text{flex:1 1 420px;display:flex;flex-direction:column;gap:8px}
 .wunsch h3{font-size:22px}
 .wunsch p{margin:0;color:var(--muted)}
+
+/* Produktseiten: Fotonummern, Ausführungen, Planungshinweis */
+.foto-nr{position:absolute;left:10px;bottom:10px;background:rgba(15,15,16,.78);color:var(--white);font-family:var(--font-head);font-weight:700;font-size:12px;letter-spacing:.06em;padding:4px 8px;border-radius:3px;pointer-events:none}
+.ausf{margin-top:clamp(40px,5vw,64px);display:flex;flex-direction:column;gap:20px}
+.h3{font-size:clamp(22px,2.2vw,28px);font-weight:800}
+.plan-hint{margin-top:clamp(32px,4vw,48px);display:flex;flex-wrap:wrap;align-items:center;gap:20px 32px;background:var(--white);border:1px solid var(--line);border-radius:var(--radius);padding:20px}
+.plan-hint img{width:180px;height:auto;border-radius:3px;flex:none;max-width:100%}
+.plan-hint div{flex:1 1 280px;min-width:0;display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.plan-hint h3{font-size:20px}
+.plan-hint p{margin:0;color:var(--muted)}
+.lb-ask{position:absolute;left:50%;bottom:44px;transform:translateX(-50%);display:inline-flex;align-items:center;gap:10px;background:var(--orange);color:var(--ink);font-family:var(--font-head);font-weight:700;font-size:15px;padding:12px 18px;border-radius:var(--radius);text-decoration:none;white-space:nowrap}
+.lb-ask:hover{background:var(--white)}
+.lb-ask[hidden]{display:none}
+.lightbox{padding-bottom:110px}
