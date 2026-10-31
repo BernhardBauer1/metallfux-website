@@ -438,7 +438,7 @@ def index_page():
 <div class="overview-grid">{extra}</div>
 </div></section>
 '''
-    s += gebiet_section() + cta_band() + footer()
+    s += cta_band() + footer()
     write('index.html', s)
 
 BAND = [
@@ -574,9 +574,9 @@ def about_page():
 <div class="section-head"><div class="eyebrow">Sechs Gründe</div><h2 class="h2" id="gruende-h">Warum Kundinnen und Kunden mit uns bauen.</h2></div>
 <div class="variants">{''.join(f'<article class="variant" data-reveal><div class="tagline">{i+1:02d}</div><h3>{t}</h3><p>{d}</p></article>' for i, (t, d) in enumerate(reasons))}</div>
 </div></section>
-<section class="on-dark"><div class="wrap section" style="display:flex;flex-wrap:wrap;gap:32px 64px;align-items:flex-start">
-<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px"><div class="eyebrow">Einsatzgebiet</div><h2 class="h2">{SITE['gebiet']}.</h2>
-<p class="lead">Von unserem Standort in Wien-Donaustadt sind wir rasch bei Ihnen – in ganz Wien, in Niederösterreich und im Burgenland.</p></div>
+{gebiet_section()}<section class="on-dark"><div class="wrap section" style="display:flex;flex-wrap:wrap;gap:32px 64px;align-items:flex-start">
+<div style="flex:1 1 380px;min-width:0;display:flex;flex-direction:column;gap:16px"><div class="eyebrow">Kontakt</div><h2 class="h2">So erreichen Sie uns.</h2>
+<p class="lead">Von unserem Standort in Wien-Donaustadt sind wir rasch bei Ihnen vor Ort.</p></div>
 <div style="flex:1 1 300px;min-width:0;display:flex;flex-direction:column;gap:10px">
 <address style="font-style:normal;color:var(--on-dark)">{SITE['firma']}<br>{SITE['strasse']}<br>{SITE['ort']}</address>
 <div style="color:var(--on-dark-muted)">Telefonisch erreichbar {SITE['zeiten']}</div>
