@@ -251,8 +251,8 @@ def material_page(p, mk, m):
 </div>
 {hero_img}
 </div></section>
-<section class="section" id="galerie" aria-labelledby="gal-h"><div class="wrap">
-<div class="section-head"><div class="eyebrow">Galerie</div><h2 class="h2" id="gal-h">{E(p['nav'])} aus {m['label']}</h2><p class="lead">Ein Bild antippen, um es groß zu sehen.</p></div>
+<section class="section" id="galerie" aria-labelledby="gal-h" style="padding-top:clamp(8px,2vw,24px)"><div class="wrap">
+<h2 class="sr-only" id="gal-h">Galerie: {E(p['nav'])} aus {m['label']}</h2>
 {('<div class="gallery">' + gal + '</div>') if gal else '<p class="todo">Entwurf: Fotos für diese Seite folgen.</p>'}
 <div class="wunsch" role="note"><div class="wunsch-text"><h3>Kein Foto der Wunschausführung dabei?</h3><p>Senden Sie uns eine Skizze oder ein Bild Ihrer Vorstellungen und wir prüfen die Machbarkeit. Oder sehen Sie sich die beiden anderen Varianten an.</p></div>
 <div class="btns"><a class="btn btn-orange" href="anfrage.html">Skizze oder Bild senden</a>{''.join(f'<a class="btn btn-ghost" href="{p["slug"]}-{ok}.html">{om["label"]} ansehen</a>' for ok, om in mat_list(p) if ok != mk)}</div></div>
