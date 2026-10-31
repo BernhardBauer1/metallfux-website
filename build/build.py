@@ -11,6 +11,7 @@ sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from content import SITE, PRICE_NOTE, V, LEISTUNGEN, FOLDER, PAGES, AREAS, REFS as ALL_REFS, IMPRESSUM, GEBIET, FAQ
 
 LIVE = '--live' in sys.argv
+SHOW_PRICES = False
 REFS = [r for r in ALL_REFS if not (LIVE and r.get('entwurf'))]
 
 BASE = os.path.dirname(os.path.abspath(__file__))
@@ -143,10 +144,12 @@ def crumbs(items):
 def variant_card(key):
     v = V[key]
     lis = ''.join(f'<li>{E(x)}</li>' for x in v['li'])
-    price = f'<div class="price">{v["price"]}<span>{v.get("pnote", "exkl. MwSt., gerade Ausführung ab 10 lfm")}</span></div>' if v['price'] else '<div class="price none">Preis auf Anfrage</div>'
-    return f'<article class="variant" data-reveal><div class="tagline">{E(v["tag"])}</div><h3>{E(v["t"])}</h3><p>{E(v["p"])}</p><ul>{lis}</ul>{price}</article>'
+    return f'<article class="variant" data-reveal><div class="tagline">{E(v["tag"])}</div><h3>{E(v["t"])}</h3><p>{E(v["p"])}</p><ul>{lis}</ul></article>'
 
 def min_price(keys):
+    # Preise werden auf Wunsch von Bernhard (31.10.) nirgends mehr angezeigt; die Werte bleiben in content.py.
+    if not SHOW_PRICES:
+        return None
     ps = []
     for k in keys:
         p = V[k]['price']
@@ -226,7 +229,7 @@ def material_cards(p, current=None):
         mp = min_price(mat_variants(p, m))
         img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy">' if im else f'<div class="placeholder" style="height:260px;border-radius:0">Foto · {m["label"]}</div>'
         cur = ' aria-current="page" style="outline:3px solid var(--orange);outline-offset:-3px"' if mk == current else ''
-        out += f'<a class="ov-card" href="{p["slug"]}-{mk}.html" data-reveal{cur}>{img}<div class="body"><div class="eyebrow">{E(p["nav"])}</div><h3>{m["label"]}</h3><p>{E(mtext(p, m))}</p><div class="from">{"ab € " + str(mp) + ",– / lfm" if mp else "Preis auf Anfrage"} {ARROW}</div></div></a>'
+        out += f'<a class="ov-card" href="{p["slug"]}-{mk}.html" data-reveal{cur}>{img}<div class="body"><div class="eyebrow">{E(p["nav"])}</div><h3>{m["label"]}</h3><p>{E(mtext(p, m))}</p><div class="from">Ansehen {ARROW}</div></div></a>'
     return f'<div class="overview-grid mat-grid">{out}</div>'
 
 def material_page(p, mk, m):
@@ -288,7 +291,7 @@ def product_page(p):
 {hero_img}
 </div></section>
 <section class="section band-white" aria-labelledby="ausf-h"><div class="wrap">
-{('<div class="section-head"><div class="eyebrow">Nach Material</div><h2 class="h2" id="ausf-h">Stahl, Edelstahl oder Glas?</h2><p class="lead">Wählen Sie das Material – auf jeder Seite finden Sie die passenden Ausführungen, Preise und Bilder.</p></div>' + material_cards(p)) if p.get('materials') else ''}
+{('<div class="section-head"><div class="eyebrow">Nach Material</div><h2 class="h2" id="ausf-h">Stahl, Edelstahl oder Glas?</h2><p class="lead">Wählen Sie das Material – auf jeder Seite finden Sie die passenden Ausführungen und Bilder.</p></div>' + material_cards(p)) if p.get('materials') else ''}
 {'' if p.get('materials') else '<div class="section-head"><div class="eyebrow">Ausführungen</div><h2 class="h2" id="ausf-h">Welche Ausführung passt?</h2></div>'}
 {'' if p.get('materials') else '<div class="variants">' + ''.join(variant_card(k) for k in p['variants']) + '</div>'}
 {f'<p class="price-note">{E(p["extra_note"])}</p>' if p.get('extra_note') else ''}
@@ -322,14 +325,14 @@ def area_page(key):
         mp = min_price(p['variants'])
         img = f'<img src="{im["thumb"]}" alt="{E(im["alt"])}" loading="lazy">' if im else f'<div class="placeholder" style="height:260px;border-radius:0">Foto · {E(p["nav"])}</div>'
         u = ",–" + (" / lfm" if p.get('unit') is None else "")
-        cards += f'<a class="ov-card" href="{p["slug"]}.html" data-reveal>{img}<div class="body"><h3>{E(p["nav"])}</h3><p>{E(p["card"])}</p><div class="from">{"ab € " + str(mp) + u if mp else "Preis auf Anfrage"}</div></div></a>'
+        cards += f'<a class="ov-card" href="{p["slug"]}.html" data-reveal>{img}<div class="body"><h3>{E(p["nav"])}</h3><p>{E(p["card"])}</p><div class="from">Ansehen {ARROW}</div></div></a>'
     other = 'aussen' if key == 'innen' else 'innen'
     s = head(f"{a['title']} – Geländer, Handläufe, Treppen | METALLFUX", a['lead'][:155], f"{a['slug']}.html") + header(area=key)
     s += crumbs([('Startseite', 'index.html'), (a['nav'], None)])
     s += f'''<section class="page-hero"><div class="wrap"><div class="page-hero-text" style="flex-basis:100%">
 <div class="eyebrow">{a['nav']}</div><h1>{E(a['h1'])}</h1><p class="lead">{E(a['lead'])}</p></div></div></section>
 <section class="section" style="padding-top:0"><div class="wrap"><div class="overview-grid">{cards}</div>
-{'' if key == 'weitere' else f'<p class="price-note">{PRICE_NOTE}</p>'}</div></section>
+</div></section>
 {'' if key == 'weitere' else f'<section class="wrap"><div class="cross"><p>Sie suchen etwas für den {AREAS[other]["nav"]}?</p><a class="btn btn-dark" href="{AREAS[other]["slug"]}.html">{AREAS[other]["nav"]} {ARROW}</a></div></section>'}
 '''
     s += cta_band() + footer()
@@ -704,7 +707,7 @@ Firmenbuchnummer: {imp_f('fn')}<br>Firmenbuchgericht: {imp_f('fb_gericht')}<br>U
 Mitglied der Wirtschaftskammer Wien, Fachgruppe {imp_f('fachgruppe')}<br>Gewerbe: {imp_f('gewerbe')}, verliehen in Österreich<br>
 Gewerbebehörde: {imp_f('behoerde')}<br>Anwendbare Rechtsvorschriften: Gewerbeordnung, abrufbar unter www.ris.bka.gv.at</p>
 <h2>Haftung für Inhalte</h2>
-<p>Die Inhalte dieser Website wurden sorgfältig erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr. Preisangaben sind Preisbeispiele und kein Angebot im rechtlichen Sinn.</p>
+<p>Die Inhalte dieser Website wurden sorgfältig erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität übernehmen wir keine Gewähr.</p>
 <h2>Bildnachweis</h2><p>Alle Fotos: {SITE['firma']}</p>'''
     ds = f'''<h1 class="h2">Datenschutzerklärung</h1>
 <p class="todo">Entwurf: Diese Vorlage deckt Kontaktformular und Server-Logfiles ab. Bitte vor dem Livegang rechtlich prüfen lassen.</p>

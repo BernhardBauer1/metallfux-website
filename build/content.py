@@ -30,8 +30,7 @@ GEBIET = [
 # Häufige Fragen (Startseite). Antworten vor dem Livegang fachlich prüfen.
 FAQ = [
     ('Was kostet ein Geländer?',
-     'Das hängt von Material, Länge, Form und Montage ab. Als Richtwert je Laufmeter exkl. MwSt.: Stahl verzinkt ab € 320, '
-     'Edelstahl-Stabgeländer ab € 330, Edelstahl-Glas ab € 380, Nurglas ab € 590 (gerade Ausführung ab 10 lfm). '
+     'Das hängt von Material, Länge, Form und Montage ab. '
      'Den genauen Preis erhalten Sie mit dem unverbindlichen Kostenvoranschlag.'),
     ('Wie lange dauert es vom Auftrag bis zur Montage?',
      'Nach Ihrer Freigabe der Pläne wird gefertigt, in der Regel in rund 6 bis 8 Wochen. Den Montagetermin stimmen wir mit Ihnen '
