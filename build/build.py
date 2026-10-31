@@ -306,7 +306,7 @@ def product_page(p):
 <ul class="facts">{''.join(f'<li>{CHECK}<span>{E(x)}</span></li>' for x in (LEISTUNGEN if p['area'] != 'weitere' else ['Planung und Beratung aus einer Hand', 'Gefertigt nach Maß', 'Lieferung und Montage', 'Ein Ansprechpartner für alles']))}</ul>
 </div>
 <div style="flex:1 1 360px;min-width:0">
-<div class="eyebrow" style="margin-bottom:12px">Mehr im {a['nav']}</div>
+<div class="eyebrow" style="margin-bottom:12px">{'Weitere Produkte entdecken' if p['area'] == 'weitere' else 'Mehr im ' + a['nav']}</div>
 <div class="rows">{other_links}</div>
 </div>
 </div></section>
