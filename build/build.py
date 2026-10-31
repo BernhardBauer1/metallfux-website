@@ -370,7 +370,7 @@ def produkt_kacheln():
 def index_page():
     hero = imgs('hero')
     slides = ''
-    captions = ['Stahlgeländer an einer Innentreppe', 'Balkongeländer an einer Wohnhausanlage']
+    captions = ['Innentreppe mit Glasgeländer und Holzhandlauf', 'Stahlgeländer an einer Innentreppe']
     for i, im in enumerate(hero):
         cap = captions[i] if i < len(captions) else ''
         slides += f'<div class="hero-slide{" is-active" if i == 0 else ""}" data-caption="{E(cap)}"><img src="{im["file"]}" alt="" {"fetchpriority=\"high\"" if i == 0 else "loading=\"lazy\""}></div>'
